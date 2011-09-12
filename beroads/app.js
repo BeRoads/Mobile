@@ -15,24 +15,24 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
         if (navigator.onLine) {
             this.items = [{
                 xtype: 'Beroads.views.Map',
-                iconCls: 'info',
-                title: 'Map'
+                iconCls: 'map',
+                title: 'Carte'
             }, {
                 title: 'Traffic',
-                iconCls: 'info',
+                iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList'
             }, {
                 title: 'Radars',
-                iconCls: 'chat',
+                iconCls: 'radars',
                 xtype: 'Beroads.views.RadarsList'
             }, {
                 title: 'Cameras',
-                iconCls: 'info',
+                iconCls: 'cameras',
                 xtype: 'Beroads.views.CamerasList'
             }, {
-                title: 'More',
+                title: 'Plus',
                 xtype: 'aboutlist',
-                iconCls: 'info',
+                iconCls: 'more01',
                 pages: this.aboutPages
             }];
         } else {
