@@ -4,11 +4,29 @@
  *
 ************/
 
+/* TitleBar */
+.x-panel-body .x-toolbar-dark {
+	background: #333 url(images/titlebar_background.png) bottom repeat-x;
+}
+
+/* Settings Icon */
+#ext-comp-1008 img {
+	background: url(images/settings_icon.png);
+	width: 34px;
+	height: 29px;
+	position: relative;
+	top: -5px;
+	right: -7px;
+}
+
+
+/* TabBar */
 #ext-comp-1004 {
 	background: #000 url(images/tabbar_background.png) repeat-x;
 	height: 48px;
 }
 
+/* Menu Item */
 .x-panel .x-tab {
 	width: 60px;
 	height: 48px;
@@ -16,6 +34,7 @@
 	top: -1px;
 }
 
+/* Menu Text */
 .x-tabbar span.x-button-label {
 	color: #fff;
 	font-size: 10px !important;
@@ -23,6 +42,14 @@
 	top: -5px;
 }
 
+/* Background Menu_item Active */
+.x-tabbar .x-tab-normal.x-tab-active {
+	background: url(images/tabbar_active_background.png) center repeat-x;
+	height: 48px;
+	-webkit-border-radius: 6px;
+}
+
+/* Menu IMG */
 .x-tabbar .x-tab-normal img {
 	width: 30px;
 	height: 25px;
@@ -31,52 +58,47 @@
 	background-position: center center;
 }
 
-.x-tabbar .x-tab-normal.x-tab-active {
-	background: url(images/tabbar_active_background.png) center repeat-x;
-	height: 48px;
-	-webkit-border-radius: 6px;
-}
-
-.x-tabbar .x-tab-normal img.map {
-	background: url(images/map_icon.png) no-repeat;
-}
-
-.x-tabbar .x-tab-active img.map {
-	background: url(images/map_icon_active.png) no-repeat;
-}
-
-.x-tabbar .x-tab-normal img.traffic {
-	background: url(images/traffic_icon.png) no-repeat;
-	background-position: center 4px !important;
-}
-
-.x-tabbar .x-tab-normal.x-tab-active img.traffic {
-	background: url(images/traffic_icon_active.png) no-repeat;
-}
-
-.x-tabbar .x-tab-normal img.radars {
-	background: url(images/radars_icon.png) no-repeat;
-	background-position: 0px 0px !important;
-}
-
-.x-tabbar .x-tab-normal.x-tab-active img.radars {
-	background: url(images/radars_icon_active.png) no-repeat;
-}
-
-.x-tabbar .x-tab-normal img.cameras {
-	background: url(images/cameras_icon.png) no-repeat;
-	background-position: center 4px !important;
-}
-
-.x-tabbar .x-tab-normal.x-tab-active img.cameras {
-	background: url(images/cameras_icon_active.png) no-repeat;
-}
-
-.x-tabbar .x-tab-normal img.more01 {
-	background: url(images/more_icon.png) no-repeat;
-	background-position: center center !important;
-}
-
-.x-tabbar .x-tab-normal.x-tab-active img.more01 {
-	background: url(images/more_icon_active.png) no-repeat;
-}
+/********* Menu Items backgrund */
+	.x-tabbar .x-tab-normal img.map {
+		background: url(images/map_icon.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-active img.map {
+		background: url(images/map_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.traffic {
+		background: url(images/traffic_icon.png) no-repeat;
+		background-position: center 4px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.traffic {
+		background: url(images/traffic_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.radars {
+		background: url(images/radars_icon.png) no-repeat;
+		background-position: 0px 0px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.radars {
+		background: url(images/radars_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.cameras {
+		background: url(images/cameras_icon.png) no-repeat;
+		background-position: center 4px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.cameras {
+		background: url(images/cameras_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.more01 {
+		background: url(images/more_icon.png) no-repeat;
+		background-position: center center !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.more01 {
+		background: url(images/more_icon_active.png) no-repeat;
+	}

@@ -5,7 +5,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
         var titlebar, cancelButton, buttonbar, saveButton, fields;
 
         cancelButton = {
-            text: 'cancel',
+            text: 'Retour',
             ui: 'back',
             handler: this.onCancelAction
         };
@@ -13,13 +13,13 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
         titlebar = {
             id: 'userFormTitlebar',
             xtype: 'toolbar',
-            title: 'Settings',
+            title: 'Réglages',
             items: [ cancelButton ]
         };
 
         saveButton = {
             id: 'userFormSaveButton',
-            text: 'save',
+            text: 'Sauver',
             ui: 'confirm',
             handler: this.onSaveAction,
             scope: this
@@ -34,7 +34,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
         fields = {
             xtype: 'fieldset',
             id: 'userFormFieldset',
-            title: 'Settings',
+            title: 'Préférences',
             instructions: this.defaultInstructions,
             defaults: {
                 xtype: 'textfield',
@@ -47,14 +47,14 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
             items: [
                 {
 		    xtype: 'fieldset',
-		    title: 'Language',
+		    title: 'Langage',
 		    id : 'language', 
 		    items: [{
 		        xtype: 'selectfield',
 		        name: 'lang',
 		        id: 'lang',
 		        options: [
-		            {text: 'French',  value: 'fr'},
+		            {text: 'Français',  value: 'fr'},
 		            {text: 'Dutch', value: 'nl'},
 		            {text: 'German', value: 'de'},
 			    {text: 'English', value: 'en'}
@@ -63,22 +63,22 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 		},
 		{
 		    xtype: 'fieldset',
-		    title: 'Region', 
+		    title: 'Région', 
 		    items: [{
 		        xtype: 'selectfield',
 		        name: 'region',
 		        id: 'region',
 		        options: [
-		            {text: 'Federal',  value: 'federal'},
-		            {text: 'Walloonia', value: 'walloonia'},
-		            {text: 'Flanders', value: 'flanders'},
-			    {text: 'Brussels', value: 'brussels'}
+		            {text: 'Fédéral',  value: 'federal'},
+		            {text: 'Wallonie', value: 'walloonia'},
+		            {text: 'Flandre', value: 'flanders'},
+			    {text: 'Bruxelles', value: 'brussels'}
 		        ]
 		    }]
 		},
 		{
 		    xtype: 'fieldset',
-		    title: 'Map', 
+		    title: 'Option carte', 
 		    name : 'map',
 		    
 		    items: [
