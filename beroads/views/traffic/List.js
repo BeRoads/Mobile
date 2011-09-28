@@ -9,25 +9,13 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
             xtype: 'toolbar',
             title: 'Traffic'
         }]
-	
+
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{name}</span> <span class="secondary">{name}</span>',
+            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message}</span>',
             loadingText: "Loading...",
-            store: new Ext.data.Store({
-                model: 'Traffic',
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://iway.alwaysdata.net/api/trafic/?region='+localStorage.getItem('region')+'&lang='+localStorage.getItem('lang')+'&format=json',
-                    reader: {
-                        type: 'json',
-                        root: 'traficevent'
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            })
+            store: Beroads.stores.Traffic
+            
         });
         
         this.list.on('selectionchange', this.onSelect, this);
@@ -50,27 +38,16 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
         })
         
         this.items = this.listpanel;
-        
-        
-        
+                
         Beroads.views.TrafficList.superclass.initComponent.call(this);
 
     },
     
     
-    
     initializeData: function(data) {
 	
-	var traficevents = []; 
-
-        for (var i = 0; i < data.data.items.length; i++) {
-           
-            traficevents.push(data.data.items[i]);
-            
-        }
-
-	Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, traficevents);
-	
+		data = data.item;
+		Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, data);
         
     },
     

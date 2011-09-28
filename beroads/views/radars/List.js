@@ -18,7 +18,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
                 model: 'Radar',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://iway.alwaysdata.net/api/radars/?region='+localStorage.getItem("region")+'&format=json',
+                    url : 'http://tdt-dev.irail.be/IWay/Radar/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'.jsonp',
                     reader: {
                         type: 'json',
                         root: 'radar'
@@ -61,14 +61,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
     
     initializeData: function(data) {
 	
-	var radars = []; 
-
-        for (var i = 0; i < data.data.items.length; i++) {
-           
-            radars.push(data.data.items[i]);
-            
-        }
-
+	data = data.item;
 	Beroads.stores.radars.add.apply(Beroads.stores.radars, radars);
 	Beroads.stores.radars.sort('name');
         

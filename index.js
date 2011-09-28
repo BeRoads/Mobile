@@ -1,23 +1,23 @@
-BeRoutes = new Ext.Application({
-    name: "BeRoutes",
+BeRoads = new Ext.Application({
+    name: "BeRoads",
 
     launch: function() {
 
 
-	BeRoutes.headerPanel = new Ext.Panel({
+	BeRoads.headerPanel = new Ext.Panel({
 		id : 'headerPanel',
-		html : 'BeRoutes',
+		html : 'BeRoads',
 		dock : 'top'
 	});
 
         
 
 
-        BeRoutes.Viewport = new Ext.Panel ({
+        BeRoads.Viewport = new Ext.Panel ({
             fullscreen: true,
             layout: 'card',
             cardSwitchAnimation: 'slide',
-            items: [BeRoutes.headerPanel]
+            items: [BeRoads.headerPanel]
         });
 
     }

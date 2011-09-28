@@ -1,3 +1,4 @@
+
 Beroads.app = Ext.extend(Ext.TabPanel, {
     
     fullscreen: true,
@@ -41,7 +42,7 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
             }, this);
         }
         
-           
+        
         Beroads.app.superclass.initComponent.call(this);
     },
 

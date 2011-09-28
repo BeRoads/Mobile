@@ -13,20 +13,7 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
             grouped: false,
             itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{name}</span> <span class="secondary">{name}</span>',
             loadingText: "Loading...",
-            store: new Ext.data.Store({
-                model: 'Camera',
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://iway.alwaysdata.net/api/cameras/?region='+localStorage.getItem("region")+'&format=json',
-                    reader: {
-                        type: 'json',
-                        root: 'camera'
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            })
+            store: Beroads.stores.cameras
         });
         
         this.list.on('selectionchange', this.onSelect, this);
@@ -56,20 +43,7 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
     
   
     
-    initializeData: function(data) {
-	
-	var cameras = []; 
-
-        for (var i = 0; i < data.data.items.length; i++) {
-           
-            cameras.push(data.data.items[i]);
-            
-        }
-
-	Beroads.stores.cameras.add.apply(Beroads.stores.cameras, cameras);
-	Beroads.stores.cameras.sort('name');
-        
-    },
+    
     
     
     onSelect: function(selectionmodel, records){

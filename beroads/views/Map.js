@@ -133,109 +133,75 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 	    if(localStorage.getItem('displayTraffic')){
 
 		    Ext.util.JSONP.request({
-		        url: 'http://localhost/sandbox/IWay/api/traficevents.php',
+		        url: 'http://tdt-dev.irail.be/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'.jsonp',
 		        callbackKey: 'callback',
-		        params: {
-			    lang : localStorage.getItem('lang'),
-		            region : localStorage.getItem('region'),
-			    format : 'json'
-		        },
+		        
 		        callback: function(data) {
 			    
-		            data = data.traficevent;
-
+		            data = data.item;
+					var trafficevents = [];
+			
 		             // Add points to the map
 		            for (var i = 0; i < data.length; i++) {
-		                var traficevent = data[i];
-			
-		                
+		                var traficevent = data[i];		                
 		                if (traficevent.lng != 0 && traficevent.lat != 0 ) {
 		                    var position = new google.maps.LatLng(traficevent.lat, traficevent.lng);
 		                    addMarker(traficevent, position);
+		                	trafficevents.push(traficevent);
 		                }
 		            }
+		            Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, trafficevents);
+					
+		            Beroads.stores.Traffic.load();
 		        }
 		    });
 	    }
 
-	    if(localStorage.getItem('displayRadars') == true){
+	  if(localStorage.getItem('displayRadars') == true){
 		    Ext.util.JSONP.request({
-		        url: 'http://localhost/sandbox/IWay/api/radars.php',
+		        url: 'http://tdt-dev.irail.be/IWay/Radar/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'.jsonp',
 		        callbackKey: 'callback',
-		        params: {
-		            lang : localStorage.getItem('lang'),
-		            region : localStorage.getItem('region'),
-			    format : 'json'
-		        },
+
 		        callback: function(data) {
 			    
-		            data = data.radar;
+		            data = data.item;
 
 		             // Add points to the map
 		            for (var i = 0; i < data.length; i++) {
 		                var radar = data[i];
 			
-		                alert(radar.lat);
 		                if (radar.lng != 0 && radar.lat != 0 ) {
 		                    var position = new google.maps.LatLng(radar.lat, radar.lng);
 		                    addRadar(radar, position);
 		                }
 		            }
+		            Beroads.stores.radars.add.apply(Beroads.stores.radars, data);
+					Beroads.stores.radars.sort('name');
 		        }
 		    });
-	    }
-
-	    /*if(localStorage.getItem('displayParkings') == true){
-		    Ext.util.JSONP.request({
-		        url: 'http://localhost/sandbox/IWay/api/parkings.php',
-		        callbackKey: 'callback',
-		        params: {
-		            lang : localStorage.getItem('lang'),
-		            region : localStorage.getItem('region'),
-			    format : 'json'
-		        },
-		        callback: function(data) {
-			    
-		            data = data.parking;
-
-		             // Add points to the map
-		            for (var i = 0; i < data.length; i++) {
-		                var parking = data[i];
-			
-		                
-		                if (parking.lng != 0 && parking.lat != 0 ) {
-		                    var position = new google.maps.LatLng(parking.lat, parking.lng);
-		                    addParking(parking, position);
-		                }
-		            }
-		        }
-		    });
-	    }*/
+	    }	    
 
 	    if(localStorage.getItem('displayCameras') == true){
 
 		    Ext.util.JSONP.request({
-		        url: 'http://localhost/sandbox/IWay/api/cameras.php',
+		        url: 'http://tdt-dev.irail.be/IWay/Camera/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'.jsonp',
 		        callbackKey: 'callback',
-		        params: {
-		            lang : localStorage.getItem('lang'),
-		            region : localStorage.getItem('region'),
-			    format : 'json'
-		        },
+		        
+		        
 		        callback: function(data) {
 			    
-		            data = data.camera;
+		            data = data.item;
 
 		             // Add points to the map
 		            for (var i = 0; i < data.length; i++) {
-		                var camera = data[i];
-			
-		                
+		                var camera = data[i];		                
 		                if (camera.lng != 0 && camera.lat != 0 ) {
 		                    var position = new google.maps.LatLng(camera.lat, camera.lng);
 		                    addCamera(camera, position);
 		                }
 		            }
+		            Beroads.stores.cameras.add.apply(Beroads.stores.cameras, data);
+					Beroads.stores.cameras.sort('name');
 		        }
 		    });
 	    }
@@ -246,13 +212,11 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             var marker = new google.maps.Marker({
                 map: map.map,
                 position: position,
-		title: trafficevent.name,
-		html : "<p>"+trafficevent.name+" - "+trafficevent.description+"</p>"
+		title: trafficevent.location,
+		html : "<h1 class='markerTitle' id='incident'>"+trafficevent.location+"</h1> <p class='markerContent'>"+trafficevent.message+"</p>"
             });
             google.maps.event.addListener(marker, 'click', function() {
-					map.map.setCenter(this.position);
-					infowindow.setContent(this.html);
-					infowindow.open(map.map,this);
+				var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
 					
 	    });
 	    

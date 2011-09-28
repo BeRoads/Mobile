@@ -1,5 +1,5 @@
 Beroads.views.HtmlPage = Ext.extend(Ext.Panel, {
-    autoLoad: 'about.html',
+    autoLoad: 'overview.html',
     scroll: 'vertical',
     styleHtmlContent: true,
     initComponent: function(){

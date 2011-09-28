@@ -13,15 +13,10 @@ Ext.setup({
                 title: 'Overview',
                 card: {
                     xtype: 'htmlpage',
-                    url: 'about.html'
+                    url: 'overview.html'
                 }
-            }, {
-                title: 'Sponsors',
-                card: {
-                    xtype: 'htmlpage',
-                    url: 'sponsors.html'
-                }
-            }, {
+            },
+            {
                 title: 'Credits',
                 card: {
                     xtype: 'htmlpage',
@@ -29,7 +24,27 @@ Ext.setup({
                 }
             }]
         });
+        if(localStorage.getItem('lang') == undefined || localStorage.getItem('lang') == null){
+        	localStorage.setItem('lang', 'fr');
+        } 
 
+		if(localStorage.getItem('region') == undefined || localStorage.getItem('region') == null){
+        	localStorage.setItem('region','federal');
+        }
+        
+        if(localStorage.getItem('displayTraffic') == undefined || localStorage.getItem('displayTraffic') == null){
+        	localStorage.setItem('displayTraffic', true);
+        }
+        
+        if(localStorage.getItem('displayCameras') == undefined || localStorage.getItem('displayCameras') == null){
+        	localStorage.setItem('displayCameras', true);
+        }
+        
+        if(localStorage.getItem('displayRadars') == undefined || localStorage.getItem('displayRadars') == null){
+        	localStorage.setItem('displayRadars', true);
+        }
+        
+        
     }
 
 	
