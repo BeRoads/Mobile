@@ -25,11 +25,11 @@ Ext.setup({
             }]
         });
         if(localStorage.getItem('lang') == undefined || localStorage.getItem('lang') == null){
-        	localStorage.setItem('lang', 'fr');
+        	localStorage.setItem('lang', 'nl');
         } 
 
 		if(localStorage.getItem('region') == undefined || localStorage.getItem('region') == null){
-        	localStorage.setItem('region','federal');
+        	localStorage.setItem('region','flanders');
         }
         
         if(localStorage.getItem('displayTraffic') == undefined || localStorage.getItem('displayTraffic') == null){
