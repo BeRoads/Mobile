@@ -82,21 +82,21 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 			    name: 'displayTraffic',
 			    label: 'Traffic',
 			    id : 'displayTraffic',
-			    value : (localStorage.getItem('displayTraffic') == 'false' ? 0 : 1)
+			    value : (localStorage.getItem('displayTraffic') == false ? 0 : 1)
 			},
 			{
 			    xtype: 'togglefield',
 			    name: 'displayRadars',
 			    id : 'displayRadars',
 			    label: 'Radars',
-			    value : (localStorage.getItem('displayRadars') == 'false' ? 0 : 1)
+			    value : (localStorage.getItem('displayRadars') == false ? 0 : 1)
 			},
 			    {
 			    xtype: 'togglefield',
 			    name: 'displayCameras',
                 id : 'displayCameras',
 			    label: 'Cameras',
-			    value : (localStorage.getItem('displayCameras') == 'false' ? 0 : 1)
+			    value : (localStorage.getItem('displayCameras') == false ? 0 : 1)
 			}
             	]
 		}]

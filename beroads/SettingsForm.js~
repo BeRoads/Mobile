@@ -63,6 +63,21 @@ beroads.views.SettingsForm = Ext.extend(Ext.form.FormPanel, {
 		},
 		{
 		    xtype: 'fieldset',
+		    title: 'Region', 
+		    items: [{
+		        xtype: 'selectfield',
+		        name: 'region',
+		        id: 'region',
+		        options: [
+		            {text: 'Federal',  value: 'federal'},
+		            {text: 'Walloonia', value: 'walloonia'},
+		            {text: 'Flanders', value: 'flanders'},
+			    {text: 'Brussels', value: 'brussels'}
+		        ]
+		    }]
+		},
+		{
+		    xtype: 'fieldset',
 		    title: 'Map', 
 		    name : 'map',
 		    
@@ -85,6 +100,14 @@ beroads.views.SettingsForm = Ext.extend(Ext.form.FormPanel, {
 			    name: 'displayCameras',
                             id : 'displayCameras',
 			    label: 'Cameras'
+			},
+			   
+			   {
+			    xtype: 'togglefield',
+			    name: 'displayParkings',
+			    id : 'displayParkings', 
+			    label: 'Aires de repos'
+			
 			}
             ]
         };
