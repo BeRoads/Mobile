@@ -27,8 +27,7 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
                 title: 'Traffic',
                 iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList',
-
-
+                geo : this.geo
             }, {
                 title: 'Radars',
                 iconCls: 'radars',

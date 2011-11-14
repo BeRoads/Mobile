@@ -1,25 +1,30 @@
-Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
-    layout: 'card',
-   
+Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
+    layout : 'fit',
     title : 'List',
+    from : null,
     initComponent: function() {
        
-
-	this.dockedItems = [{
-            xtype: 'toolbar',
-            title: 'Cameras'
-        }]
-
+		
+		//Function automatically triggered on success
+		var showCoords = function(postion) {
+		  this.from = position.coords.latitude + "," + position.coords.longitude;
+		}
+		//Function automatically triggered on error
+		var showError = function(error) {
+		  this.from = "0,0";
+		}
+		navigator.geolocation.getCurrentPosition(showCoords,showError);
+    
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{highway}</span>',
+            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
-                model: 'Camera',
+                model: 'Traffic',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
-                    extraParams : { format : 'json'},
+                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    extraParams : { format : 'json' , from : this.from, area : localStorage.getItem('area')},
                     reader: {
                         type: 'json',
                         root: 'item'
@@ -41,7 +46,7 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
         this.listpanel = new Ext.Panel({
             items: this.list,
             layout: 'fit',
-           
+            
             listeners: {
                 activate: { fn: function(){
                     this.list.getSelectionModel().deselectAll();
@@ -51,39 +56,53 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
         })
         
         this.items = this.listpanel;
-        
-        Beroads.views.CamerasList.superclass.initComponent.call(this);
-
-    },   
-  
     
-    initializeData: function(data) {
-	
-		var cameras = []; 
-			console.log(data);
-		    for (var i = 0; i < data.length; i++) {
-		       	
-		        cameras.push(data.items[i].data);
-		        
-		}
-		Beroads.stores.cameras.add.apply(Beroads.stores.cameras, cameras);
-		Beroads.stores.cameras.sort('speedLimit');
+	this.dockedItems = [{
+            xtype: 'toolbar',
+            title: 'Traffic'
+        }]
+
+		
+		
+	    
         
+        
+        
+        Beroads.views.TrafficList.superclass.initComponent.call(this);
+
     },
     
     
     
+    initializeData: function(data) {
+	
+		
+		var traficevents = []; 
+
+		    for (var i = 0; i < data.length; i++) {
+		       	
+		        traficevents.push(data.items[i].data);
+		        
+		    }
+
+		Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, traficevents);
+		Beroads.stores.Traffic.sort('distance');
+	
+        
+    },   
+    
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {
-            var sessionCard = new Beroads.views.CamerasDetail({
+            var sessionCard = new Beroads.views.TrafficDetail({
                 prevCard: this,
                 record: records[0]
             });
 
             // Tell the parent panel to animate to the new card
-            Ext.getCmp('main').setActiveItem(sessionCard, {type: 'slide', reverse: false});
+            Ext.getCmp('main').setActiveItem(sessionCard);
+	    
         }
     }
 });
 
-Ext.reg('Beroads.views.CamerasList', Beroads.views.CamerasList);
+Ext.reg('Beroads.views.TrafficList', Beroads.views.TrafficList);

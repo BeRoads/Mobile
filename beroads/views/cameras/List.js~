@@ -12,7 +12,7 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
 
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{highway}</span>',
+            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{name}</span> <span class="secondary">{name}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
                 model: 'Camera',

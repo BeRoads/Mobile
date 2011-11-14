@@ -3,8 +3,13 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 
     title : 'List',
 
+	from : null,
+	
     initComponent: function() {
        
+
+	
+		
 	var toolbarBase = {
             xtype: 'toolbar',
             title: 'Radars'
@@ -12,16 +17,18 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{name}</span> <span class="secondary">{type}</span>',
+            itemTpl: '<span class="name">{name}</span> <span class="secondary">{speedLimit}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
                 model: 'Radar',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://tdt-dev.irail.be/IWay/Radar/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'.jsonp',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    extraParams : { format : 'json', from : this.from
+                    , area : '150'},
                     reader: {
                         type: 'json',
-                        root: 'radar'
+                        root: 'item'
                     }
                 },
                 listeners: {
@@ -61,9 +68,15 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
     
     initializeData: function(data) {
 	
-	data = data.item;
-	Beroads.stores.radars.add.apply(Beroads.stores.radars, radars);
-	Beroads.stores.radars.sort('name');
+		var radars = []; 
+
+	    for (var i = 0; i < data.length; i++) {
+		       	
+		        radars.push(data.items[i].data);
+		        
+		}
+		Beroads.stores.radars.add.apply(Beroads.stores.radars, radars);
+		Beroads.stores.radars.sort('name');
         
     },
     

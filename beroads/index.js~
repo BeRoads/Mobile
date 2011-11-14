@@ -65,7 +65,7 @@ Ext.setup({
         	localStorage.setItem('lang', 'nl');
         } 
         if(localStorage.getItem('area') == undefined || localStorage.getItem('area') == null){
-        	localStorage.setItem('area', 50);
+        	localStorage.setItem('area', 150);
         } 
         
         if(localStorage.getItem('displayTraffic') == undefined || localStorage.getItem('displayTraffic') == null){

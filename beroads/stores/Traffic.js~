@@ -1,0 +1,40 @@
+Beroads.stores.Traffic = new Ext.data.Store({
+    model : 'Traffic',
+    autoload : true,
+	proxy: {
+                    type: 'scripttag',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/'+localStorage.getItem('region')+'/',
+                    extraParams : { format : 'json'},
+                    reader: {
+                        type: 'json',
+                        root: 'trafficevent'
+                    }
+                
+    },       
+    
+    getGroupString: function(r){
+	return r.get('time');
+    }
+});
+
+BeRoads.stores.offlineStore= new Ext.data.Store({
+              model: 'Traffic',
+              proxy: new Ext.data.LocalStorageProxy({
+                  id:'data', 
+                  proxy:{idProperty:'id'}
+              }), 
+             autoLoad: true,
+             autoSave: true 
+});
+
+Beroads.stores.Traffic.on('load',function(store,records,opts){
+                 console.log("load from online"); 
+                 BeRoads.stores.offlineStore.proxy.clear(); 
+                 Beroads.stores.Traffic.each(function (record){
+                      var iconEach = BeRoads.stores.offlineStore.add(record.data)[0];
+                  },this);
+                  BeRoads.stores.offlineStore.sync();
+                  console.log("loaded from online");
+             },this);
+
+                

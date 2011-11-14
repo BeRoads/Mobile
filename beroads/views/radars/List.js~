@@ -1,25 +1,31 @@
-Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
+Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
     layout: 'card',
-   
+
     title : 'List',
+
+	from : null,
+	
     initComponent: function() {
        
 
-	this.dockedItems = [{
+	
+		
+	var toolbarBase = {
             xtype: 'toolbar',
-            title: 'Cameras'
-        }]
+            title: 'Radars'
+        };
 
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{highway}</span>',
+            itemTpl: '<span class="name">{name}</span> <span class="secondary">{speedLimit}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
-                model: 'Camera',
+                model: 'Radar',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
-                    extraParams : { format : 'json'},
+                    url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    extraParams : { format : 'json', from : this.from
+                    , area : '150'},
                     reader: {
                         type: 'json',
                         root: 'item'
@@ -52,30 +58,33 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
         
         this.items = this.listpanel;
         
-        Beroads.views.CamerasList.superclass.initComponent.call(this);
-
-    },   
-  
-    
-    initializeData: function(data) {
-	
-		var cameras = []; 
-			console.log(data);
-		    for (var i = 0; i < data.length; i++) {
-		       	
-		        cameras.push(data.items[i].data);
-		        
-		}
-		Beroads.stores.cameras.add.apply(Beroads.stores.cameras, cameras);
-		Beroads.stores.cameras.sort('speedLimit');
         
+        
+        Beroads.views.RadarsList.superclass.initComponent.call(this);
+
     },
     
     
     
+    initializeData: function(data) {
+	
+		var radars = []; 
+			console.log(data);
+		    for (var i = 0; i < data.length; i++) {
+		       	
+		        radars.push(data.items[i].data);
+		        
+		}
+		Beroads.stores.radars.add.apply(Beroads.stores.radars, radars);
+		Beroads.stores.radars.sort('name');
+        
+    },
+    
+   
+    
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {
-            var sessionCard = new Beroads.views.CamerasDetail({
+            var sessionCard = new Beroads.views.radarsDetail({
                 prevCard: this,
                 record: records[0]
             });
@@ -86,4 +95,4 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
     }
 });
 
-Ext.reg('Beroads.views.CamerasList', Beroads.views.CamerasList);
+Ext.reg('Beroads.views.RadarsList', Beroads.views.RadarsList);

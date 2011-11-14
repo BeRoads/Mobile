@@ -1,21 +1,31 @@
 Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
     layout : 'fit',
     title : 'List',
-
+    from : null,
     initComponent: function() {
        
-       
-	this.dockedItems = [{
-            xtype: 'toolbar',
-            title: 'Traffic'
-        }]
-
+		
+		
+    
         this.list = new Ext.List({
             grouped: false,
             itemTpl: '<span class="name">{location}</span> <span class="secondary">{message}</span>',
             loadingText: "Loading...",
-            store: Beroads.stores.Traffic
-            
+            store: new Ext.data.Store({
+                model: 'Traffic',
+                proxy: {
+                    type: 'scripttag',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    extraParams : { format : 'json' , from : this.from, area : localStorage.getItem('area')},
+                    reader: {
+                        type: 'json',
+                        root: 'item'
+                    }
+                },
+                listeners: {
+                    load: { fn: this.initializeData, scope: this }
+                }
+            })
         });
         
         this.list.on('selectionchange', this.onSelect, this);
@@ -38,20 +48,40 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
         })
         
         this.items = this.listpanel;
-                
+    
+	this.dockedItems = [{
+            xtype: 'toolbar',
+            title: 'Traffic'
+        }]
+
+		
+		
+	    
+        
+        
+        
         Beroads.views.TrafficList.superclass.initComponent.call(this);
 
     },
     
     
+    
     initializeData: function(data) {
 	
-		data = data.item;
-		Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, data);
+		
+		var traficevents = []; 
+
+		    for (var i = 0; i < data.length; i++) {
+		       	
+		        traficevents.push(data.items[i].data);
+		        
+		    }
+
+		Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, traficevents);
+		Beroads.stores.Traffic.sort('distance');
+	
         
-    },
-    
-    
+    },   
     
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {

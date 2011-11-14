@@ -1,5 +1,5 @@
 Ext.regController('Traffic', {
-    store: Beroads.stores.traffic,
+    store: Beroads.stores.Traffic,
     model: "Traffic",
     index: function() {
         Beroads.views.viewport.reveal('trafficList');
