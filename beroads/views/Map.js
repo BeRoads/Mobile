@@ -56,6 +56,8 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 				timeout:1000,
 				listeners:{
 				locationupdate: function(geo) {
+					
+					localStorage.setItem('userCoords', geo.latitude+','+geo.longitude);
 					var center = new google.maps.LatLng(geo.latitude, geo.longitude);
 
 					if (map.rendered)

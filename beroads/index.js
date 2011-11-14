@@ -9,6 +9,8 @@ Ext.setup({
     
         Beroads.app = new Beroads.app({
             title: 'BeRoads',
+            name : 'BeRoads', 
+                        
             geo : new Ext.util.GeoLocation({
 				autoUpdate: true,
 				listeners: {

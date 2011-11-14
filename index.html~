@@ -13,7 +13,7 @@
    
     <!-- beroads application JS --> 
 	 <!-- index -->
-
+	 <script type="text/javascript" src="beroads/geolocation.js"></script> 
         <script type="text/javascript" src="beroads/index.js"></script> 
     <script type="text/javascript" src="beroads/app.js"></script> 
  

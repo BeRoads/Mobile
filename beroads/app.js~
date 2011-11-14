@@ -15,7 +15,25 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
 	
     initComponent: function() {
 		
+		var success = function(position)
+				{
+					  // GeoPosition Object
+					 this.userposition = position;
+				}
+				var fail = function()
+				{
+					 // Could not obtain location
+				}
 
+            	 if( navigator.geolocation )
+				{
+						  // Call getCurrentPosition with success and failure callbacks
+						  navigator.geolocation.getCurrentPosition( success, fail );
+					 }
+					 else
+					 {
+						  alert("Sorry, your browser does not support geolocation services.");
+					 }
         
         if (navigator.onLine) {
             this.items = [{
@@ -27,7 +45,8 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
                 title: 'Traffic',
                 iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList',
-                geo : this.geo
+				
+
             }, {
                 title: 'Radars',
                 iconCls: 'radars',

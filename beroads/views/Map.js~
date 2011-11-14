@@ -56,6 +56,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 				timeout:1000,
 				listeners:{
 				locationupdate: function(geo) {
+					localStorage.setItem('userCoords', geo.latitude+','+geo.longitude);
 					var center = new google.maps.LatLng(geo.latitude, geo.longitude);
 
 					if (map.rendered)
@@ -234,7 +235,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
 		title: camera.id,
-		html : "<p>"+camera.id+"</p>",
+		html : "<p>"+camera.highway+"</p><img src='"+camera.img+"' />",
 		icon : 'resources/img/camera.png'
             });
             google.maps.event.addListener(marker, 'click', function() {
@@ -252,7 +253,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
 		title: radar.id,
-		html : "<p>"+radar.id+"</p>",
+		html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
 		icon : 'resources/img/radar.png'
             });
             google.maps.event.addListener(marker, 'click', function() {

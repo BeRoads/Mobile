@@ -3,17 +3,16 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 
     title : 'List',
 
-	from : null,
 	
     initComponent: function() {
        
 
 	
 		
-	var toolbarBase = {
+	this.dockedItems = [{
             xtype: 'toolbar',
             title: 'Radars'
-        };
+        }]
 
         this.list = new Ext.List({
             grouped: false,
@@ -24,8 +23,11 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
                 proxy: {
                     type: 'scripttag',
                     url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
-                    extraParams : { format : 'json', from : this.from
-                    , area : '150'},
+                    extraParams : { 
+                    		format : 'json',
+                    		from : localStorage.getItem('userCoords'),
+                    		area : localStorage.getItem('area')
+                    },
                     reader: {
                         type: 'json',
                         root: 'item'

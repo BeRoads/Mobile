@@ -15,7 +15,7 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
 	
     initComponent: function() {
 		
-
+		
         
         if (navigator.onLine) {
             this.items = [{
@@ -27,7 +27,7 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
                 title: 'Traffic',
                 iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList',
-
+				
 
             }, {
                 title: 'Radars',
