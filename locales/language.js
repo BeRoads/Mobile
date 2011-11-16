@@ -76,8 +76,7 @@ function _tr(str, language){
 	};
 		
 	//TODO navigate with variables
-	console.log(lang);
 	
-	return lang.translations[language][str] || lang.translations.en.overview
-	 || "{translation key not found: " + key + "}";
+	
+	return lang.translations[language][str] || lang.translations.en.overview	 || "{translation key not found}";
 }
