@@ -42,7 +42,7 @@ Ext.setup({
                 }
             },
             {
-                title: _tr('Credits', localStorage.getItem('lang')),
+                title: _tr('credits', localStorage.getItem('lang')),
                 card: {
                     xtype: 'htmlpage',
                     url: 'credits.html'

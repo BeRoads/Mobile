@@ -110,26 +110,14 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 	var refresh = function() {
 		
 
-		var coords = map.geo.coords;
-		map.map.panTo(coords);
-	    /*google.maps.event.addListener(Ext.plugin.GMap.Tracker.marker, 'click', function() {
-                                     map.map.setCenter(this.position);
-					infowindow.setContent(this.html);
-					infowindow.open(map.map,this);
-					
-	    });*/
-		
-
-		
-
-	    if(localStorage.getItem('displayTraffic')){
+		if(localStorage.getItem('displayTraffic')=='true'){
 
 		    Ext.util.JSONP.request({
 		        url: 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
 				callbackKey : 'callback',
 		        params : { 
 		        				format : 'jsonp' ,
-		        				from : coords.lat()+','+coords.lng(),
+		        				from : localStorage.getItem('userCoords'),
 		        				area : localStorage.getItem('area')
 		        },
 		        
@@ -154,14 +142,14 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		    });
 	    }
 
-	  if(localStorage.getItem('displayRadars')){
+	  if(localStorage.getItem('displayRadars')=='true'){
 
 		    Ext.util.JSONP.request({
 		        url: 'http://91.121.10.214/The-DataTank/IWay/Radar/',
 		        callbackKey: 'callback',
 				 params : { 
 		        				format : 'jsonp' ,
-		        				from : coords.lat()+','+coords.lng(),
+		        				from : localStorage.getItem('userCoords'),
 		        				area : localStorage.getItem('area')
 		        },
 		        callback: function(data) {
@@ -183,7 +171,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		    });
 	    }	    
 
-	    if(localStorage.getItem('displayCameras')){
+	    if(localStorage.getItem('displayCameras')=='true'){
 
 		    Ext.util.JSONP.request({
 		        url: 'http://91.121.10.214/The-DataTank/IWay/Camera/',
@@ -191,7 +179,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		        callbackKey: 'callback',
 		        params : { 
 		        				format : 'jsonp' ,
-		        				from : coords.lat()+','+coords.lng(),
+		        				from : localStorage.getItem('userCoords'),
 		        				area : localStorage.getItem('area')
 		        },
 		        
