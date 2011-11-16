@@ -11,15 +11,21 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
         }]
 
         this.list = new Ext.List({
-            grouped: false,
-            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{highway}</span>',
+            grouped: true,
+            itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{city}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
                 model: 'Camera',
+                getGroupString : function(record) {
+			        return  "<span style='display:none'>"+record.get('zone')+"</span>";			        
+			    },
                 proxy: {
                     type: 'scripttag',
                     url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
-                    extraParams : { format : 'json'},
+                    extraParams : { format : 'json',
+                    				from : localStorage.getItem('userCoords'), 
+		        					area : localStorage.getItem('area')
+		        	},
                     reader: {
                         type: 'json',
                         root: 'item'
@@ -60,18 +66,60 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
     initializeData: function(data) {
 	
 		var cameras = []; 
-			console.log(data);
-		    for (var i = 0; i < data.length; i++) {
+
+	    for (var i = 0; i < data.length; i++) {
 		       	
 		        cameras.push(data.items[i].data);
 		        
 		}
 		Beroads.stores.cameras.add.apply(Beroads.stores.cameras, cameras);
-		Beroads.stores.cameras.sort('speedLimit');
-        
+		Beroads.stores.cameras.sort('city');
+		
+		 // Gather zones, create a splitbutton around them
+            var zones = data.collect('zone'),
+                buttons = [],
+                length  = zones.length,
+                i;
+
+
+            for (i = 0; i < length; i++) {
+                buttons.push({
+                    text: zones[i],
+                    dateData: zones[i],
+                    index: i,
+                    scope: this,
+                    handler : this.changeZone
+                });
+            }
+            
+            this.zoneButtons = new Ext.SegmentedButton({
+                items: buttons,
+                defaults: { flex: 1 },
+                style: 'width: 100%'
+            });
+            
+            this.listpanel.addDocked({
+                xtype: 'toolbar',
+                ui: 'gray',
+                items: this.zoneButtons,
+                layout: { pack: 'center' }
+            });
+            
+            // Take off the spinner
+            this.list.el.unmask();
+     
+        	this.zoneButtons.setPressed(0);
+            this.changeZone(this.zoneButtons.items.getAt(0));
+            this.doComponentLayout();
+            
     },
     
     
+    changeZone: function(btn) {
+        this.list.store.clearFilter();
+        this.list.store.filter('zone', btn.dateData);
+        this.list.scroller.scrollTo({y: 0}, false);
+    }, 
     
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {

@@ -35,14 +35,14 @@ Ext.setup({
 			}),
    	
             aboutPages: [{
-                title: 'Overview',
+                title: _tr('overview', localStorage.getItem('lang')),
                 card: {
                     xtype: 'htmlpage',
                     url: 'overview.html'
                 }
             },
             {
-                title: 'Credits',
+                title: _tr('credits', localStorage.getItem('lang')),
                 card: {
                     xtype: 'htmlpage',
                     url: 'credits.html'

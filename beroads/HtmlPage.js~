@@ -12,7 +12,7 @@ Beroads.views.HtmlPage = Ext.extend(Ext.Panel, {
         if (this.prevCard !== undefined) {
             toolbarBase.items = {
                 ui: 'back',
-                text: _tr('back', localStorage.getItem('lang')),
+                text: this.prevCard.title,
                 scope: this,
                 handler: function(){
                     this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });

@@ -12,7 +12,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 
          this.dockedItems = [{
             xtype: 'toolbar',
-            title: 'Carte',
+            title: _tr('map', localStorage.getItem('lang')),
             items: [{xtype: 'spacer', flex: 1}, {
                 ui: 'plain',
                 iconCls: 'preferences',
@@ -189,7 +189,11 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		        url: 'http://91.121.10.214/The-DataTank/IWay/Camera/',
 		        
 		        callbackKey: 'callback',
-		        params : { format : 'jsonp' },
+		        params : { 
+		        				format : 'jsonp' ,
+		        				from : coords.lat()+','+coords.lng(),
+		        				area : localStorage.getItem('area')
+		        },
 		        
 		        callback: function(data) {
 
@@ -213,7 +217,8 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 	
         var addMarker = function(trafficevent, position) {
         
-        	if(trafficevent.category != undefined){
+        	if(trafficevent.category != undefined && trafficevent.category != null
+        	){
 		        var marker = new google.maps.Marker({
 		            map: map.map,
 		            position: position,
@@ -224,8 +229,10 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 					html : "<h1 class='markerTitle' id='incident'>"+trafficevent.location+"</h1> <p class='markerContent'>"+trafficevent.message+"</p>"
 		        });
 		        google.maps.event.addListener(marker, 'click', function() {
-					var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
-					
+					//var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
+					map.map.setCenter(this.position);
+					infowindow.setContent(this.html);
+					infowindow.open(map.map,this);
 	    		});
 	    	}
 	    
@@ -236,7 +243,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
 		title: camera.id,
-		html : "<p>"+camera.highway+"</p><img src='"+camera.img+"' />",
+		html : "<p>"+camera.city+"</p><img src='"+camera.img+"' />",
 		icon : 'resources/img/camera.png'
             });
             google.maps.event.addListener(marker, 'click', function() {

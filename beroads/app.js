@@ -21,16 +21,16 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
             this.items = [{
                 xtype: 'Beroads.views.Map',
                 iconCls: 'map',
-                title: 'Carte',
+                title: _tr('map', localStorage.getItem('lang')),
 
             }, {
-                title: 'Traffic',
+                title: _tr('traffic', localStorage.getItem('lang')),
                 iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList',
 				
 
             }, {
-                title: 'Radars',
+                title: _tr('radars', localStorage.getItem('lang')),
                 iconCls: 'radars',
                 xtype: 'Beroads.views.RadarsList',
                 geo : this.geo

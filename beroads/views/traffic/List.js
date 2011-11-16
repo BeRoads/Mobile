@@ -8,7 +8,7 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
 		
     	this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message}</span>',
+            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message} <br/>Distance : {distance} km</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
                 model: 'Traffic',

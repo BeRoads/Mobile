@@ -8,15 +8,18 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
 		
     	this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message}</span>',
+            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message} <br/>Distance : {distance}</span>',
             loadingText: "Loading...",
             store: new Ext.data.Store({
                 model: 'Traffic',
                 proxy: {
                     type: 'scripttag',
                     url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
-                    extraParams : { format : 'json' , from : localStorage.getItem('userCoords').latitude+","+localStorage.getItem('userCoords').longitude
-                    , area : localStorage.getItem('area')},
+                    extraParams : { 
+                    				format : 'json' , 
+                    				from : localStorage.getItem('userCoords'), 
+                    				area : localStorage.getItem('area')
+                    			},
                     reader: {
                         type: 'json',
                         root: 'item'

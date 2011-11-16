@@ -21,7 +21,7 @@ Beroads.views.AboutList = Ext.extend(Ext.Panel, {
             layout: 'fit',
             dockedItems: {
                 xtype: 'toolbar',
-                title: _tr('about', localStorage.getItem('lang'))
+                title: _tr('back', localStorage.getItem('lang'))
             }
         })
         
