@@ -4,10 +4,10 @@ Beroads.views.TrafficDetail = Ext.extend(Ext.Panel, {
     initComponent: function(){
         this.dockedItems = [{
             xtype: 'toolbar',
-            title: this.record.data.name,
+            title: this.record.data.location,
             items: [{
                 ui: 'back',
-                text: 'Back',
+                text: _tr('back', localStorage.getItem('lang')),
                 scope: this,
                 handler: function(){
                     this.ownerCt.setActiveItem(this.prevCard, {

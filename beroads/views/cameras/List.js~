@@ -1,48 +1,33 @@
 Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
     layout: 'card',
-   
+
     title : 'List',
+
+	
     initComponent: function() {
        
-
-	this.dockedItems = [{
+		this.geo = new Ext.util.GeoLocation({
+            autoUpdate: false
+        });
+        this.geo.on('beforelocationupdate', this.onBeforeGeoUpdate, this);
+        this.geo.on('locationupdate', this.onGeoUpdate, this);
+        
+        this.geo.updateLocation();
+        
+		this.dockedItems = [{
             xtype: 'toolbar',
-            title: 'Cameras'
+            title: _tr('webcams', localStorage.getItem('lang'))
         }]
 
         this.list = new Ext.List({
-            grouped: true,
+            grouped: false,
             itemTpl: '<div class="avatar" style="background-image: url({img})"></div><span class="name">{city}</span>',
             loadingText: "Loading...",
-            store: new Ext.data.Store({
-                model: 'Camera',
-                getGroupString : function(record) {
-			        return  "<span style='display:none'>"+record.get('zone')+"</span>";			        
-			    },
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
-                    extraParams : { format : 'json',
-                    				from : localStorage.getItem('userCoords'), 
-		        					area : localStorage.getItem('area')
-		        	},
-                    reader: {
-                        type: 'json',
-                        root: 'item'
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            })
+            store: null
         });
         
         this.list.on('selectionchange', this.onSelect, this);
-        
-        this.list.on('render', function(){
-            this.list.store.load();
-            this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
-        }, this);
+    
         
         this.listpanel = new Ext.Panel({
             items: this.list,
@@ -56,12 +41,62 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
             }
         })
         
-        this.items = this.listpanel;
-        
+        this.items = this.listpanel;        
         Beroads.views.CamerasList.superclass.initComponent.call(this);
 
-    },   
-  
+    },
+    
+    onGeoUpdate: function(coords) {
+    
+    	var cmp = Ext.getCmp('main');
+
+   		this.list.store = new Ext.data.Store({
+                model: 'Camera',
+                proxy: {
+                    type: 'scripttag',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
+                    extraParams : { 
+                    		format : 'json',
+                    		from : coords.latitude+","+coords.longitude,
+                    		area : localStorage.getItem('area')
+                    },
+                    reader: {
+                        type: 'json',
+                        root: 'item'
+                    },
+                    listeners: {
+		               	exception: function(proxy, exception, operation) {
+							//proxy.destroy(operation);						                            
+                            var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);						
+		        		}
+		        	}
+                },
+                listeners: {
+                    load: { fn: this.initializeData, scope: this },
+                    exception: function(proxy, exception, operation) {
+
+
+							//proxy.destroy(operation);						                            
+                            var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);
+							
+							
+		        		}
+                }
+            });
+            this.list.store.load();
+           
+    },
+    
+    onBeforeGeoUpdate: function(){
+        
+
+    },
     
     initializeData: function(data) {
 	
@@ -72,23 +107,21 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
 		        cameras.push(data.items[i].data);
 		        
 		}
-		Beroads.stores.cameras.add.apply(Beroads.stores.cameras, cameras);
-		Beroads.stores.cameras.sort('city');
+		Beroads.stores.Cameras.add.apply(Beroads.stores.Cameras, cameras);
+		Beroads.stores.Cameras.sort('city');
 		
-		 // Gather zones, create a splitbutton around them
-            var zones = data.collect('zone'),
-                buttons = [],
-                length  = zones.length,
-                i;
 
-			console.log(zones);
-            for (i = 0; i < length; i++) {
+		// Gather dates, create a splitbutton around them
+        	var zones = data.collect('zone'),
+                buttons = [];
+
+            for (var i = 0; i < zones.length; i++) {
                 buttons.push({
                     text: zones[i],
-                    dateData: zones[i],
+                    zoneData: zones[i],
                     index: i,
                     scope: this,
-                    handler : this.changeZone
+                    handler: this.changeZone
                 });
             }
             
@@ -106,17 +139,21 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
             });
             
             // Take off the spinner
-            this.list.el.unmask();
-     
+
+            
+            this.zoneButtons.setPressed(0);
+            this.changeZone(this.zoneButtons.items.getAt(0));
+            this.doComponentLayout();
+            
         
     },
     
-    
+   
     changeZone: function(btn) {
         this.list.store.clearFilter();
-        this.list.store.filter('zone', btn.dateData);
+        this.list.store.filter('zone', btn.zoneData);
         this.list.scroller.scrollTo({y: 0}, false);
-    }, 
+    },
     
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {

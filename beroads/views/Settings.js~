@@ -1,11 +1,12 @@
 Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
-    defaultInstructions: 'Please enter the information above.',
+    defaultInstructions: '',
 
     initComponent: function(){
+    	this.defaultInstructions = _tr('settings_message', 'en');
         var titlebar, cancelButton, buttonbar, saveButton, fields;
 
         cancelButton = {
-            text: 'Retour',
+            text: _tr('back', localStorage.getItem('lang')),
             ui: 'back',
             handler: this.onCancelAction
         };
@@ -13,13 +14,13 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
         titlebar = {
             id: 'userFormTitlebar',
             xtype: 'toolbar',
-            title: 'Réglages',
+            title: _tr('settings', localStorage.getItem('lang')),
             items: [ cancelButton ]
         };
 
         saveButton = {
             id: 'userFormSaveButton',
-            text: 'Sauver',
+            text: _tr('save', localStorage.getItem('lang')),
             ui: 'confirm',
             handler: this.onSaveAction,
             scope: this
@@ -34,7 +35,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
         fields = {
             xtype: 'fieldset',
             id: 'userFormFieldset',
-            title: 'Préférences',
+            title: _tr('preferences', localStorage.getItem('lang')),
             instructions: this.defaultInstructions,
             defaults: {
                 xtype: 'textfield',
@@ -48,14 +49,14 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
             	{xtype: 'numberfield',
             		id : 'area',
                     name: 'area',
-                    label: 'Area',
+                    label: _tr('area', localStorage.getItem('lang')),
                     maxLength: 10,
                     value : localStorage.getItem('area'),
                     useClearIcon: true
                 },
                 {
 		    xtype: 'fieldset',
-		    title: 'Langage',
+		    title:  _tr('language', localStorage.getItem('lang')),
 		    id : 'language', 
 		    items: [{
 		        xtype: 'selectfield',
@@ -72,7 +73,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 		},
 		{
 		    xtype: 'fieldset',
-		    title: 'Option carte', 
+		    title: _tr('map_options', localStorage.getItem('lang')),
 		    name : 'map',
 		    
 		    items: [
@@ -80,23 +81,23 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 		
 			    xtype: 'togglefield',
 			    name: 'displayTraffic',
-			    label: 'Traffic',
+			    label: _tr('traffic', localStorage.getItem('lang')),
 			    id : 'displayTraffic',
-			    value : (localStorage.getItem('displayTraffic') == false ? 0 : 1)
+			    value : (localStorage.getItem('displayTraffic') == 'false' ? 0 : 1)
 			},
 			{
 			    xtype: 'togglefield',
 			    name: 'displayRadars',
 			    id : 'displayRadars',
-			    label: 'Radars',
-			    value : (localStorage.getItem('displayRadars') == false ? 0 : 1)
+			    label: _tr('radars', localStorage.getItem('lang')),
+			    value : (localStorage.getItem('displayRadars') == 'false' ? 0 : 1)
 			},
 			    {
 			    xtype: 'togglefield',
 			    name: 'displayCameras',
                 id : 'displayCameras',
-			    label: 'Cameras',
-			    value : (localStorage.getItem('displayCameras') == false ? 0 : 1)
+			    label: _tr('webcams', localStorage.getItem('lang')),
+			    value : (localStorage.getItem('displayCameras') == 'false' ? 0 : 1)
 			}
             	]
 		}]
@@ -126,7 +127,6 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 
 		
 		var values = this.getValues();
-		console.log(values);
 		
 		localStorage.setItem('area',values['area']);
 		localStorage.setItem('lang',values['lang']);
@@ -141,7 +141,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
                         after: function(){
                             this.destroy();
                         }
-                    });
+        });
         
     }
 

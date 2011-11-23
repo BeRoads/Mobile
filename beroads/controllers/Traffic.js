@@ -4,5 +4,4 @@ Ext.regController('Traffic', {
     index: function() {
         Beroads.views.viewport.reveal('trafficList');
     }
-
 });

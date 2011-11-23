@@ -2,98 +2,96 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
     
     mapText: '',
     permLink: '',
-    id : 'map',	
-
-	      //Markers type
-   
-        
+    id : 'map',    
+    
+    
     initComponent: function(){
         
-
-         this.dockedItems = [{
+        
+        
+        this.dockedItems = [{
             xtype: 'toolbar',
             title: _tr('map', localStorage.getItem('lang')),
-            items: [{xtype: 'spacer', flex: 1}, {
+            items: [{
+                xtype: 'spacer', 
+                flex: 1
+            }, {
                 ui: 'plain',
                 iconCls: 'preferences',
                 iconMask: true,
                 scope: this,
                 handler: function(){
                     var settingsPage = new Beroads.views.Settings({
-                		prevCard: this                		
-            	    });
+                        prevCard: this                		
+                    });
                     Ext.getCmp('main').setActiveItem(settingsPage);
                 }
             }]
         }]
 	
 	
-		 user = new google.maps.MarkerImage(
-                    'resources/img/user.png',
-                    new google.maps.Size(32, 31),
-                    new google.maps.Point(0,0),
-                    new google.maps.Point(16, 31)
-    )
-
-	
-
-	
-
-	
+        user = new google.maps.MarkerImage(
+            'resources/img/user.png',
+            new google.maps.Size(32, 31),
+            new google.maps.Point(0,0),
+            new google.maps.Point(16, 31)
+            )
 
         infowindow = new google.maps.InfoWindow({
-                content: ''
+            content: ''
         })
 
-  
-	
+        var position = new google.maps.LatLng(50.85, 4.023);  //nearby Brussels
+        var map = new Ext.Map({
 
-	var position = new google.maps.LatLng(50.85, 4.023);  //nearby Brussels
-	var map = new Ext.Map({
-
-			geo : new Ext.util.GeoLocation({
-				autoUpdate:false,
-				timeout:1000,
-				listeners:{
-				locationupdate: function(geo) {
+            geo : new Ext.util.GeoLocation({
+                autoUpdate:true,
+                timeout:1000,
+                listeners:{
+                    locationupdate: function(geo) {
 					
-					localStorage.setItem('userCoords', geo.latitude+','+geo.longitude);
-					var center = new google.maps.LatLng(geo.latitude, geo.longitude);
+                        var center = new google.maps.LatLng(geo.latitude, geo.longitude);
 
-					if (map.rendered)
-						map.update(center)
-					else
-						map.on('activate', map.onUpdate, map, {single: true, data: center});
-				},
-				locationerror: function(geo){
-					alert('got geo error'); 
-				}
-				}
-			}),
-			useCurrentLocation: true,
-			highAccuracy : true,
+                        if (map.rendered)
+                            map.update(center)
+                        else
+                            map.on('activate', map.onUpdate, map, {
+                                single: true, 
+                                data: center
+                            });
+                    },
+                    locationerror: function(geo){
+                        localStorage.setItem('userCoords', '50.53846,4.20361'
+                            );
+                    }
+                }
+            }),
+            useCurrentLocation: true,
+            highAccuracy : true,
             mapOptions : {
 
                 zoom : 12,
                 mapTypeId : google.maps.MapTypeId.ROADMAP,
                 navigationControl: true,
                 navigationControlOptions: {
-                        style: google.maps.NavigationControlStyle.DEFAULT
+                    style: google.maps.NavigationControlStyle.DEFAULT
                 }
             },
 
             plugins : [
-                new Ext.plugin.GMap.Tracker({
-                        trackSuspended : false,   
-                        highAccuracy   : true,
-                        marker : new google.maps.Marker({
-                            position: position,
-                            title : 'You are here',
-                            icon  : user
-                        })
+            new Ext.plugin.GMap.Tracker({
+                trackSuspended : false,   
+                highAccuracy   : true,
+                marker : new google.maps.Marker({
+                    position: position,
+                    title : 'You are here',
+                    icon  : user
+                })
 					
-                }),
-                new Ext.plugin.GMap.Traffic({ hidden : false })
+            }),
+            new Ext.plugin.GMap.Traffic({
+                hidden : false
+            })
             ],
 
 			
@@ -101,173 +99,197 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             listeners : {
                 maprender : function(comp, _map){
                		 	
-                   setTimeout( function(){ map.geo.updateLocation(); } , 1000);
+                    setTimeout( function(){
+                        map.geo.updateLocation();
+                    } , 1000);
                 }
             }
         });
         
 	
-	var refresh = function() {
+        var refresh = function() {
 		
+			var coords = map.geo.coords;
+        
+		
+            if(localStorage.getItem('displayTraffic')=='true'){
 
-		if(localStorage.getItem('displayTraffic')=='true'){
-
-		    Ext.util.JSONP.request({
-		        url: 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
-				callbackKey : 'callback',
-		        params : { 
-		        				format : 'jsonp' ,
-		        				from : localStorage.getItem('userCoords'),
-		        				area : localStorage.getItem('area')
-		        },
+                Ext.util.JSONP.request({
+                    url: 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    callbackKey : 'callback',
+                    params : { 
+                        format : 'jsonp' ,
+                        from : coords.Pa+","+coords.Qa,
+                        area : localStorage.getItem('area')
+                    },
 		        
-		        callback: function(data) {
+                    callback: function(data) {
 
-		            data = data.item;
-					var trafficevents = [];
+                        data = data.item;
+                        var trafficevents = [];
 			
-		             // Add points to the map
-		            for (var i = 0; i < data.length; i++) {
-		                var traficevent = data[i];		                
-		                if (traficevent.lng != 0 && traficevent.lat != 0 ) {
-		                    var position = new google.maps.LatLng(traficevent.lat, traficevent.lng);
-		                    addMarker(traficevent, position);
-		                	trafficevents.push(traficevent);
-		                }
-		            }
-		            Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, trafficevents);
+                        // Add points to the map
+                        for (var i = 0; i < data.length; i++) {
+                            var traficevent = data[i];		                
+                            if (traficevent.lng != 0 && traficevent.lat != 0 ) {
+                                var position = new google.maps.LatLng(traficevent.lat, traficevent.lng);
+                                addMarker(traficevent, position);
+                                trafficevents.push(traficevent);
+                            }
+                        }
+                        Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, trafficevents);
 					
-		            Beroads.stores.Traffic.load();
-		        }
-		    });
-	    }
+                        Beroads.stores.Traffic.load();
+                    }
+                });
+            }
 
-	  if(localStorage.getItem('displayRadars')=='true'){
+            if(localStorage.getItem('displayRadars')=='true'){
 
-		    Ext.util.JSONP.request({
-		        url: 'http://91.121.10.214/The-DataTank/IWay/Radar/',
-		        callbackKey: 'callback',
-				 params : { 
-		        				format : 'jsonp' ,
-		        				from : localStorage.getItem('userCoords'),
-		        				area : localStorage.getItem('area')
-		        },
-		        callback: function(data) {
+                Ext.util.JSONP.request({
+                    url: 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    callbackKey: 'callback',
+                    params : { 
+                        format : 'jsonp' ,
+                        from : coords.Pa+","+coords.Qa,
+                        area : localStorage.getItem('area')
+                    },
+                    callback: function(data) {
 			    
-		            data = data.item;
+                        data = data.item;
 
-		             // Add points to the map
-		            for (var i = 0; i < data.length; i++) {
-		                var radar = data[i];
+                        // Add points to the map
+                        for (var i = 0; i < data.length; i++) {
+                            var radar = data[i];
 			
-		                if (radar.lng != 0 && radar.lat != 0 ) {
-		                    var position = new google.maps.LatLng(radar.lat, radar.lng);
-		                    addRadar(radar, position);
-		                }
-		            }
-		            Beroads.stores.radars.add.apply(Beroads.stores.radars, data);
-					Beroads.stores.radars.sort('name');
-		        }
-		    });
-	    }	    
+                            if (radar.lng != 0 && radar.lat != 0 ) {
+                                var position = new google.maps.LatLng(radar.lat, radar.lng);
+                                addRadar(radar, position);
+                            }
+                        }
+                        Beroads.stores.Radars.add.apply(Beroads.stores.Radars, data);
+                        Beroads.stores.Radars.sort('name');
+                    }
+                });
+            }	    
 
-	    if(localStorage.getItem('displayCameras')=='true'){
+            if(localStorage.getItem('displayCameras')=='true'){
 
-		    Ext.util.JSONP.request({
-		        url: 'http://91.121.10.214/The-DataTank/IWay/Camera/',
+                Ext.util.JSONP.request({
+                    url: 'http://91.121.10.214/The-DataTank/IWay/Camera/',
 		        
-		        callbackKey: 'callback',
-		        params : { 
-		        				format : 'jsonp' ,
-		        				from : localStorage.getItem('userCoords'),
-		        				area : localStorage.getItem('area')
-		        },
+                    callbackKey: 'callback',
+                    params : { 
+                        format : 'jsonp' ,
+                        from : coords.Pa+","+coords.Qa,
+                        area : localStorage.getItem('area')
+                    },
 		        
-		        callback: function(data) {
+                    callback: function(data) {
 
-		            data = data.item;
+                        data = data.item;
 
-		             // Add points to the map
-		            for (var i = 0; i < data.length; i++) {
-		                var camera = data[i];		                
-		                if (camera.lng != 0 && camera.lat != 0 ) {
-		                    var position = new google.maps.LatLng(camera.lat, camera.lng);
-		                    addCamera(camera, position);
-		                }
-		            }
-		            Beroads.stores.cameras.add.apply(Beroads.stores.cameras, data);
-					Beroads.stores.cameras.sort('name');
-		        }
-		    });
-	    }
+                        // Add points to the map
+                        for (var i = 0; i < data.length; i++) {
+                            var camera = data[i];		                
+                            if (camera.lng != 0 && camera.lat != 0 ) {
+                                var position = new google.maps.LatLng(camera.lat, camera.lng);
+                                addCamera(camera, position);
+                            }
+                        }
+                        Beroads.stores.Cameras.add.apply(Beroads.stores.Cameras, data);
+                        Beroads.stores.Cameras.sort('zone');
+                        
+                    }
+                });
+            }
+
+	    
         };
 
-	
+		
         var addMarker = function(trafficevent, position) {
         
-        	if(trafficevent.category != undefined && trafficevent.category != null
-        	){
-		        var marker = new google.maps.Marker({
-		            map: map.map,
-		            position: position,
-					title: trafficevent.location,
-					icon : 'resources/img/'+trafficevent.category.toLowerCase()+'.png'
+            if(trafficevent.category != undefined && trafficevent.category != null
+                ){
+                var marker = new google.maps.Marker({
+                    map: map.map,
+                    position: position,
+                    title: trafficevent.location,
+                    icon : 'resources/img/'+(trafficevent.category.toLowerCase()).replace(" ", "")+'.png'
 				
-					,
-					html : "<h1 class='markerTitle' id='incident'>"+trafficevent.location+"</h1> <p class='markerContent'>"+trafficevent.message+"</p>"
-		        });
-		        google.maps.event.addListener(marker, 'click', function() {
-					//var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
-					map.map.setCenter(this.position);
-					infowindow.setContent(this.html);
-					infowindow.open(map.map,this);
-	    		});
-	    	}
+                    ,
+                    html : "<h1 class='markerTitle' id='incident'>"+trafficevent.location+"</h1> <p class='markerContent'>"+trafficevent.message+"</p>"
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    //var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
+                    map.map.setCenter(this.position);
+                    infowindow.setContent(this.html);
+                    infowindow.open(map.map,this);
+                });
+            }
 	    
         };
 
-	var addCamera = function(camera, position) {
+        var addCamera = function(camera, position) {
             var marker = new google.maps.Marker({
                 map: map.map,
                 position: position,
-		title: camera.id,
-		html : "<p>"+camera.city+"</p><img src='"+camera.img+"' />",
-		icon : 'resources/img/camera.png'
+                title: camera.id,
+                html : "<p>"+camera.city+"</p><img src='"+camera.img+"' />",
+                icon : 'resources/img/camera.png'
             });
             google.maps.event.addListener(marker, 'click', function() {
-					map.map.setCenter(this.position);
-					infowindow.setContent(this.html);
-					infowindow.open(map.map,this);
+                map.map.setCenter(this.position);
+                infowindow.setContent(this.html);
+                infowindow.open(map.map,this);
 					
-	    });
+            });
 	    
         };
 
-	var addRadar = function(radar, position) {
+        var addRadar = function(radar, position) {
 	    
             var marker = new google.maps.Marker({
                 map: map.map,
                 position: position,
-		title: radar.id,
-		html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
-		icon : 'resources/img/radar.png'
+                title: radar.id,
+                html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
+                icon : 'resources/img/radar.png'
             });
             google.maps.event.addListener(marker, 'click', function() {
-					map.map.setCenter(this.position);
-					infowindow.setContent(this.html);
-					infowindow.open(map.map,this);
+                map.map.setCenter(this.position);
+                infowindow.setContent(this.html);
+                infowindow.open(map.map,this);
 					
-	    });
+            });
 	    
         };
 
-	map.geo.on('update', refresh);
+        map.geo.on('update', refresh);
 
+	
         this.items = map;
        
-	Beroads.views.Map.superclass.initComponent.call(this);
+        Beroads.views.Map.superclass.initComponent.call(this);
+        
+        this.geo = new Ext.util.GeoLocation({
+            autoUpdate: false
+        });
+        this.geo.on('beforelocationupdate', this.onBeforeGeoUpdate, this);
+        this.geo.on('locationupdate', this.onGeoUpdate, this);
+        
+        this.geo.updateLocation();
+        
+    },
+    
+    onGeoUpdate: function(coords) {
+        
+    },
 
-    }      
+    onBeforeGeoUpdate: function(){
+       
+    }
         
 
     

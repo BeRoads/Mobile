@@ -1,4 +1,4 @@
-Beroads.views.RadarsDetail = Ext.extend(Ext.Panel, {
+Beroads.views.radarsDetail = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     showSessionData: true,
     initComponent: function(){
@@ -37,8 +37,8 @@ Beroads.views.RadarsDetail = Ext.extend(Ext.Panel, {
             }, scope: this }
         };
         
-        Beroads.views.RadarsDetail.superclass.initComponent.call(this);
+        Beroads.views.radarsDetail.superclass.initComponent.call(this);
     }
 });
 
-Ext.reg('Beroads.views.RadarsDetail', Beroads.views.RadarsDetail);
+Ext.reg('Beroads.views.radarsDetail', Beroads.views.radarsDetail);

@@ -1,4 +1,3 @@
-Beroads.cfg = {};
 Beroads.app = Ext.extend(Ext.TabPanel, {
     
     fullscreen: true,
@@ -12,37 +11,29 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
     
     cardSwitchAnimation: false,
     
-	
     initComponent: function() {
-		
-		
-        
+	                
         if (navigator.onLine) {
             this.items = [{
                 xtype: 'Beroads.views.Map',
                 iconCls: 'map',
-                title: _tr('map', localStorage.getItem('lang')),
-
+                title: _tr('map', localStorage.getItem('lang'))
             }, {
-                title: _tr('traffic', localStorage.getItem('lang')),
-                iconCls: 'traffic',
                 xtype: 'Beroads.views.TrafficList',
-				
-
+                iconCls: 'traffic',
+                title: _tr('traffic', localStorage.getItem('lang'))
             }, {
-                title: _tr('radars', localStorage.getItem('lang')),
-                iconCls: 'radars',
                 xtype: 'Beroads.views.RadarsList',
-                geo : this.geo
+                iconCls: 'radars',
+                title: _tr('radars', localStorage.getItem('lang'))
             }, {
-                title: 'Cameras',
-                iconCls: 'cameras',
                 xtype: 'Beroads.views.CamerasList',
-
+                iconCls: 'cameras',
+                title: _tr('cameras', localStorage.getItem('lang'))
             }, {
-                title: 'Plus',
-                xtype: 'aboutlist',
+                xtype: 'Beroads.views.AboutList',
                 iconCls: 'more01',
+                title: 'Plus',
                 pages: this.aboutPages
             }];
         } else {
@@ -50,20 +41,15 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
                 this.el.mask('No internet connection.');
             }, this);
         }
-        
-       
         Beroads.app.superclass.initComponent.call(this);
     },
     
-    
-
     reveal : function(target) {
 
        this.setActiveItem(
             Beroads.views[target],
             { type: 'slide' }
         );
-    }
-    
+    }    
 });
 

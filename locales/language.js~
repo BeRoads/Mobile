@@ -1,4 +1,6 @@
-
+/*
+ * Simple translate function with hardcoded translations
+ */
 
 function _tr(str, language){
 	var lang = {
@@ -10,6 +12,7 @@ function _tr(str, language){
 					overview : "Overview",
 					credits : "Credits",
 					map : "Map",
+					map_options : "Map options",
 					settings : "Settings",
 					back : "Back",
 					language : "Language",
@@ -18,7 +21,12 @@ function _tr(str, language){
 					save : "Save",
 					traffic : "Traffic",
 					radars : "Radars",
-					webcams : "Webcams"
+					webcams : "Webcams",
+					displayTraffic : "Display traffic", 
+					displayRadars : "Display radars",
+					displayWebcams : "Display webcams",
+					settings_message : "Please enter the information above",
+					preferences : "Preferences"
 			},
 			
 			"fr" : {
@@ -26,6 +34,7 @@ function _tr(str, language){
 				overview : "Aperçu",
 				credits : "Crédits",
 				map : "Carte",
+				map_options : "Options carte",
 				settings : "Réglages",
 				back : "Retour",
 				language : "Langage",
@@ -34,7 +43,12 @@ function _tr(str, language){
 				save : "Sauver",
 				traffic : "Traffic",
 				radars : "Radars",
-				webcams : "Webcams"
+				webcams : "Webcams",				
+				displayTraffic : "Afficher traffic", 
+				displayRadars : "Afficher radars",
+				displayWebcams : "Afficher cameras",
+				settings_message : "Veuillez compléter les informations ci-dessus",
+				preferences : "Préférences"
 			},
 			
 			"nl" : {
@@ -42,6 +56,7 @@ function _tr(str, language){
 				overview : "Overzicht",
 				credits : "Credits",
 				map : "Kaart",
+				map_options : "Kaart opties",
 				settings : "Instellingen",
 				back : "Terug",
 				language : "Taal",
@@ -50,7 +65,12 @@ function _tr(str, language){
 				save : "Besparen",
 				traffic : "Verkeer",
 				radars : "Radars",
-				webcams : "Webcams"
+				webcams : "Webcams",
+				displayTraffic : "Weer verkeer", 
+				displayRadars : "Weer radars",
+				displayWebcams : "Weer camera's",
+				settings_message : "Vul de bovenstaande informatie",
+				preferences : "Voorkeuren"
 			},
 			
 			"de" : {
@@ -58,6 +78,7 @@ function _tr(str, language){
 				overview : "Overzicht",
 				credits : "Credits",
 				map : "Kaart",
+				map_options : "Karte Optionen",
 				settings : "Instellingen",
 				back : "Terug",
 				language : "Taal",
@@ -66,17 +87,20 @@ function _tr(str, language){
 				save : "Besparen",
 				traffic : "Verkeer",
 				radars : "Radars",
-				webcams : "Webcams"
+				webcams : "Webcams",
+				displayTraffic : "Anzeige verkehr", 
+				displayRadars : "Anzeige radars",
+				displayWebcams : "Anzeige kameras",
+				settings_message : "Bitte geben Sie die oben genannten Informationen",
+				preferences : "Vorlieben"
 			}
 		
 				
 		
 		}
 	
-	};
-		
-	//TODO navigate with variables
+	};	
+
 	
-	alert(language+" / "+str);
-	return lang.translations.language.str || lang.translations.en.overview	 || "{translation key not found}";
+	return lang.translations[language][str] || lang.translations.en.overview	 || "{translation key not found}";
 }

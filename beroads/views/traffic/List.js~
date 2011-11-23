@@ -1,42 +1,27 @@
 Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
     layout : 'fit',
-    title : 'List',
+    title : 'TrafficList',
     
     initComponent: function() {
-       
-        console.log(localStorage.getItem('userCoords'));
-		
+        
+        
+        this.geo = new Ext.util.GeoLocation({
+            autoUpdate: true
+        });
+        this.geo.on('beforelocationupdate', this.onBeforeGeoUpdate, this);
+        this.geo.on('locationupdate', this.onGeoUpdate, this);
+        
+        this.geo.updateLocation();
+        
     	this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message} <br/>Distance : {distance}</span>',
+            itemTpl: '<span class="name">{location}</span> <span class="secondary">{message} <br/>Distance : {distance} km</span>',
             loadingText: "Loading...",
-            store: new Ext.data.Store({
-                model: 'Traffic',
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
-                    extraParams : { 
-                    				format : 'json' , 
-                    				from : localStorage.getItem('userCoords'), 
-                    				area : localStorage.getItem('area')
-                    			},
-                    reader: {
-                        type: 'json',
-                        root: 'item'
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            })
+            store: null
         });
         
         this.list.on('selectionchange', this.onSelect, this);
-        
-        this.list.on('render', function(){
-            this.list.store.load();
-            this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
-        }, this);
+                
         
         this.listpanel = new Ext.Panel({
             items: this.list,
@@ -52,38 +37,84 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
         
         this.items = this.listpanel;
     
-	this.dockedItems = [{
-            xtype: 'toolbar',
-            title: 'Traffic'
-        }]
-
-		
-		
-	    
-        
-        
+		this.dockedItems = [{
+		        xtype: 'toolbar',
+		        title: _tr('traffic', localStorage.getItem('lang'))
+		}]      
         
         Beroads.views.TrafficList.superclass.initComponent.call(this);
-
     },
     
+    /**
+     * Callback for geo coords update
+     */
+    onGeoUpdate: function(coords) {
     
+    	var cmp = Ext.getCmp('main');
+
+        this.list.store = new Ext.data.Store({
+                
+                model: 'Traffic',
+                proxy: {
+                    type: 'scripttag',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    extraParams : { 
+                    				format : 'json' , 
+                    				from : coords.latitude+","+coords.longitude, 
+                    				area : localStorage.getItem('area')
+                    			},
+                    reader: {
+                        type: 'json',
+                        root: 'item'
+                    },
+                    listeners: {
+		               	exception: function(proxy, exception, operation) {
+
+
+							//proxy.destroy(operation);						                            
+                            var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);
+							
+							
+		        		}
+		        	}
+                },
+                listeners: {
+                	
+                    load: { fn: this.initializeData, scope: this },
+                    exception: function(proxy, exception, operation) {
+		                	
+							//show error page (like a fail whale, with a car :D)
+							var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);
+		        	}
+                }
+            });
+        this.list.store.load(); 
+        //this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+
+    },
+
+    onBeforeGeoUpdate: function(){
+    	// TODO
+		/* Display 'acquiring location' or something like this */
+    },
+
     
     initializeData: function(data) {
 	
-		
-		var traficevents = []; 
+			var traficevents = []; 
 
 		    for (var i = 0; i < data.length; i++) {
-		       	
 		        traficevents.push(data.items[i].data);
-		        
 		    }
 
-		Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, traficevents);
-		Beroads.stores.Traffic.sort('distance');
-	
-        
+			Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, traficevents);
+			Beroads.stores.Traffic.sort('distance');
     },   
     
     onSelect: function(selectionmodel, records){

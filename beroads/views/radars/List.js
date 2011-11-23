@@ -6,45 +6,28 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 	
     initComponent: function() {
        
-
-	
-		
-	this.dockedItems = [{
+		this.geo = new Ext.util.GeoLocation({
+            autoUpdate: false
+        });
+        this.geo.on('beforelocationupdate', this.onBeforeGeoUpdate, this);
+        this.geo.on('locationupdate', this.onGeoUpdate, this);
+        
+        this.geo.updateLocation();
+        
+		this.dockedItems = [{
             xtype: 'toolbar',
-            title: 'Radars'
+            title: _tr('radars', localStorage.getItem('lang'))
         }]
 
         this.list = new Ext.List({
             grouped: false,
             itemTpl: '<span class="name">{name}</span> <span class="secondary">{speedLimit}</span>',
             loadingText: "Loading...",
-            store: new Ext.data.Store({
-                model: 'Radar',
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
-                    extraParams : { 
-                    		format : 'json',
-                    		from : localStorage.getItem('userCoords'),
-                    		area : localStorage.getItem('area')
-                    },
-                    reader: {
-                        type: 'json',
-                        root: 'item'
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            })
+            store: null
         });
         
         this.list.on('selectionchange', this.onSelect, this);
-        
-        this.list.on('render', function(){
-            this.list.store.load();
-            this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
-        }, this);
+    
         
         this.listpanel = new Ext.Panel({
             items: this.list,
@@ -66,7 +49,61 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 
     },
     
+    onGeoUpdate: function(coords) {
     
+    	var cmp = Ext.getCmp('main');
+
+   		this.list.store = new Ext.data.Store({
+                model: 'Radar',
+                proxy: {
+                    type: 'scripttag',
+                    url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    extraParams : { 
+                    		format : 'json',
+                    		from : coords.latitude+","+coords.longitude,
+                    		area : localStorage.getItem('area')
+                    },
+                    reader: {
+                        type: 'json',
+                        root: 'item'
+                    },
+                    listeners: {
+		               	exception: function(proxy, exception, operation) {
+
+
+							//proxy.destroy(operation);						                            
+                            var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);
+							
+							
+		        		}
+		        	}
+                },
+                listeners: {
+                    load: { fn: this.initializeData, scope: this },
+                    exception: function(proxy, exception, operation) {
+
+
+							//proxy.destroy(operation);						                            
+                            var sessionCard = new Beroads.views.FailCar({
+								prevCard: this
+							});
+							cmp.setActiveItem(sessionCard);
+							
+							
+		        		}
+                }
+            });
+            this.list.store.load();
+            //this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+    },
+    
+    onBeforeGeoUpdate: function(){
+        
+
+    },
     
     initializeData: function(data) {
 	
@@ -77,8 +114,8 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 		        radars.push(data.items[i].data);
 		        
 		}
-		Beroads.stores.radars.add.apply(Beroads.stores.radars, radars);
-		Beroads.stores.radars.sort('name');
+		Beroads.stores.Radars.add.apply(Beroads.stores.Radars, radars);
+		Beroads.stores.Radars.sort('name');
         
     },
     
@@ -86,7 +123,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
     
     onSelect: function(selectionmodel, records){
         if (records[0] !== undefined) {
-            var sessionCard = new Beroads.views.radarsDetail({
+            var sessionCard = new Beroads.views.RadarsDetail({
                 prevCard: this,
                 record: records[0]
             });

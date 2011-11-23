@@ -1,4 +1,4 @@
-Beroads.views.RadarsDetail = Ext.extend(Ext.Panel, {
+Beroads.views.TrafficDetail = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     showSessionData: true,
     initComponent: function(){
@@ -24,7 +24,7 @@ Beroads.views.RadarsDetail = Ext.extend(Ext.Panel, {
         
         this.items = [{
             styleHtmlContent: true,
-            tpl: new Ext.XTemplate( '<div class="radar_overview"><h3>{name}</h3></div>'),
+            tpl: new Ext.XTemplate( '<div class="trafic_overview"><h3>{location}</h3><h4>{message}</h4></div> {source}'),
             data: this.record.data
         }];
         
@@ -37,8 +37,8 @@ Beroads.views.RadarsDetail = Ext.extend(Ext.Panel, {
             }, scope: this }
         };
         
-        Beroads.views.RadarsDetail.superclass.initComponent.call(this);
+        Beroads.views.TrafficDetail.superclass.initComponent.call(this);
     }
 });
 
-Ext.reg('Beroads.views.RadarsDetail', Beroads.views.RadarsDetail);
+Ext.reg('Beroads.views.TrafficDetail', Beroads.views.TrafficDetail);

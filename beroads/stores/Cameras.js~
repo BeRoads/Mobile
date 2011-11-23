@@ -1,4 +1,4 @@
-Beroads.stores.Cameras = new Ext.data.Store({
+Beroads.stores.cameras = new Ext.data.Store({
     model : 'Camera',
     autoload : false,
     getGroupString: function(r){
