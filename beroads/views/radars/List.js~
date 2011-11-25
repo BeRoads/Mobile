@@ -97,7 +97,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
                 }
             });
             this.list.store.load();
-            this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+            //this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
     },
     
     onBeforeGeoUpdate: function(){

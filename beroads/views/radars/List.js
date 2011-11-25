@@ -41,8 +41,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
             }
         })
         
-        this.items = this.listpanel;
-        
+        this.items = this.listpanel;  
         
         
         Beroads.views.RadarsList.superclass.initComponent.call(this);
