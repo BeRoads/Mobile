@@ -29,7 +29,7 @@ Beroads.app = Ext.extend(Ext.TabPanel, {
             }, {
                 xtype: 'Beroads.views.CamerasList',
                 iconCls: 'cameras',
-                title: _tr('cameras', localStorage.getItem('lang'))
+                title: _tr('webcams', localStorage.getItem('lang'))
             }, {
                 xtype: 'Beroads.views.AboutList',
                 iconCls: 'more01',
