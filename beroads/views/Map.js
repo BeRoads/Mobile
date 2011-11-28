@@ -220,7 +220,8 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		
         var showCenteredOverlay = function(content) {
             overlay.setCentered(true);
-            overlay.html = content;
+            overlay.update(content);
+            overlay.doLayout();
             overlay.show();
         };
 
