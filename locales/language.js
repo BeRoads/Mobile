@@ -26,7 +26,8 @@ function _tr(str, language){
 					displayRadars : "Display radars",
 					displayWebcams : "Display webcams",
 					settings_message : "Please enter the information above",
-					preferences : "Preferences"
+					preferences : "Preferences",
+					sorry : "Sorry"
 			},
 			
 			"fr" : {
@@ -48,7 +49,8 @@ function _tr(str, language){
 				displayRadars : "Afficher radars",
 				displayWebcams : "Afficher cameras",
 				settings_message : "Veuillez compléter les informations ci-dessus",
-				preferences : "Préférences"
+				preferences : "Préférences",
+				sorry : "Désolé"
 			},
 			
 			"nl" : {
@@ -70,7 +72,8 @@ function _tr(str, language){
 				displayRadars : "Weer radars",
 				displayWebcams : "Weer camera's",
 				settings_message : "Vul de bovenstaande informatie",
-				preferences : "Voorkeuren"
+				preferences : "Voorkeuren",
+				sorry : "Sorry"
 			},
 			
 			"de" : {
@@ -92,7 +95,8 @@ function _tr(str, language){
 				displayRadars : "Anzeige radars",
 				displayWebcams : "Anzeige kameras",
 				settings_message : "Bitte geben Sie die oben genannten Informationen",
-				preferences : "Vorlieben"
+				preferences : "Vorlieben",
+				sorry : "Sorry"
 			}
 		
 				

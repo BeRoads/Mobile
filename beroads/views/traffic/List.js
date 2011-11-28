@@ -57,7 +57,7 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
                 model: 'Traffic',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    url : 'http://91.121.10.214/TheDataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
                     extraParams : { 
                     				format : 'json' , 
                     				from : coords.latitude+","+coords.longitude, 

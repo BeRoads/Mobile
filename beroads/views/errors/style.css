@@ -1,0 +1,104 @@
+/*  
+ *  Site Name: BeRoads 404
+ *  Author: Julien Winant
+ *  Author URL: http://www.harkor.be
+*/
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #a5cce9;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	position: relative;
+	height: auto;
+}
+
+#container {
+	width: 320px;
+	margin: 0 auto;
+	position: relative;
+	height: 480px;
+}
+
+h1 {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#feu {
+	width: 97px;
+	height: 379px;
+	background: url(images/feu.png) no-repeat;
+	position: absolute;
+	top: 34px;
+	left: 169px;
+}
+
+#line_feu {
+	width: 919px;
+	height: 67px;
+	background: url(images/line_feu.png) no-repeat;
+	position: absolute;
+	left: -600px;
+	top: -2px;
+}
+
+#birds {
+	width: 100px;
+	height: 79px;
+	background: url(images/birds.png) no-repeat;
+	position: absolute;
+	left: 28px;
+	top: 156px;
+}
+
+#birds span {
+	position: absolute;
+	top: 10px;
+	display: block;
+	text-align: center;
+	width: 100px;
+	font-weight: bold;
+	color: #00638c;
+}
+
+#lines {
+	width: 100%;
+	height: 127px;
+	background: url(images/lines.png) repeat-x;
+	position: absolute;
+	top: 134px;
+	min-width: 340px;
+}
+
+.cloud {
+	position: absolute;
+	background-repeat: no-repeat;
+}
+
+.cloud.cl01 {
+	width: 63px;
+	height: 39px;
+	background-image: url(images/cloud_01.png);
+	top: 330px;
+	left: -20px;
+}
+
+.cloud.cl02 {
+	width: 91px;
+	height: 56px;
+	background-image: url(images/cloud_02.png);
+	top: 370px;
+	right: -20px;
+}
+
+.cloud.cl03 {
+	width: 167px;
+	height: 104px;
+	background-image: url(images/cloud_03.png);
+	left: -70px;
+	top: 20px;
+}
