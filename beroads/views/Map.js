@@ -7,8 +7,20 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
     
     initComponent: function(){
         
+        var overlay = new Ext.Panel({
+            floating: true,
+            modal: true,
+            centered: false,
+            width: 260,
+            height: 220,
+            styleHtmlContent: true,
+            scroll: 'vertical',
+            cls: 'htmlcontent'
+        });
+
         
         
+
         this.dockedItems = [{
             xtype: 'toolbar',
             title: _tr('map', localStorage.getItem('lang')),
@@ -37,9 +49,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             new google.maps.Point(16, 31)
             )
 
-        infowindow = new google.maps.InfoWindow({
-            content: ''
-        })
+        
 
         var position = new google.maps.LatLng(50.85, 4.023);  //nearby Brussels
         var map = new Ext.Map({
@@ -208,6 +218,12 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
         };
 
 		
+        var showCenteredOverlay = function(title, content) {
+            overlay.setCentered(true);
+            overlay.html = content;
+            overlay.show();
+        };
+
         var addMarker = function(trafficevent, position) {
         
             if(trafficevent.category != undefined && trafficevent.category != null
@@ -219,13 +235,14 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                     icon : 'resources/img/'+(trafficevent.category.toLowerCase()).replace(" ", "")+'.png'
 				
                     ,
-                    html : "<h1 class='markerTitle' id='incident'>"+trafficevent.location+"</h1> <p class='markerContent'>"+trafficevent.message+"</p>"
+                    html : trafficevent.location+" "+trafficevent.message
                 });
                 google.maps.event.addListener(marker, 'click', function() {
-                    //var infoBox = new InfoBox({latlng: marker.getPosition(), map: map.map, html : this.html});
+                    
                     map.map.setCenter(this.position);
-                    infowindow.setContent(this.html);
-                    infowindow.open(map.map,this);
+
+                    showCenteredOverlay(marker.title, marker.html);
+                    
                 });
             }
 	    
@@ -241,9 +258,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             });
             google.maps.event.addListener(marker, 'click', function() {
                 map.map.setCenter(this.position);
-                infowindow.setContent(this.html);
-                infowindow.open(map.map,this);
-					
+                showCenteredOverlay(marker.title, marker.html);
             });
 	    
         };
@@ -259,9 +274,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             });
             google.maps.event.addListener(marker, 'click', function() {
                 map.map.setCenter(this.position);
-                infowindow.setContent(this.html);
-                infowindow.open(map.map,this);
-					
+                showCenteredOverlay(marker.title, marker.html);				
             });
 	    
         };

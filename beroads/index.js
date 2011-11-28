@@ -12,6 +12,7 @@ Ext.setup({
     
     onReady: function() {
 	
+        
 		/* Checking preferences */
 		
 		if(localStorage.getItem('lang') == undefined || localStorage.getItem('lang') == null){
@@ -38,6 +39,7 @@ Ext.setup({
             
             title: 'BeRoads',
             name : 'BeRoads', 
+            
             
             /* Credits and overview pages to show on 'About' section */
             aboutPages: [{
