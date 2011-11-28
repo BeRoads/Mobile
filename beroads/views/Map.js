@@ -218,7 +218,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
         };
 
 		
-        var showCenteredOverlay = function(title, content) {
+        var showCenteredOverlay = function(content) {
             overlay.setCentered(true);
             overlay.html = content;
             overlay.show();
@@ -241,7 +241,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                     
                     map.map.setCenter(this.position);
 
-                    showCenteredOverlay(marker.title, marker.html);
+                    showCenteredOverlay(marker.html);
                     
                 });
             }
@@ -258,7 +258,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             });
             google.maps.event.addListener(marker, 'click', function() {
                 map.map.setCenter(this.position);
-                showCenteredOverlay(marker.title, marker.html);
+                showCenteredOverlay(marker.html);
             });
 	    
         };
@@ -274,7 +274,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             });
             google.maps.event.addListener(marker, 'click', function() {
                 map.map.setCenter(this.position);
-                showCenteredOverlay(marker.title, marker.html);				
+                showCenteredOverlay(marker.html);				
             });
 	    
         };
