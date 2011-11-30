@@ -270,8 +270,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
                 title: radar.id,
-//				html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
-                html : "<div class=\"radar infowindow\"><h1>Radar<h1><p>Speed Limit : "+radar.speedLimit+"</p></div>",
+                html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
                 icon : 'resources/img/radar.png'
             });
             google.maps.event.addListener(marker, 'click', function() {
