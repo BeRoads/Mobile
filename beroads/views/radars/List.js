@@ -21,7 +21,7 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
 
         this.list = new Ext.List({
             grouped: false,
-            itemTpl: '<span class="name">{name}</span> <span class="secondary">{speedLimit}</span>',
+            itemTpl: '<span class="listItemSpan"><span class="speedLimit">{speedLimit}</span> <span class="name">{name}</span></span>',
             loadingText: "Loading...",
             store: null
         });

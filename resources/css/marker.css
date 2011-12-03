@@ -1,20 +1,51 @@
-.markerTitle {
-
-	font-size : 20px;
-	width : 98%;
-	margin-left : 1.5%;
-	padding : 3%;
+.popupMarker {
+	background: transparent !important;
+	box-shadow: none !important;
 }
 
-.markerContent {
+.popupMarker:before {
+	content: "";
+	position: absolute;
+	bottom: 2px;
+	left: 50%;
+	margin-left: -10px;
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #000;
+	-webkit-transform: rotate(-45deg);
+	border-radius: 2px;
+}
 
-	font-size : 14px;
-	width : 100%;
-	padding : 5%;
+
+.popupMarker .x-panel-body {
+	background: #000 !important;
+	color: #fff !important !important;
+	text-align: center !important;
+	padding-bottom: 5px;
+}
+
+
+.popupMarker .x-panel-body .x-html {
+	padding: 0 !important;
+}
+
+.popupMarker .popupTitle, .popupDescription {
+	color: #fff;
+	display: block;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.popupMarker .popupTitle {
+	font-size: 14px;
+}
+
+.popupMarker .popupDescription {
+	font-size: 11px;
 }
 
 #incident {
-
 	background-color : red;
 }
 

@@ -11,11 +11,11 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             floating: true,
             modal: true,
             centered: false,
-            width: 260,
-            height: 220,
+            width: 166,
+            height: 'auto',
             styleHtmlContent: true,
             scroll: 'vertical',
-            cls: 'htmlcontent'
+            cls: 'popupMarker htmlcontent'
         });
 
         
@@ -270,7 +270,8 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
                 title: radar.id,
-                html : "<p>"+radar.name+"</p><br /><p>Speed Limit : "+radar.speedLimit,
+//                html : "<span class=\"popupTitle\">"+radar.name+"</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
+                html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
                 icon : 'resources/img/radar.png'
             });
             google.maps.event.addListener(marker, 'click', function() {

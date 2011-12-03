@@ -4,10 +4,18 @@
  *
 ************/
 
+.x-list {
+	background: #ddd;
+}
+
+
+
 /* TitleBar */
 .x-panel-body .x-toolbar-dark {
 	background: #333 url(../img/titlebar_background.png) bottom repeat-x;
 }
+
+
 
 /* Settings Icon */
 #ext-comp-1008 img {
@@ -26,6 +34,8 @@
 	height: 48px;
 }
 
+
+
 /* Menu Item */
 .x-panel .x-tab {
 	width: 60px;
@@ -33,6 +43,8 @@
 	position: relative;
 	top: -1px;
 }
+
+
 
 /* Menu Text */
 .x-tabbar span.x-button-label {
@@ -42,12 +54,16 @@
 	top: -5px;
 }
 
+
+
 /* Background Menu_item Active */
 .x-tabbar .x-tab-normal.x-tab-active {
 	background: url(../img/tabbar_active_background.png) center repeat-x;
 	height: 48px;
 	-webkit-border-radius: 6px;
 }
+
+
 
 /* Menu IMG */
 .x-tabbar .x-tab-normal img {
@@ -57,6 +73,8 @@
 	top: -2px;
 	background-position: center center;
 }
+
+
 
 /********* Menu Items backgrund */
 	.x-tabbar .x-tab-normal img.map {
@@ -102,3 +120,55 @@
 	.x-tabbar .x-tab-normal.x-tab-active img.more01 {
 		background: url(../img/more_icon_active.png) no-repeat;
 	}
+
+
+
+/* LIST ITEM */
+.x-list-item-body {
+	background: url(../img/bg_list.jpg) repeat-x;
+	line-height: 45px;
+	border-bottom: 1px solid #828282;
+	margin-bottom: 1px;
+	box-shadow: 0 1px 0 #a2a2a2;
+	padding-left: 50px;
+}
+
+
+
+.x-list-item {
+	background: #c2c2c2;
+	padding-bottom: 1px;
+	text-shadow: 0 1px 0 #fff;
+	color: #333;
+	position: relative;
+}
+
+.x-item:active .x-list-item-body, .x-item-selected .x-list-item-body {
+	background: url(../img/bg_list_active.jpg);
+}
+
+.thumbnail, .speedLimit {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 5px;
+}
+
+.speedLimit {
+	background: url(../img/bg_speedlimit.png) center center no-repeat;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-top: -21px;
+}
+
+.thumbnail {
+	margin-top: -16px;
+	left: 8px;
+}
+
+.x-list-round {
+	background: #fff;
+}
