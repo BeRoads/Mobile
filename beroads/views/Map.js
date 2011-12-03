@@ -1,3 +1,4 @@
+
 Beroads.views.Map = Ext.extend(Ext.Panel, {
     
     mapText: '',
@@ -30,7 +31,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             }, {
                 ui: 'plain',
                 iconCls: 'preferences',
-                iconMask: true,
+                iconMask: false,
                 scope: this,
                 handler: function(){
                     var settingsPage = new Beroads.views.Settings({

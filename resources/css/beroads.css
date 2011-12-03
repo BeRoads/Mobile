@@ -18,13 +18,14 @@
 
 
 /* Settings Icon */
-#ext-comp-1008 img {
-	background: url(../img/settings_icon.png);
-	width: 34px;
-	height: 29px;
-	position: relative;
-	top: -5px;
-	right: -7px;
+.preferences {
+	display: block !important;
+	background: url(../img/settings_icon.png) !important;
+	width: 34px !important;
+	height: 29px !important;
+	position: relative !important;
+	top: -5px !important;
+	right: -7px !important;
 }
 
 
@@ -171,4 +172,65 @@
 
 .x-list-round {
 	background: #fff;
+}
+
+
+.x-button-back {
+	background: url(../img/bg_list.jpg) repeat-x !important;
+}
+
+.x-button-back:after {
+	background: url(../img/bg_list.jpg) repeat-x !important;
+	border-radius: 5px;
+}
+
+.x-button-back span {
+	color: #000 !important;
+	text-shadow: 0 1px 0 #fff !important;
+}
+
+.x-field-toggle .x-slider.x-toggle-on {
+	background: url(../img/bg_togglesettings.jpg) repeat-x !important;
+}
+
+.x-slider {
+	height: 27px !important;
+	overflow: visible !important;
+	border-radius: 5px !important;
+}
+
+.x-thumb::before {
+	border-radius: 5px !important;
+	width: 45px !important;
+	height: 25px !important;
+	top: 0px !important;
+	left: -0px !important;
+}
+
+.x-input-toggle {
+	position: absolute !important;
+	right: 0 !important;
+}
+
+.x-form-fieldset-title {
+	margin-left: 3px !important;
+}
+
+.x-form-label {
+	background: #fff !important;
+}
+
+.x-form-label span, .x-input-text {
+	font-size: 17px !important;
+	font-weight: bold !important;
+}
+
+.x-form .x-panel-body {
+	background: url(../img/bg_settings.jpg) !important;
+}
+
+.x-form-fieldset-instructions {
+	font-size: 15px !important;
+	color: #4c596e !important;
+	text-shadow: 0 1px #fff !important;
 }
