@@ -83,15 +83,7 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
                 },
                 listeners: {
                 	
-                    load: { fn: this.initializeData, scope: this },
-                    exception: function(proxy, exception, operation) {
-		                	
-							//show error page (like a fail whale, with a car :D)
-							var sessionCard = new Beroads.views.FailCar({
-								prevCard: this
-							});
-							cmp.setActiveItem(sessionCard);
-		        	}
+                    load: { fn: this.initializeData, scope: this }
                 }
             });
         this.list.store.load(); 

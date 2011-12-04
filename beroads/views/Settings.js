@@ -11,13 +11,6 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
             handler: this.onCancelAction
         };
 
-        titlebar = {
-            id: 'userFormTitlebar',
-            xtype: 'toolbar',
-            title: _tr('settings', localStorage.getItem('lang')),
-            items: [ cancelButton ]
-        };
-
         saveButton = {
             id: 'userFormSaveButton',
             text: _tr('save', localStorage.getItem('lang')),
@@ -26,12 +19,16 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
             scope: this
         };
 
-        buttonbar = {
+        titlebar = {
+            id: 'userFormTitlebar',
             xtype: 'toolbar',
-            dock: 'bottom',
-            items: [{xtype: 'spacer'}, saveButton]
+            title: _tr('settings', localStorage.getItem('lang')),
+            items: [ cancelButton, {xtype: 'spacer'}, saveButton ]
         };
 
+        
+
+        
         fields = {
             xtype: 'fieldset',
             id: 'userFormFieldset',
@@ -105,7 +102,7 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 
         Ext.apply(this, {
             scroll: 'vertical',
-            dockedItems: [ titlebar, buttonbar ],
+            dockedItems: [ titlebar],
             items: [ fields ]
         });
 
