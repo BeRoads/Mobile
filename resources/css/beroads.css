@@ -64,6 +64,15 @@
 	-webkit-border-radius: 6px;
 }
 
+.x-tab-normal {
+	display: none !important;
+}
+
+.x-tab-normal.x-iconalign-left {
+	display: box !important;
+	display: -webkit-box !important;
+}
+
 
 
 /* Menu IMG */
@@ -233,4 +242,10 @@
 	font-size: 15px !important;
 	color: #4c596e !important;
 	text-shadow: 0 1px #fff !important;
+}
+
+.x-button.x-button-confirm {
+	background: url(../img/bg_list.jpg) repeat-x !important;
+	color: #000 !important;
+	text-shadow: 0 1px 0 #fff !important;
 }
