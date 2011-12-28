@@ -57,15 +57,15 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
                 model: 'Traffic',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    url : 'http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.jsonp',
                     extraParams : { 
-                    				format : 'json' , 
+                    				
                     				from : coords.latitude+","+coords.longitude, 
                     				area : localStorage.getItem('area')
                     			},
                     reader: {
                         type: 'json',
-                        root: 'item'
+                        root: 'TrafficEvent.item'
                     },
                     listeners: {
 		               	exception: function(proxy, exception, operation) {
@@ -98,9 +98,8 @@ Beroads.views.TrafficList = Ext.extend(Ext.Panel, {
 
     
     initializeData: function(data) {
-	
 			var traficevents = []; 
-
+            data = data.data;
 		    for (var i = 0; i < data.length; i++) {
 		        traficevents.push(data.items[i].data);
 		    }

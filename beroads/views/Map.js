@@ -122,21 +122,20 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 		
 			var coords = map.geo.coords;
         
-		
             if(localStorage.getItem('displayTraffic')=='true'){
 
                 Ext.util.JSONP.request({
-                    url: 'http://91.121.10.214/The-DataTank/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all/',
+                    url: 'http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.json',
                     callbackKey : 'callback',
                     params : { 
-                        format : 'jsonp' ,
-                        from : coords.Pa+","+coords.Qa,
+                        
+                        from : coords.lat()+","+coords.lng(),
                         area : localStorage.getItem('area')
                     },
 		        
                     callback: function(data) {
-
-                        data = data.item;
+                        
+                        data = data.TrafficEvent.item;
                         var trafficevents = [];
 			
                         // Add points to the map
@@ -158,16 +157,15 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             if(localStorage.getItem('displayRadars')=='true'){
 
                 Ext.util.JSONP.request({
-                    url: 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    url: 'http://data.beroads.com/IWay/Radar.json',
                     callbackKey: 'callback',
                     params : { 
-                        format : 'jsonp' ,
-                        from : coords.Pa+","+coords.Qa,
+                        from : coords.lat()+","+coords.lng(),
                         area : localStorage.getItem('area')
                     },
                     callback: function(data) {
 			    
-                        data = data.item;
+                        data = data.Radar.item;
 
                         // Add points to the map
                         for (var i = 0; i < data.length; i++) {
@@ -187,18 +185,17 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             if(localStorage.getItem('displayCameras')=='true'){
 
                 Ext.util.JSONP.request({
-                    url: 'http://91.121.10.214/The-DataTank/IWay/Camera/',
+                    url: 'http://data.beroads.com/IWay/Camera.json',
 		        
                     callbackKey: 'callback',
                     params : { 
-                        format : 'jsonp' ,
-                        from : coords.Pa+","+coords.Qa,
+                        from : coords.lat()+","+coords.lng(),
                         area : localStorage.getItem('area')
                     },
 		        
                     callback: function(data) {
 
-                        data = data.item;
+                        data = data.Camera.item;
 
                         // Add points to the map
                         for (var i = 0; i < data.length; i++) {

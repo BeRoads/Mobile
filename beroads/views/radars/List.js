@@ -56,15 +56,15 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
                 model: 'Radar',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Radar/',
+                    url : 'http://data.beroads.com/IWay/Radar.json',
                     extraParams : { 
-                    		format : 'json',
+                    		
                     		from : coords.latitude+","+coords.longitude,
                     		area : localStorage.getItem('area')
                     },
                     reader: {
                         type: 'json',
-                        root: 'item'
+                        root: 'Radar.item'
                     },
                     listeners: {
 		               	exception: function(proxy, exception, operation) {
@@ -95,9 +95,9 @@ Beroads.views.RadarsList = Ext.extend(Ext.Panel, {
     },
     
     initializeData: function(data) {
-	
-		var radars = []; 
-
+	    
+        var radars = []; 
+        data = data.data;
 	    for (var i = 0; i < data.length; i++) {
 		       	
 		        radars.push(data.items[i].data);

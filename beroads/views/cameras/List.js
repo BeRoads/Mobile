@@ -54,15 +54,15 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
                 model: 'Camera',
                 proxy: {
                     type: 'scripttag',
-                    url : 'http://91.121.10.214/The-DataTank/IWay/Camera/',
+                    url : 'http://data.beroads.com/IWay/Camera.json',
                     extraParams : { 
-                    		format : 'json',
+                    		
                     		from : coords.latitude+","+coords.longitude,
                     		area : localStorage.getItem('area')
                     },
                     reader: {
                         type: 'json',
-                        root: 'item'
+                        root: 'Camera.item'
                     },
                     listeners: {
 		               	exception: function(proxy, exception, operation) {
@@ -89,8 +89,12 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
     
     initializeData: function(data) {
 	
+        
 		var cameras = []; 
+        var zones = data.collect('zone'), buttons = [];
 
+
+        data = data.data;
 	    for (var i = 0; i < data.length; i++) {
 		       	
 		        cameras.push(data.items[i].data);
@@ -99,10 +103,7 @@ Beroads.views.CamerasList = Ext.extend(Ext.Panel, {
 		Beroads.stores.Cameras.add.apply(Beroads.stores.Cameras, cameras);
 		Beroads.stores.Cameras.sort('city');
 		
-
 		// Gather dates, create a splitbutton around them
-        	var zones = data.collect('zone'),
-                buttons = [];
 
             for (var i = 0; i < zones.length; i++) {
                 buttons.push({
