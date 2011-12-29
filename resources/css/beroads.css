@@ -135,12 +135,12 @@
 
 /* LIST ITEM */
 .x-list-item-body {
-	background: url(../img/bg_list.jpg) repeat-x;
+	background: #d9d9d9 url(../img/bg_list.jpg) repeat-x;
 	line-height: 45px;
 	border-bottom: 1px solid #828282;
 	margin-bottom: 1px;
 	box-shadow: 0 1px 0 #a2a2a2;
-	padding-left: 50px;
+	padding-left: 60px;
 }
 
 
@@ -248,4 +248,31 @@
 	background: url(../img/bg_list.jpg) repeat-x !important;
 	color: #000 !important;
 	text-shadow: 0 1px 0 #fff !important;
+}
+
+span.name {
+	display: block;
+	font-weight: bold;
+}
+
+span.secondary {
+	font-size: 14px;
+	line-height: 21px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+span.distance {
+	position: absolute;
+	left: 10px;
+	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	background: #1346c9;
+	top: 10px;
+	padding: 0 5px;
+	font-size: 11px;
+	line-height: 25px;
+	border-radius: 3px;
+	border: 1px solid #fff;
 }
