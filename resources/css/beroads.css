@@ -185,17 +185,21 @@
 
 
 .x-button-back {
-	background: url(../img/bg_list.jpg) repeat-x !important;
+	
+	
+	background-color : white;
+	background: url(../img/bg_button_back.png) !important;
 }
 
 .x-button-back:after {
-	background: url(../img/bg_list.jpg) repeat-x !important;
+	background-color : white;
+	background: url(../img/bg_button_back.png) !important;
 	border-radius: 5px;
 }
 
 .x-button-back span {
-	color: #000 !important;
-	text-shadow: 0 1px 0 #fff !important;
+	color: white !important;
+	
 }
 
 .x-field-toggle .x-slider.x-toggle-on {

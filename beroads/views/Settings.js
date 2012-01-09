@@ -131,14 +131,9 @@ Beroads.views.Settings = Ext.extend(Ext.form.FormPanel, {
 		localStorage.setItem('displayRadars', (values['displayRadars']== 0 ? false : true));
 		localStorage.setItem('displayCameras', (values['displayCameras']== 0 ? false : true));
 		
-		Ext.getCmp('main').setActiveItem(this.prevCard, {
-                        type: 'slide',
-                        reverse: true,
-                        scope: this,
-                        after: function(){
-                            this.destroy();
-                        }
-        });
+        this.destroy();
+        window.location.reload();
+		
         
     }
 

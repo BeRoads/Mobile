@@ -5,7 +5,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
     permLink: '',
     id : 'map',    
     
-    
+
     initComponent: function(){
         
         var overlay = new Ext.Panel({
@@ -223,6 +223,19 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             overlay.show();
         };
 
+        var truncateContent = function (str){
+            var j = 0;
+            for(var i = 0; i < str.length; i++){
+                if(j==5){
+                    var trunc = str.substr(0, i);
+                    trunc += "...";
+                    return trunc;
+                }
+                if(str[i] == " ")
+                    j++;
+            }
+        };
+    
         var addMarker = function(trafficevent, position) {
         
             if(trafficevent.category != undefined && trafficevent.category != null
@@ -231,10 +244,8 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                     map: map.map,
                     position: position,
                     title: trafficevent.location,
-                    icon : 'resources/img/'+(trafficevent.category.toLowerCase()).replace(" ", "")+'.png'
-				
-                    ,
-                    html : trafficevent.location+" "+trafficevent.message
+                    icon : 'resources/img/'+(trafficevent.category.toLowerCase()).replace(" ", "")+'.png',
+                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+truncateContent(trafficevent.message)+'</span'
                 });
                 google.maps.event.addListener(marker, 'click', function() {
                     
@@ -252,7 +263,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
                 title: camera.id,
-                html : "<p>"+camera.city+"</p><img src='"+camera.img+"' />",
+                html : "<span class=\"popupTitle\">"+camera.city+"</span><img src='"+camera.img+"' />",
                 icon : 'resources/img/camera.png'
             });
             google.maps.event.addListener(marker, 'click', function() {

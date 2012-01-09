@@ -24,7 +24,7 @@ Beroads.views.TrafficDetail = Ext.extend(Ext.Panel, {
         
         this.items = [{
             styleHtmlContent: true,
-            tpl: new Ext.XTemplate( '<div class="trafic_overview"><h3>{location}</h3><h4>{message}</h4></div> {source}'),
+            tpl: new Ext.XTemplate( '<div class="trafic_overview"><h4>{message}</h4></div>Source : {source}'),
             data: this.record.data
         }];
         
