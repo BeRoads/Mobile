@@ -263,7 +263,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 map: map.map,
                 position: position,
                 title: camera.id,
-                html : "<span class=\"popupTitle\">"+camera.city+"</span><img src='"+camera.img+"' />",
+                html : "<span class=\"popupTitle\" >"+camera.city+"</span><img margin-bottom='0px' height='50%' width='100%' src='"+camera.img+"' />",
                 icon : 'resources/img/camera.png'
             });
             google.maps.event.addListener(marker, 'click', function() {

@@ -167,6 +167,7 @@
 
 .speedLimit {
 	background: url(../img/bg_speedlimit.png) center center no-repeat;
+	margin-left : 75%;
 	text-align: center;
 	font-size: 10px;
 	font-weight: bold;

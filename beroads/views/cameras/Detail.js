@@ -24,7 +24,7 @@ Beroads.views.CamerasDetail = Ext.extend(Ext.Panel, {
         
         this.items = [{
             styleHtmlContent: true,
-            tpl: new Ext.XTemplate( '<div class="camera_overview"><h3>{name}</h3><img src={img} /></div>'),
+            tpl: new Ext.XTemplate( '<div class="camera_overview"><h3>{name}</h3><img src={img} width="90%" height="80%"/></div>'),
             data: this.record.data
         }];
         
