@@ -51,7 +51,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             )
 
         
-
+	var myMask;
         var position = new google.maps.LatLng(50.85, 4.023);  //nearby Brussels
         var map = new Ext.Map({
 
@@ -105,25 +105,26 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
             })
             ],
 
-			
-				
-            listeners : {
-                maprender : function(comp, _map){
-               		 	
-                    setTimeout( function(){
-                        map.geo.updateLocation();
-                    } , 1000);
-                }
-            }
-        });
-        
-	
-        var refresh = function() {
-		
-			var coords = map.geo.coords;
-        
-            if(localStorage.getItem('displayTraffic')=='true'){
 
+
+		    listeners : {
+maprender : function(comp, _map){
+
+		    setTimeout( function(){
+				    map.geo.updateLocation();
+				    } , 1000);
+	    }
+		    }
+	});
+
+
+	var refresh = function(){
+
+	    var coords = map.geo.coords;
+	    var loadingMask = new Ext.LoadMask(Ext.getBody(), {msg:"Loading ..."}); 
+           
+	    if(localStorage.getItem('displayTraffic')=='true'){
+		loadingMask.show();
                 Ext.util.JSONP.request({
                     url: 'http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.json',
                     callbackKey : 'callback',
@@ -150,12 +151,13 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                         Beroads.stores.Traffic.add.apply(Beroads.stores.Traffic, trafficevents);
 					
                         Beroads.stores.Traffic.load();
+			loadingMask.hide();
                     }
                 });
             }
-
+	    
             if(localStorage.getItem('displayRadars')=='true'){
-
+		loadingMask.show(); 
                 Ext.util.JSONP.request({
                     url: 'http://data.beroads.com/IWay/Radar.json',
                     callbackKey: 'callback',
@@ -164,7 +166,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                         area : localStorage.getItem('area')
                     },
                     callback: function(data) {
-			    
+			
                         data = data.Radar.item;
 
                         // Add points to the map
@@ -178,12 +180,13 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                         }
                         Beroads.stores.Radars.add.apply(Beroads.stores.Radars, data);
                         Beroads.stores.Radars.sort('name');
+			loadingMask.hide();
                     }
                 });
             }	    
-
+	    
             if(localStorage.getItem('displayCameras')=='true'){
-
+		loadingMask.show();
                 Ext.util.JSONP.request({
                     url: 'http://data.beroads.com/IWay/Camera.json',
 		        
@@ -200,18 +203,19 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                         // Add points to the map
                         for (var i = 0; i < data.length; i++) {
                             var camera = data[i];		                
-                            if (camera.lng != 0 && camera.lat != 0 ) {
+                            
+			    if (camera.lng != 0 && camera.lat != 0 ) {
                                 var position = new google.maps.LatLng(camera.lat, camera.lng);
                                 addCamera(camera, position);
                             }
                         }
                         Beroads.stores.Cameras.add.apply(Beroads.stores.Cameras, data);
                         Beroads.stores.Cameras.sort('zone');
-                        
+                        loadingMask.hide();
                     }
                 });
             }
-
+	    
 	    
         };
 
@@ -234,6 +238,7 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
                 if(str[i] == " ")
                     j++;
             }
+	    return str;
         };
     
         var addMarker = function(trafficevent, position) {
@@ -290,8 +295,10 @@ Beroads.views.Map = Ext.extend(Ext.Panel, {
 	    
         };
 
-        map.geo.on('update', refresh);
-
+       
+	
+	
+	map.geo.on('update', refresh);
 	
         this.items = map;
        
