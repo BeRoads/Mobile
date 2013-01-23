@@ -1,0 +1,283 @@
+/************
+ *
+ * CSS STYLE FOR BEROADS PROJECT
+ *
+************/
+
+.x-list {
+	background: #ddd;
+}
+
+
+
+/* TitleBar */
+.x-panel-body .x-toolbar-dark {
+	background: #333 url(../img/titlebar_background.png) bottom repeat-x;
+}
+
+
+
+/* Settings Icon */
+.preferences {
+	display: block !important;
+	background: url(../img/settings_icon.png) !important;
+	width: 34px !important;
+	height: 29px !important;
+	position: relative !important;
+	top: -5px !important;
+	right: -7px !important;
+}
+
+
+/* TabBar */
+#ext-comp-1004 {
+	background: #000 url(../img/tabbar_background.png) repeat-x;
+	height: 48px;
+}
+
+
+
+/* Menu Item */
+.x-panel .x-tab {
+	width: 60px;
+	height: 48px;
+	position: relative;
+	top: -1px;
+}
+
+
+
+/* Menu Text */
+.x-tabbar span.x-button-label {
+	color: #fff;
+	font-size: 10px !important;
+	position: relative;
+	top: -5px;
+}
+
+
+
+/* Background Menu_item Active */
+.x-tabbar .x-tab-normal.x-tab-active {
+	background: url(../img/tabbar_active_background.png) center repeat-x;
+	height: 48px;
+	-webkit-border-radius: 6px;
+}
+
+.x-tab-normal {
+	display: none !important;
+}
+
+.x-tab-normal.x-iconalign-left {
+	display: box !important;
+	display: -webkit-box !important;
+}
+
+
+
+/* Menu IMG */
+.x-tabbar .x-tab-normal img {
+	width: 30px;
+	height: 25px;
+	position: relative;
+	top: -2px;
+	background-position: center center;
+}
+
+
+
+/********* Menu Items backgrund */
+	.x-tabbar .x-tab-normal img.map {
+		background: url(../img/map_icon.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-active img.map {
+		background: url(../img/map_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.traffic {
+		background: url(../img/traffic_icon.png) no-repeat;
+		background-position: center 4px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.traffic {
+		background: url(../img/traffic_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.radars {
+		background: url(../img/radars_icon.png) no-repeat;
+		background-position: 0px 0px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.radars {
+		background: url(../img/radars_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.cameras {
+		background: url(../img/cameras_icon.png) no-repeat;
+		background-position: center 4px !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.cameras {
+		background: url(../img/cameras_icon_active.png) no-repeat;
+	}
+	
+	.x-tabbar .x-tab-normal img.more01 {
+		background: url(../img/more_icon.png) no-repeat;
+		background-position: center center !important;
+	}
+	
+	.x-tabbar .x-tab-normal.x-tab-active img.more01 {
+		background: url(../img/more_icon_active.png) no-repeat;
+	}
+
+
+
+/* LIST ITEM */
+.x-list-item-body {
+	background: #d9d9d9 url(../img/bg_list.jpg) repeat-x;
+	line-height: 45px;
+	border-bottom: 1px solid #828282;
+	margin-bottom: 1px;
+	box-shadow: 0 1px 0 #a2a2a2;
+	padding-left: 60px;
+}
+
+
+
+.x-list-item {
+	background: #c2c2c2;
+	padding-bottom: 1px;
+	text-shadow: 0 1px 0 #fff;
+	color: #333;
+	position: relative;
+}
+
+.x-item:active .x-list-item-body, .x-item-selected .x-list-item-body {
+	background: url(../img/bg_list_active.jpg);
+}
+
+.thumbnail, .speedLimit {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 5px;
+}
+
+.speedLimit {
+	background: url(../img/bg_speedlimit.png) center center no-repeat;
+	margin-left : 75%;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-top: -21px;
+}
+
+.thumbnail {
+	margin-top: -16px;
+	left: 8px;
+}
+
+.x-list-round {
+ 
+}
+
+
+.x-button-back {
+	
+	
+	background-color : white;
+	background: url(../img/bg_button_back.png) !important;
+}
+
+.x-button-back:after {
+	background-color : white;
+	background: url(../img/bg_button_back.png) !important;
+	border-radius: 5px;
+}
+
+.x-button-back span {
+	color: white !important;
+	
+}
+
+.x-field-toggle .x-slider.x-toggle-on {
+	background: url(../img/bg_togglesettings.jpg) repeat-x !important;
+}
+
+.x-slider {
+	height: 27px !important;
+	overflow: visible !important;
+	border-radius: 5px !important;
+}
+
+.x-thumb::before {
+	border-radius: 5px !important;
+	width: 45px !important;
+	height: 25px !important;
+	top: 0px !important;
+	left: -0px !important;
+}
+
+.x-input-toggle {
+	position: absolute !important;
+	right: 0 !important;
+}
+
+.x-form-fieldset-title {
+	margin-left: 3px !important;
+}
+
+.x-form-label {
+	background: #fff !important;
+}
+
+.x-form-label span, .x-input-text {
+	font-size: 17px !important;
+	font-weight: bold !important;
+}
+
+.x-form .x-panel-body {
+	background: url(../img/bg_settings.jpg) !important;
+}
+
+.x-form-fieldset-instructions {
+	font-size: 15px !important;
+	color: #4c596e !important;
+	text-shadow: 0 1px #fff !important;
+}
+
+.x-button.x-button-confirm {
+	background: url(../img/bg_list.jpg) repeat-x !important;
+	color: #000 !important;
+	text-shadow: 0 1px 0 #fff !important;
+}
+
+span.name {
+	display: block;
+	font-weight: bold;
+}
+
+span.secondary {
+	font-size: 14px;
+	line-height: 21px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+span.distance {
+	position: absolute;
+	left: 10px;
+	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	background: #1346c9;
+	top: 10px;
+	padding: 0 5px;
+	font-size: 11px;
+	line-height: 25px;
+	border-radius: 3px;
+	border: 1px solid #fff;
+}
