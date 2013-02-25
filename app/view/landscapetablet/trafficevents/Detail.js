@@ -1,0 +1,12 @@
+Ext.define('BeRoads.view.landscapetablet.trafficevents.Detail', {
+    extend:'BeRoads.view.trafficevents.Detail',
+    xtype:'trafficeventDetail',
+
+    config:{
+        styleHtmlContent:true,
+        scrollable:'vertical',
+        tpl:[
+            '<div class="trafic_overview"><h4>{message}</h4></div>Source : {source}'
+        ]
+    }
+});

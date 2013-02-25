@@ -4,22 +4,6 @@ Ext.define('BeRoads.view.radars.Detail', {
     xtype:'radarDetail',
 
     config:{
-        dockedItems:[
-            {
-                xtype:'toolbar',
-                config : {
-                    items:[
-                        {
-                            text:'back',
-                            ui:'back',
-                            handler:function () {
-                                Ext.Viewport.setActiveItem('radarList', {type:'slide', direction:'right'});
-                            }
-                        }
-                    ]}
-            }
-
-        ],
         styleHtmlContent:true,
         scrollable:'vertical',
         tpl:[

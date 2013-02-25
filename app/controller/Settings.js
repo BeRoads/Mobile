@@ -16,7 +16,6 @@ Ext.define('BeRoads.controller.Settings', {
         control:{
             settingsPanel : {
                 show : 'loadSettingsPanel',
-                erased : 'destroySettingsPanel'
             },
             saveButton:{
                 tap:'onSaveButtonTap'

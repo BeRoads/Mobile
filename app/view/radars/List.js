@@ -1,7 +1,7 @@
 Ext.define('BeRoads.view.radars.List', {
     extend:'Ext.List',
-    id:'radarList',
-    xtype : 'radarList',
+    id:'radarsList',
+    xtype : 'radarsList',
 
     config:{
         title:_tr('radars', localStorage.getItem('lang')),

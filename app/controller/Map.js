@@ -1,20 +1,24 @@
 Ext.define('BeRoads.controller.Map', {
     extend: 'Ext.app.Controller',
 
-    views: ['Map'],
-    stores : ['offline.Radar', 'online.Radar','offline.Camera', 'online.Camera', 'offline.Traffic', 'online.Traffic'],
-
+    views: ['Main', 'Map', 'trafficevents.List'],
+    stores : ['offline.Radar', 'online.Radar','offline.Webcam', 'online.Webcam', 'offline.TrafficEvent', 'online.TrafficEvent'],
+    markers : {
+        trafficevents : [],
+        radars : [],
+        cameras : []
+    },
     config: {
         refs: {
+            infoPanel : '#infoPanel',
             trafficMap: '#trafficMap',
-            main: '#mainpanel',
+            mapView : '#mapView',
             preferenceButton : '#preferenceButton',
             saveButton : '#saveButton'
         },
         control: {
             trafficMap: {
-                maprender: 'renderTrafficMap',
-                painted : 'loadTrafficMap'
+                maprender: 'renderTrafficMap'
             },
             preferenceButton : {
                 tap : 'openPreferences'
@@ -27,66 +31,66 @@ Ext.define('BeRoads.controller.Map', {
         this.callParent(arguments);
     },
 
-    openPreferences : function() {
-
-    },
-
-    loadTrafficMap : function(){
-
-    },
 
     renderTrafficMap : function(comp, map, eOpts) {
 
-        //this.getPreferenceButton().show();
 
-        console.log('[+] Rendering traffic map ...');
+        //this.getPreferenceButton().show();
+        var me = this;
+
         var showCenteredOverlay = function (data) {
-            Ext.Msg.alert(data.title, data.html, Ext.emptyFn);
+            console.log("open content !");
+            me.getInfoPanel().setHtml(data.html);
+            me.getInfoPanel().show();
+
         };
 
         var addCamera = function (camera, position) {
-            var marker = new google.maps.Marker({
+            me.markers.cameras[camera.id] = new google.maps.Marker({
+                id : camera.id,
                 map:map,
                 position:position,
                 title:camera.name,
-                html : "<span class=\"popupTitle\" >"+camera.city+"</span><img margin-bottom='0px' height='50%' width='100%' src='"+camera.img+"' />",
+                html : '<div style="color:#42cd27">'+camera.city+"<img margin-bottom='0px' height='90%' width='100%' src='"+camera.img+"' /></div>",
                 icon:'resources/img/camera.png'
             });
-            google.maps.event.addListener(marker, 'click', function () {
+            google.maps.event.addListener(me.markers.cameras[camera.id], 'click', function () {
                 map.setCenter(this.position);
-                showCenteredOverlay(marker);
+                showCenteredOverlay(me.markers.cameras[camera.id]);
             });
         };
         var addRadar = function (radar, position) {
 
-            var marker = new google.maps.Marker({
+            me.markers.radars[radar.id] = new google.maps.Marker({
+                id : radar.id,
                 map:map,
                 position:position,
                 title:radar.name,
                 html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
                 icon:'resources/img/radar.png'
             });
-            google.maps.event.addListener(marker, 'click', function () {
+            google.maps.event.addListener(me.markers.radars[radar.id], 'click', function () {
                 map.setCenter(this.position);
-                showCenteredOverlay(marker);
+                //showCenteredOverlay(me.markers.radars[radar.id]);
             })
         };
 
         var addMarker = function (trafficevent, position) {
 
             if (trafficevent.category != undefined && trafficevent.category != null) {
-                var marker = new google.maps.Marker({
+                me.markers.trafficevents[trafficevent.id] = new google.maps.Marker({
+                    id : trafficevent.id,
                     map:map,
                     position:position,
                     title:trafficevent.location,
-                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+truncateContent(trafficevent.message)+'</span>',
+                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span style=\"popupDescription\">'+
+                        truncateContent(trafficevent.message)+'</span>',
                     icon:'resources/img/' + (trafficevent.category.toLowerCase()).replace(" ", "") + '.png'
                 });
-                google.maps.event.addListener(marker, 'click', function () {
+                google.maps.event.addListener(me.markers.trafficevents[trafficevent.id], 'click', function () {
 
                     map.setCenter(this.position);
-
-                    showCenteredOverlay(marker);
+                    showCenteredOverlay(me.markers.trafficevents[trafficevent.id]);
 
                 });
             }
@@ -103,7 +107,7 @@ Ext.define('BeRoads.controller.Map', {
         });
         if (localStorage.getItem('displayTraffic') == 'true') {
 
-            var trafficStore = Ext.getStore('offline.Traffic');
+            var trafficStore = Ext.getStore('offline.TrafficEvent');
             trafficStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
@@ -123,7 +127,7 @@ Ext.define('BeRoads.controller.Map', {
         }
 
         if (localStorage.getItem('displayCameras') == 'true') {
-            var cameraStore = Ext.getStore('offline.Camera');
+            var cameraStore = Ext.getStore('offline.Webcam');
             cameraStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);

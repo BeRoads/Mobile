@@ -6,49 +6,15 @@ Ext.define('BeRoads.view.Main', {
 
     requires:[
         'BeRoads.view.Map',
-        'BeRoads.view.traffic.List',
+        'BeRoads.view.trafficevents.List',
         'BeRoads.view.radars.List',
-        'BeRoads.view.cameras.List'
+        'BeRoads.view.webcams.List'
     ],
     config:{
         autoDestroy: false,
 
         navigationBar: {
-
-            items: [
-                {
-                    xtype: 'button',
-                    id: 'preferenceButton',
-                    iconCls: 'preferences',
-                    text: '',
-                    align: 'right',
-                    hidden: true,
-                    hideAnimation: Ext.os.is.Android ? false : {
-                        type: 'fadeOut',
-                        duration: 200
-                    },
-                    showAnimation: Ext.os.is.Android ? false : {
-                        type: 'fadeIn',
-                        duration: 200
-                    }
-                },
-                {
-                    xtype: 'button',
-                    id: 'saveButton',
-                    text: 'Save',
-                    ui: 'sencha',
-                    align: 'right',
-                    hidden: true,
-                    hideAnimation: Ext.os.is.Android ? false : {
-                        type: 'fadeOut',
-                        duration: 200
-                    },
-                    showAnimation: Ext.os.is.Android ? false : {
-                        type: 'fadeIn',
-                        duration: 200
-                    }
-                }
-            ]
+            hidden : true
         },
         items:[
             {
@@ -65,8 +31,8 @@ Ext.define('BeRoads.view.Main', {
                 items:[
                     { xtype:'trafficMap' },
                     { xtype:'trafficList' },
-                    { xtype:'radarList' },
-                    { xtype:'cameraList' }
+                    { xtype:'radarsList' },
+                    { xtype:'webcamsList' }
                 ]
 
             }

@@ -4,6 +4,7 @@ Ext.define('BeRoads.view.AboutList', {
     id:'aboutList',
 
     config:{
+        title : 'About',
         onItemDisclosure:true,
         store:null,
         itemTpl:'<div class="page">{title}</div>'

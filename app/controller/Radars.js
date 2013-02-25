@@ -6,11 +6,11 @@ Ext.define('BeRoads.controller.Radars', {
 
     config: {
         refs: {
-            radarList: '#radarList',
+            radarsList: '#radarsList',
             main: '#mainpanel'
         },
         control: {
-            radarList: {
+            radarsList: {
                 show :'loadRadarPanel',
                 disclose: 'onItemTap'
             }
@@ -26,8 +26,8 @@ Ext.define('BeRoads.controller.Radars', {
     loadRadarPanel : function() {
 
 
-        Ext.getCmp('radarList').setStore(Ext.getStore('offline.Radar'));
-        Ext.getCmp('radarList').refresh();
+        /*this.getRadarsList().setStore(Ext.getStore('offline.Radar'));
+        this.getRadarsList().refresh();*/
 
     },
 

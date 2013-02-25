@@ -6,16 +6,13 @@ Ext.define('BeRoads.view.Settings', {
     id : 'settingsPanel',
 
     config : {
+        title :  _tr('preferences', localStorage.getItem('lang'))
     },
 
     initialize: function(){
+        this.defaultInstructions = _tr('settings_message', localStorage.getItem('lang'));
 
         this.callParent(arguments);
-
-    	this.defaultInstructions = _tr('settings_message', localStorage.getItem('lang'));
-
-
-
     }
 
 
