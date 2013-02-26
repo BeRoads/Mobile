@@ -51,7 +51,7 @@ Ext.define('BeRoads.controller.Map', {
                 map:map,
                 position:position,
                 title:camera.name,
-                html : '<div style="color:#42cd27">'+camera.city+"<img margin-bottom='0px' height='90%' width='100%' src='"+camera.img+"' /></div>",
+                html : '<span class=\"popupTitle\">'+camera.city+"</span><img margin-bottom='0px' height='90%' width='100%' src='"+camera.img+"' />",
                 icon:'resources/img/camera.png'
             });
             google.maps.event.addListener(me.markers.cameras[camera.id], 'click', function () {
@@ -83,8 +83,8 @@ Ext.define('BeRoads.controller.Map', {
                     map:map,
                     position:position,
                     title:trafficevent.location,
-                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span style=\"popupDescription\">'+
-                        truncateContent(trafficevent.message)+'</span>',
+                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
+                        trafficevent.message+'</span>',
                     icon:'resources/img/' + (trafficevent.category.toLowerCase()).replace(" ", "") + '.png'
                 });
                 google.maps.event.addListener(me.markers.trafficevents[trafficevent.id], 'click', function () {

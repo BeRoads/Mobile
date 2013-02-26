@@ -9,6 +9,7 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
             userFormFieldset:'#userFormFieldset',
             saveButton:'#saveButton',
             settingsPanel : '#settingsPanel',
+			navigationTabPanel : '#navigationTabPanel',
             preferenceButton : '#preferenceButton',
             moreButton : '#moreButton',
             mapNavigationView : '#mapNavigationView'
@@ -49,14 +50,13 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
     onSaveButtonTap:function () {
 
         //we reset this to 1970 epoch
-        var items = this.getUserFormFieldset().config.items;
-        localStorage.setItem('area', items[0].value);
-        localStorage.setItem('lang', items[1].items[0].value);
-        localStorage.setItem('displayTraffic', (items[2].items[0].value == 0 ? false : true));
-        localStorage.setItem('displayRadars', (items[2].items[1].value == 0 ? false : true));
-        localStorage.setItem('displayCameras', (items[2].items[2].value == 0 ? false : true));
+        var values = this.getUserFormFieldset().getFieldsAsArray();
+        localStorage.setItem('area', values[0].getValue());
+        localStorage.setItem('lang', values[1].getValue());
+        localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
+        localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
+        localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
         localStorage.setItem('lastUpdate', 0);
-
         this.destroy();
         window.location.reload();
     },
@@ -70,7 +70,7 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
             url: 'app/view/credits.html',
             success: function(rs){
                 me.getSaveButton().hide();
-                me.getMapNavigationView().push({
+                me.getNavigationTabPanel().push({
                     xtype: 'panel',
                     title: 'About',
                     html:rs.responseText,

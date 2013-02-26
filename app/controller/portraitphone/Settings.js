@@ -53,7 +53,8 @@ Ext.define('BeRoads.controller.portraitphone.Settings', {
     },
 
     loadSettingsPanel : function(){
-
+		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+		
         this.getPreferenceButton().hide();
         this.getSaveButton().show();
         this.getMain().getNavigationBar().setTitle(_tr('settings', localStorage.getItem('lang')));
@@ -63,17 +64,16 @@ Ext.define('BeRoads.controller.portraitphone.Settings', {
 
     onSaveButtonTap:function () {
 
-        console.log();
+        
         //we reset this to 1970 epoch
-        var values = this.getUserFormFieldset().getFieldsAsArray();
-        localStorage.setItem('area', values[0].getValue());
-        localStorage.setItem('lang', values[1].getValue());
-        localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
-        localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
-        localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
-        localStorage.setItem('lastUpdate', 0);
-
-        this.destroy();
+       	 var values = this.getUserFormFieldset().getFieldsAsArray();
+	    
+	    localStorage.setItem('area', values[0].getValue());
+	    localStorage.setItem('lang', values[1].getValue());
+	    localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
+	    localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
+	    localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
+	    localStorage.setItem('lastUpdate', 0);
         window.location.reload();
     },
     onMoreButtonTap:function () {

@@ -46,7 +46,7 @@ Ext.define('BeRoads.controller.landscapetablet.About', {
     onItemTap:function (cmp, record, target, index, e, eOpts ) {
         console.log(record);
         if (record !== undefined) {
-            this.getMain().push({
+            this.getMapNavigationView().push({
                 xtype: 'htmlpage',
                 url: record.getData().url
             });

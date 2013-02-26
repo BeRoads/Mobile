@@ -3,7 +3,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 
     views:['trafficevent.List', 'trafficevent.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
-    loaded : false,
+    displayed : false,
     config: {
         refs: {
             infoPanel : '#infoPanel',
@@ -19,6 +19,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
         }
     },
 
+
     //TODO : really necessary ??
     eraseTrafficEventsPanel : function(){
         this.destroy();
@@ -26,6 +27,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 
     init:function () {
         console.log("Init traffic list controller");
+		this.displayed = true;
         this.callParent(arguments);
 
     },
@@ -44,10 +46,24 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
         // Tell the parent panel to animate to the new card
         this.getTrafficeventsNavigationView().push({
             xtype: 'trafficeventDetail',
+			id : 'trafficEventDetail',
             title: record.getData().location,
             data: record.getData(),
             prevCard: this
         });
+		var title = this.getTrafficeventsNavigationView().getNavigationBar().getTitle();
+		
+		var me = this;
+		var scroll = function(start, end, text, offset){
+			me.getTrafficeventsNavigationView().getNavigationBar().setTitle(text.substring(start%offset, end%offset));
+			
+			//TODO : find a good way to stop it !
+			// make the string like a loop feed
+			if(me.displayed){
+				setTimeout(function(){scroll(++start, ++end, text, offset);}, 250);
+			}
+		};
+		scroll(0, 30, title, title.length);
 
     }
 });

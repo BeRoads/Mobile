@@ -8,7 +8,8 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
             menuList : '#menuList',
             navigationMenu : '#navigationMenu',
             mapNavigationView : '#mapNavigationView',
-            preferenceButton : '#preferenceButton'
+            preferenceButton : '#preferenceButton',
+			infoPanel : "#infoPanel"
         },
         control: {
             menuList :{
@@ -20,6 +21,7 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
 
     openPreferences : function() {
 
+		this.getInfoPanel().hide();
         this.getPreferenceButton().hide();
         this.getMapNavigationView().push({
             xtype: 'settings',

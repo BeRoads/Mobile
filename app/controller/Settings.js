@@ -46,15 +46,13 @@ Ext.define('BeRoads.controller.Settings', {
     onSaveButtonTap:function () {
 
         //we reset this to 1970 epoch
-        var items = this.getUserFormFieldset().config.items;
-        localStorage.setItem('area', items[0].value);
-        localStorage.setItem('lang', items[1].items[0].value);
-        localStorage.setItem('displayTraffic', (items[2].items[0].value == 0 ? false : true));
-        localStorage.setItem('displayRadars', (items[2].items[1].value == 0 ? false : true));
-        localStorage.setItem('displayCameras', (items[2].items[2].value == 0 ? false : true));
-        localStorage.setItem('lastUpdate', 0);
-
-        this.destroy();
+       	var values = this.getUserFormFieldset().getFieldsAsArray();
+	    localStorage.setItem('area', values[0].getValue());
+	    localStorage.setItem('lang', values[1].getValue());
+	    localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
+	    localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
+	    localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
+	    localStorage.setItem('lastUpdate', 0);
         window.location.reload();
     },
     onMoreButtonTap:function () {

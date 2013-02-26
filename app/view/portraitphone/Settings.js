@@ -1,6 +1,5 @@
 Ext.define('BeRoads.view.portraitphone.Settings', {
     extend: 'Ext.form.Panel',
-    defaultInstructions: '',
     xtype : 'settings',
 
     config : {
@@ -15,7 +14,7 @@ Ext.define('BeRoads.view.portraitphone.Settings', {
             xtype: 'fieldset',
             id: 'userFormFieldset',
 
-            instructions: this.defaultInstructions,
+            instructions: "",
             defaults: {
                 xtype: 'textfield',
                 labelAlign: 'left',
@@ -85,12 +84,8 @@ Ext.define('BeRoads.view.portraitphone.Settings', {
         ]
     },
 
-    initialize: function(){
-
-        //this.callParent(arguments);
-
-    	this.defaultInstructions = _tr('settings_message', localStorage.getItem('lang'));
-
+    init: function(){
+        this.callParent(arguments);
     }
 
 

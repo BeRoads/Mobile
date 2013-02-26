@@ -39,12 +39,28 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                             duration: 200
                         }
                     },
+					 {
+	                        xtype: 'button',
+	                        id: 'backButton',
+	                        text: 'Back',
+	                        ui: 'back',
+							docked : 'left',
+	                        hidden: true,
+	                        hideAnimation: Ext.os.is.Android ? false : {
+	                            type: 'fadeOut',
+	                            duration: 200
+	                        },
+	                        showAnimation: Ext.os.is.Android ? false : {
+	                            type: 'fadeIn',
+	                            duration: 200
+	                        }
+	                    },
                     {
                         xtype: 'button',
                         id: 'preferenceButton',
                         iconCls: 'settings',
                         iconMask : true,
-                        align: 'right',
+						docked : 'right',
                         hidden: false,
                         hideAnimation: Ext.os.is.Android ? false : {
                             type: 'fadeOut',
@@ -60,7 +76,7 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                         id: 'saveButton',
                         text: 'Save',
                         ui: 'sencha',
-                        align: 'right',
+						docked : 'right',
                         hidden: true,
                         hideAnimation: Ext.os.is.Android ? false : {
                             type: 'fadeOut',
@@ -110,7 +126,7 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                             {
                                 xtype : 'navigationview',
                                 itemId : 'trafficeventsNavigationView',
-                                title : 'Traffic',
+                                title : 'Traffic',				
                                 items : [
                                     {
                                         xtype : 'trafficeventsList',

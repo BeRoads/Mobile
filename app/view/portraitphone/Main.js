@@ -32,6 +32,8 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         html: 'This is a centered and modal panel',
                         modal: true,
                         hidden : true,
+						width : "50%",
+						height : "50%",
                         hideOnMaskTap: true,
                         centered: true,
                         cls : 'popupMarker'

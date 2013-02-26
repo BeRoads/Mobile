@@ -3,7 +3,10 @@ Ext.define('BeRoads.view.landscapetablet.Settings', {
     xtype : 'settings',
     config : {
 
-        items: [ {
+        items: [ 
+
+
+		{
             xtype: 'fieldset',
             id: 'userFormFieldset',
             title: _tr('preferences', localStorage.getItem('lang')),
