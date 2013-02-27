@@ -8,9 +8,16 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
         refs: {
             infoPanel : '#infoPanel',
             trafficeventsList: '#trafficeventsList',
-            trafficeventsNavigationView: '#trafficeventsNavigationView'
+            trafficeventsNavigationView: '#trafficeventsNavigationView',
+			topToolbar : '#topToolbar',
+			menuButton : '#menuButton',
+			backButton : '#backButton',
+			trafficeventsNavigationView : '#trafficeventsNavigationView'
         },
         control: {
+			backButton : {
+				tap : 'onBackButtonTap'
+			},
             trafficeventsList: {
                 itemtap: 'onItemTap',
                 show  :'loadTrafficEventsPanel',
@@ -19,7 +26,10 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
         }
     },
 
-
+	onBackButtonTap : function(){
+		this.displayed = false;
+	},
+	
     //TODO : really necessary ??
     eraseTrafficEventsPanel : function(){
         this.destroy();
@@ -43,7 +53,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 
     onItemTap:function(cmp, index, target, record, e, eOpts) {
 
-        // Tell the parent panel to animate to the new card
+		var me = this;
         this.getTrafficeventsNavigationView().push({
             xtype: 'trafficeventDetail',
 			id : 'trafficEventDetail',
@@ -51,19 +61,24 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
             data: record.getData(),
             prevCard: this
         });
-		var title = this.getTrafficeventsNavigationView().getNavigationBar().getTitle();
+		this.getTopToolbar().setTitle(record.getData().location);
+		this.getMenuButton().hide();
+		this.getBackButton().show();
+		this.displayed = true;
 		
-		var me = this;
+		var title = record.getData().location;
+		
+		
 		var scroll = function(start, end, text, offset){
-			me.getTrafficeventsNavigationView().getNavigationBar().setTitle(text.substring(start%offset, end%offset));
 			
-			//TODO : find a good way to stop it !
-			// make the string like a loop feed
+	
 			if(me.displayed){
+				me.getTopToolbar().setTitle(text.substring(start%offset, end%offset));
 				setTimeout(function(){scroll(++start, ++end, text, offset);}, 250);
 			}
 		};
-		scroll(0, 30, title, title.length);
+		if(title.length > 30)
+			scroll(0, 30, title, title.length);
 
     }
 });

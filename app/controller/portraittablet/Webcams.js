@@ -8,7 +8,10 @@ Ext.define('BeRoads.controller.portraittablet.Webcams', {
         refs: {
             infoPanel : '#infoPanel',
             webcamsList: '#webcamsList',
-            webcamsNavigationView: '#webcamsNavigationView'
+            webcamsNavigationView: '#webcamsNavigationView',
+			topToolbar : '#topToolbar',
+			menuButton : '#menuButton',
+			backButton : '#backButton'
         },
         control: {
             webcamsList: {
@@ -40,6 +43,9 @@ Ext.define('BeRoads.controller.portraittablet.Webcams', {
             data: record.getData(),
             prevCard: this
         });
+		this.getTopToolbar().setTitle(record.getData().city);
+		this.getMenuButton().hide();
+		this.getBackButton().show();
 
 
     }

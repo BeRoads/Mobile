@@ -30,16 +30,12 @@ Ext.define('BeRoads.controller.Map', {
         console.log("[+] Initialize default map controller");
         this.callParent(arguments);
     },
-
-
     renderTrafficMap : function(comp, map, eOpts) {
-
 
         //this.getPreferenceButton().show();
         var me = this;
 
         var showCenteredOverlay = function (data) {
-            console.log("open content !");
             me.getInfoPanel().setHtml(data.html);
             me.getInfoPanel().show();
 
@@ -51,7 +47,7 @@ Ext.define('BeRoads.controller.Map', {
                 map:map,
                 position:position,
                 title:camera.name,
-                html : '<span class=\"popupTitle\">'+camera.city+"</span><img margin-bottom='0px' height='90%' width='100%' src='"+camera.img+"' />",
+                html : '<span class=\"popupTitle\">'+camera.city+"</span><img src='http://src.sencha.io/detect/"+camera.img+"' />",
                 icon:'resources/img/camera.png'
             });
             google.maps.event.addListener(me.markers.cameras[camera.id], 'click', function () {

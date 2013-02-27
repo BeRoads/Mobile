@@ -74,7 +74,7 @@ if(!Ext.device.Connection.isOnline()){
             var loadingMask = Ext.Viewport.add({
                 masked: {
                     xtype: 'loadmask',
-                    message: "<center><img src='resources/img/ajax-loader.gif'/><br />Loading ...</center>",
+                    message: "<center><img height='50' width='100' src='resources/img/loader.gif'/><br />Loading ...</center>",
                     indicator: false
                 }
             });

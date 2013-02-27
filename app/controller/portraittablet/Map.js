@@ -19,9 +19,15 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
             radarsList : '#radarsList',
             webcamsNavigationView : '#webcamsNavigationView',
             trafficeventsNavigationView  : '#trafficeventsNavigationView',
-            settingsPanel : '#settingsPanel'
+            settingsPanel : '#settingsPanel',
+			topToolbar : '#topToolbar',
+			backButton : '#backButton'
+			
         },
         control: {
+			backButton : {
+				tap : 'onBackButtonTap'
+			},
             menuButton : {
                 tap : 'onMenuButtonTap'
             },
@@ -40,6 +46,19 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         }
     },
 
+	onBackButtonTap : function(){
+		if(this.currentView == "traffic"){
+			this.getTrafficeventsNavigationView().pop();
+			this.getTopToolbar().setTitle(_tr('traffic', localStorage.getItem('lang')));
+		}
+		else if(this.currentView == "webcams"){
+			this.getWebcamsNavigationView().pop();
+			this.getTopToolbar().setTitle(_tr('webcams', localStorage.getItem('lang')));
+		}
+		this.getMenuButton().show();
+		this.getBackButton().hide();
+	},
+	
     onMenuButtonTap : function(){
         if(this.getMenuPanel().isHidden()){
             this.getMenuPanel().show();
@@ -71,6 +90,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.getRadarsButton().show();
         this.getWebcamsButton().show();
         this.getNavigationTabPanel().setActiveItem(this.getSettingsPanel());
+		this.getTopToolbar().setTitle(_tr('settings', localStorage.getItem('lang')));
     },
 
     onTrafficButtonTap : function(cmp, index, target, record, e, eOpts) {
@@ -80,6 +100,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.getTrafficButton().hide();
         this.currentView = 'traffic';
         this.getNavigationTabPanel().setActiveItem(this.getTrafficeventsNavigationView());
+		this.getTopToolbar().setTitle(_tr('traffic', localStorage.getItem('lang')));
     },
 
     onRadarsButtonTap : function(cmp, index, target, record, e, eOpts) {
@@ -87,9 +108,9 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.getMenuPanel().hide();
         this.updateMenuPanel();
         this.getRadarsButton().hide();
-
         this.currentView = 'radars';
         this.getNavigationTabPanel().setActiveItem(this.getRadarsList());
+		this.getTopToolbar().setTitle(_tr('radars', localStorage.getItem('lang')));
     },
 
     onWebcamsButtonTap : function(cmp, index, target, record, e, eOpts) {
@@ -98,6 +119,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.getWebcamsButton().hide();
         this.currentView = 'webcams';
         this.getNavigationTabPanel().setActiveItem(this.getWebcamsNavigationView());
+		this.getTopToolbar().setTitle(_tr('webcams', localStorage.getItem('lang')));
     },
 
     onMapButtonTap : function(cmp, index, target, record, e, eOpts) {
@@ -107,6 +129,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.getMapButton().hide();
         this.currentView = 'map';
         this.getNavigationTabPanel().setActiveItem(this.getTrafficMap());
+		this.getTopToolbar().setTitle(_tr('map', localStorage.getItem('lang')));
 
     },
 
