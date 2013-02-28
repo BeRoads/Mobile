@@ -28,36 +28,19 @@ Ext.define('BeRoads.controller.landscapetablet.Settings', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
     loadSettingsPanel : function(){
-
-        //this.getMain().getNavigationBar().setTitle(_tr('settings', localStorage.getItem('lang')));
         this.getSaveButton().show();
     },
 
     destroySettingsPanel : function(){
-
         this.getPreferenceButton().show();
         this.getSaveButton().hide();
         this.callParent(arguments);
     },
 
-    onSaveButtonTap:function () {
-
-        //we reset this to 1970 epoch
-        var values = this.getUserFormFieldset().getFieldsAsArray();
-        localStorage.setItem('area', values[0].getValue());
-        localStorage.setItem('lang', values[1].getValue());
-        localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
-        localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
-        localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
-        localStorage.setItem('lastUpdate', 0);
-        window.location.reload();
-    },
     onMoreButtonTap:function () {
 
         this.getPreferenceButton().hide();

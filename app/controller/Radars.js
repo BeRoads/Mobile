@@ -3,7 +3,6 @@ Ext.define('BeRoads.controller.Radars', {
 
     views: ['radars.List', 'radars.Detail'],
     store : ['offline.Radar','online.Radar'],
-
     config: {
         refs: {
             radarsList: '#radarsList',
@@ -18,27 +17,30 @@ Ext.define('BeRoads.controller.Radars', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-    loadRadarPanel : function() {
-
-
-        /*this.getRadarsList().setStore(Ext.getStore('offline.Radar'));
-        this.getRadarsList().refresh();*/
-
+	/**
+	 *	Bind the offline radars store to the radarsList list view
+	 *	@return
+	 */
+    loadRadarPanel : function(cmp, eOpts) {
+        cmp.setStore(Ext.getStore('offline.Radar'));
+        cmp.refresh();
     },
 
-    onItemTap:function (cmp, record, target, index, e, eOpts ) {
-        console.log(record);
-        if (record !== undefined) {
+	/**
+	 *¨	Push the radar detailed view
+	 *	@return
+	 */
+    onItemTap:function (cmp, index, target, record, e, eOpts ){
+       
+        /*if (record !== undefined) {
             this.getMain().push({
                 xtype: 'radarDetail',
                 title: record.getData().id,
                 data: record.getData()
             });
-        }
+        }*/
     }
 });

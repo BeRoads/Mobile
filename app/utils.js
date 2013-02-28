@@ -1,3 +1,9 @@
+
+/**
+ * Truncate a string to get a better display
+ * @input str the string to truncate
+ * @output the truncated value of str
+ */
 var truncateContent = function (str) {
     var j = 0;
     for (var i = 0; i < str.length; i++) {
@@ -12,6 +18,14 @@ var truncateContent = function (str) {
     return str;
 };
 
+/**
+ *	Compute distance between two coordinates.
+ *  @input lat1 origin's latitude
+ *	@input lon1 origin's longitude
+ *	@input lat2	destination's latitude
+ *	@input lon2 destination's longitude
+ *	@output distance in kilometers between the two coordinates
+ */
 var getDistance = function(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -26,6 +40,11 @@ var getDistance = function(lat1,lon1,lat2,lon2) {
     return d;
 };
 
+/**
+ * Convert a value from degrees to radian
+ * @input deg value to convert (in degrees)
+ * @output the converted value (in radians)
+*/
 var deg2rad = function (deg) {
     return deg * (Math.PI/180)
 };

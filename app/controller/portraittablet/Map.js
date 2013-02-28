@@ -23,7 +23,6 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 			topToolbar : '#topToolbar',
 			backButton : '#backButton',
 			settingsNavigationView : '#settingsNavigationView'
-			
         },
         control: {
 			backButton : {
@@ -47,6 +46,15 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         }
     },
 
+	
+    init:function () {
+        this.callParent(arguments);
+    },
+	
+	/**
+	 * Pop the current view and reset the title depending on the currently displayed view
+	 *	@return 
+	 */
 	onBackButtonTap : function(){
 		if(this.currentView == "traffic"){
 			this.getTrafficeventsNavigationView().pop();
@@ -65,6 +73,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 		this.getBackButton().hide();
 	},
 	
+	/**
+	 * Simple hide/show function for the menuButton
+	 *	@return 
+	 */
     onMenuButtonTap : function(){
         if(this.getMenuPanel().isHidden()){
             this.getMenuPanel().show();
@@ -73,6 +85,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         }
     },
 
+	/**
+	 * Update menuPanel content depending on the currently displayed view
+	 *	@return 
+	 */
     updateMenuPanel : function() {
         if(this.currentView=='map'){
             this.getMapButton().show()
@@ -89,6 +105,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 
     },
 
+	/** 
+	 * Push the settings view 
+	 *	@return 
+	 */
     openPreferences : function() {
 		
         this.getPreferenceButton().hide();
@@ -102,6 +122,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 		this.currentView = "settings";
     },
 
+	/**
+	 * Push the traffic events view and set the according title on top toolbar
+	 *	@return 
+	 */
     onTrafficButtonTap : function(cmp, index, target, record, e, eOpts) {
 
         this.getMenuPanel().hide();
@@ -112,6 +136,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 		this.getTopToolbar().setTitle(_tr('traffic', localStorage.getItem('lang')));
     },
 
+	/**
+	 * Push the radars view and set the according title on top toolbar
+	 *	@return 
+	 */
     onRadarsButtonTap : function(cmp, index, target, record, e, eOpts) {
 
         this.getMenuPanel().hide();
@@ -122,6 +150,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 		this.getTopToolbar().setTitle(_tr('radars', localStorage.getItem('lang')));
     },
 
+	/**
+	 * Push the webcams view and set the according title on top toolbar
+	 *	@return 
+	 */
     onWebcamsButtonTap : function(cmp, index, target, record, e, eOpts) {
         this.getMenuPanel().hide();
         this.updateMenuPanel();
@@ -131,6 +163,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 		this.getTopToolbar().setTitle(_tr('webcams', localStorage.getItem('lang')));
     },
 
+	/**
+	 * Push the map view and set the according title on top toolbar
+	 *	@return 
+	 */
     onMapButtonTap : function(cmp, index, target, record, e, eOpts) {
 
         this.getMenuPanel().hide();
@@ -142,24 +178,13 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 
     },
 
-    onMenuListItemTap : function(cmp, index, target, record, e, eOpts) {
-
-        console.log(record);
-
-    },
-
-    init:function () {
-        console.log("[+] Initialize tablet map controller");
-        this.callParent(arguments);
-
-    },
-
+	/**
+	 * Add the traffic layer to the map then call the parent function to set up the map
+	 *	@return 
+	*/
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
         this.callParent(arguments);
     }
-
-
-
 });

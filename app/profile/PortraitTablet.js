@@ -3,8 +3,8 @@ Ext.define('BeRoads.profile.PortraitTablet', {
 
     config: {
         name: 'PortraitTablet',
-        controllers: ['Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings', 'About'],
-        views: ['Main', 'Settings', 'Map', 'AboutList',
+        controllers: ['Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings'],
+        views: ['Main', 'Settings', 'Map', 
             'trafficevents.List', 'trafficevents.Detail', 'radars.List', 'radars.Detail', 'webcams.List', 'webcams.Detail']
     },
 
@@ -14,6 +14,5 @@ Ext.define('BeRoads.profile.PortraitTablet', {
 
     launch: function() {
         console.log("Launching portrait tablet version...");
-
     }
 });

@@ -3,7 +3,6 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 
     views:['trafficevent.List', 'trafficevent.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
-    displayed : false,
     config: {
         refs: {
             infoPanel : '#infoPanel',
@@ -12,7 +11,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 			topToolbar : '#topToolbar',
 			menuButton : '#menuButton',
 			backButton : '#backButton',
-			trafficeventsNavigationView : '#trafficeventsNavigationView'
+			main : '#trafficeventsNavigationView'
         },
         control: {
 			backButton : {
@@ -20,8 +19,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 			},
             trafficeventsList: {
                 itemtap: 'onItemTap',
-                show  :'loadTrafficEventsPanel',
-                erased : 'eraseTrafficEventsPanel'
+                show  :'loadTrafficEventsPanel'
             }
         }
     },
@@ -29,46 +27,27 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 	onBackButtonTap : function(){
 		this.displayed = false;
 	},
-	
-    //TODO : really necessary ??
-    eraseTrafficEventsPanel : function(){
-        this.destroy();
-    },
+
 
     init:function () {
-        console.log("Init traffic list controller");
-		this.displayed = true;
         this.callParent(arguments);
-
     },
 
-
-    loadTrafficEventsPanel:function (cmp, eOpts) {
-
-       //cmp.setStore(null);
-       cmp.setStore(Ext.getStore('offline.TrafficEvent'));
-       cmp.refresh();
-
-    },
-
+	/**
+	 *	Push the traffic event detailed view, set the title and 
+	 *	start a 'title scroller' if necessary (like highway displays)
+	 *	@return
+	 */
     onItemTap:function(cmp, index, target, record, e, eOpts) {
-
+		this.callParent(arguments);
+		
 		var me = this;
-        this.getTrafficeventsNavigationView().push({
-            xtype: 'trafficeventDetail',
-			id : 'trafficEventDetail',
-            title: record.getData().location,
-            data: record.getData(),
-            prevCard: this
-        });
 		this.getTopToolbar().setTitle(record.getData().location);
 		this.getMenuButton().hide();
 		this.getBackButton().show();
 		this.displayed = true;
 		
 		var title = record.getData().location;
-		
-		
 		var scroll = function(start, end, text, offset){
 			if(me.displayed){
 				me.getTopToolbar().setTitle(text.substring(start%offset, end%offset));

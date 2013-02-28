@@ -22,5 +22,4 @@ Ext.define('BeRoads.store.online.Radar', {
             }
         }
     }
-
 });

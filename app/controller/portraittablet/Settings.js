@@ -31,36 +31,18 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
 	loadSettingsPanel : function(cmp){
-		
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
 	},
 	
     destroySettingsPanel : function(){
-
         this.getPreferenceButton().show();
         this.getSaveButton().hide();
-        //this.callParent(arguments);
     },
 
-    onSaveButtonTap:function () {
-
-        //we reset this to 1970 epoch
-        var values = this.getUserFormFieldset().getFieldsAsArray();
-        localStorage.setItem('area', values[0].getValue());
-        localStorage.setItem('lang', values[1].getValue());
-        localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
-        localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
-        localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
-        localStorage.setItem('lastUpdate', 0);
-        this.destroy();
-        window.location.reload();
-    },
     onMoreButtonTap:function () {
 
         var me = this;

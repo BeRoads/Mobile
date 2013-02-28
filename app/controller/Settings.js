@@ -14,9 +14,6 @@ Ext.define('BeRoads.controller.Settings', {
             main:'#mainpanel'
         },
         control:{
-            settingsPanel : {
-                show : 'loadSettingsPanel',
-            },
             saveButton:{
                 tap:'onSaveButtonTap'
             },
@@ -27,25 +24,16 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-    loadSettingsPanel : function(){
-
-
-
-    },
-
-    destroySettingsPanel : function(){
-
-        this.destroy();
-    },
-
+	/**
+	 *	Save the values from the userFormFieldset and store them into localStorage
+	 *  then reload the page so the application can take the changes into account 
+	 *	@return 
+	 */
     onSaveButtonTap:function () {
 
-        //we reset this to 1970 epoch
        	var values = this.getUserFormFieldset().getFieldsAsArray();
 	    localStorage.setItem('area', values[0].getValue());
 	    localStorage.setItem('lang', values[1].getValue());
@@ -55,12 +43,14 @@ Ext.define('BeRoads.controller.Settings', {
 	    localStorage.setItem('lastUpdate', 0);
         window.location.reload();
     },
-    onMoreButtonTap:function () {
 
+	/**
+	 * Push a 'credits' like page
+	 */
+    onMoreButtonTap:function () {
         this.getPreferenceButton().hide();
         this.getMain().push({
             xtype: 'aboutList'
         });
-
     }
 });

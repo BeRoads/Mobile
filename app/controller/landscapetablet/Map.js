@@ -21,7 +21,14 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
         }
     },
 
+    init:function () {
+        this.callParent(arguments);
+    },
 
+	/**
+	 *	Open the settings view 
+	 *	@return 
+	 */
     openPreferences : function() {
 
 		this.getInfoPanel().hide();
@@ -31,6 +38,11 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
             title : 'Settings'
         });
     },
+
+	/**
+	 * Open the clicked view on the menuList
+	 *	@return 
+	 */
     onMenuListItemTap : function(cmp, index, target, record, e, eOpts) {
 
         if (record !== undefined) {
@@ -52,25 +64,17 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
                     xtype: record.getData().xtype
                 });
             }
-
         }
-
-
     },
 
-    init:function () {
-
-        console.log("[+] Initialize tablet map controller");
-        this.callParent(arguments);
-
-    },
-
+	/**
+	 * Add the traffic layer to the map then call the parent function to set up the map
+	 *	@return 
+	*/
     renderTrafficMap : function(comp, map, eOpts) {
-
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
         this.callParent(arguments);
-
     }
 
 

@@ -11,5 +11,4 @@ Ext.define('BeRoads.store.offline.TrafficEvent', {
             id: 'TrafficEvent'
         }
     }
-
 });

@@ -3,7 +3,6 @@ Ext.define('BeRoads.controller.landscapetablet.Webcams', {
 
     views: ['webcams.List', 'webcams.Detail'],
     stores: ['online.Webcam', 'offline.Webcam'],
-    loaded : false,
     config: {
         refs: {
             infoPanel : '#infoPanel',
@@ -12,29 +11,28 @@ Ext.define('BeRoads.controller.landscapetablet.Webcams', {
         control: {
             webcamsList: {
                 itemtap: 'onItemTap',
-                show :'loadCameraList'
+                show :'loadWebcamsList'
             }
         }
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-
-    loadCameraList : function(cmp, eOpts) {
-        if(this.loaded){
-            cmp.setStore(null);
-        }else{
-            this.loaded = true;
-        }
-        cmp.setStore(Ext.getStore('offline.Webcam'));
-        cmp.refresh();
-
+	/**
+	 *	Bind the offline webcams store to the webcamsList view
+	 *	@return
+	*/
+    loadWebcamsList : function(cmp, eOpts) {
+        cmp.setStore(null);
+        this.callParent(arguments);
     },
 
+	/**
+	 * 	Center map on webcam's coordinates and open the infoPanel 
+	 *	@return 
+	*/
     onItemTap:function(cmp, index, target, record, e, eOpts) {
 
         var position = new google.maps.LatLng(record.getData().lat, record.getData().lng);

@@ -3,6 +3,5 @@ Ext.define('BeRoads.model.Webcam', {
 
     config: {
         fields: ['distance', 'zone', 'city', 'img', 'lat','lng']
-
     }
 });
