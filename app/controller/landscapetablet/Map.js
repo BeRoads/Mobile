@@ -14,6 +14,9 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
         control: {
             menuList :{
                 itemtap : 'onMenuListItemTap'
+            },
+            preferenceButton : {
+                tap : 'openPreferences'
             }
         }
     },
@@ -27,8 +30,6 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
             xtype: 'settings',
             title : 'Settings'
         });
-        this.callParent(arguments);
-
     },
     onMenuListItemTap : function(cmp, index, target, record, e, eOpts) {
 

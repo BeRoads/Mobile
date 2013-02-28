@@ -157,11 +157,20 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                                 title : "Radars",
 								navigationBar : false,
                             },
-                            {
-                                xtype : 'settings',
-                                itemId : 'settingsPanel',
-                                title : "Settings"
+							{
+                                xtype : 'navigationview',
+                                itemId : 'settingsNavigationView',
+                                title : "Settings",
+								navigationBar : false,
+                                items : [
+                                    {
+		                                xtype : 'settings',
+		                                itemId : 'settingsPanel',
+		                                title : "Settings"
+		                            }
+                                ]
                             }
+                            
                         ]
                     }
                 ]

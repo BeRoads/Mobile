@@ -14,7 +14,7 @@ Ext.define('BeRoads.view.portraitphone.Settings', {
             xtype: 'fieldset',
             id: 'userFormFieldset',
 
-            instructions: "",
+            instructions: _tr('settings_message', localStorage.getItem('lang')),
             defaults: {
                 xtype: 'textfield',
                 labelAlign: 'left',

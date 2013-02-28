@@ -1,16 +1,15 @@
-if(!Ext.device.Connection.isOnline()){
-    console.log('No connection available, fallback mode...');
-}else{
-
-    Ext.device.Orientation = 'portrait';
-    Ext.USER_COORDS = {
-        position : {
-            coords : {
-                latitude : 0,
-                longitude : 0
-            }
+Ext.USER_COORDS = {
+    position : {
+        coords : {
+            latitude : 0,
+            longitude : 0
         }
-    };
+    }
+};
+
+
+    
+    
     if(localStorage.getItem('lang') == undefined || localStorage.getItem('lang') == null){
         localStorage.setItem('lang', 'nl');
     }
@@ -33,6 +32,45 @@ if(!Ext.device.Connection.isOnline()){
     if(localStorage.getItem('lastUpdate') == undefined || localStorage.getItem('lastUpdate') == null){
         localStorage.setItem('lastUpdate', new Date().getTime());
     }
+
+
+		if(!Ext.device.Connection.isOnline()){
+			console.log("No internet connection");
+			Ext.application({
+		        name: 'BeRoads',
+		        autoCreateViewport: true,
+
+		        //sets up the icon and startup screens for when the app is added to a phone/tablet home screen
+		        startupImage: {
+		            '320x460': 'resources/startup/Default.jpg', // Non-retina iPhone, iPod touch, and all Android devices
+		            '640x920': 'resources/startup/640x920.png', // Retina iPhone and iPod touch
+		            '640x1096': 'resources/startup/640x1096.png', // iPhone 5 and iPod touch (fifth generation)
+		            '768x1004': 'resources/startup/768x1004.png', //  Non-retina iPad (first and second generation) in portrait orientation
+		            '748x1024': 'resources/startup/748x1024.png', //  Non-retina iPad (first and second generation) in landscape orientation
+		            '1536x2008': 'resources/startup/1536x2008.png', // : Retina iPad (third generation) in portrait orientation
+		            '1496x2048': 'resources/startup/1496x2048.png' // : Retina iPad (third generation) in landscape orientation
+		        },
+
+		        isIconPrecomposed: false,
+		        icon: {
+		            57: 'resources/icons/icon.png',
+		            72: 'resources/icons/icon@72.png',
+		            114: 'resources/icons/icon@2x.png',
+		            144: 'resources/icons/icon@144.png'
+		        },
+
+		        launch: function() {
+
+		        	Ext.Viewport.add({
+						xclass: 'BeRoads.view.FailCar'
+					});
+		        },
+
+
+		     
+		    });
+			
+		}else{
     Ext.application({
         name: 'BeRoads',
         launched : false,
@@ -67,64 +105,66 @@ if(!Ext.device.Connection.isOnline()){
         },
 
         launch: function() {
-
+			
             console.log('[+] Launch default version...');
 
-            //TODO : fix the loading animation (what about a car that fill up ?)
-            var loadingMask = Ext.Viewport.add({
-                masked: {
-                    xtype: 'loadmask',
-                    message: "<center><img height='50' width='100' src='resources/img/loader.gif'/><br />Loading ...</center>",
-                    indicator: false
-                }
-            });
+			
+				//TODO : fix the loading animation (what about a car that fill up ?)
+				var loadingMask = Ext.Viewport.add({
+					masked: {
+						xtype: 'loadmask',
+						message: "<center><img height='50' width='100' src='resources/img/loader.gif'/><br />"+_tr('loading', localStorage.getItem('lang'))+"</center>",
+						indicator: false
+					}
+				});
 
-            this.geo = new Ext.util.GeoLocation({
-                autoUpdate:true
-            });
-            this.geo.on('locationupdate', this.onGeoUpdate, this);
-            this.geo.updateLocation();
+				this.geo = new Ext.util.GeoLocation({
+					autoUpdate:true
+				});
+				this.geo.on('locationupdate', this.onGeoUpdate, this);
+				this.geo.updateLocation();
 
-            var showView = function(){
-                if(!this.launched){
-                    if(this.loaded < 3){
-                        setTimeout(function() { showView(); }, 1000);
-                    }else{
-                        Ext.Viewport.remove(loadingMask);
+				var showView = function(){
+					if(!this.launched){
+						if(this.loaded < 3){
+							setTimeout(function() { showView(); }, 1000);
+						}else{
+							Ext.Viewport.remove(loadingMask);
 
 
-                        if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
-                            Ext.Viewport.add({
-                                xclass: 'BeRoads.view.landscapephone.Main'
-                            });
-                        }
-                        else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
-                            Ext.Viewport.add({
-                                xclass: 'BeRoads.view.portraitphone.Main'
-                            });
-                        }
-                        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
-                            Ext.Viewport.add({
-                                xclass: 'BeRoads.view.landscapetablet.Main'
-                            });
-                        }
-                        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
-                            Ext.Viewport.add({
-                                xclass: 'BeRoads.view.portraittablet.Main'
-                            });
-                        }else{
-                            Ext.Viewport.add({
-                                xclass: 'BeRoads.view.portraitphone.Main'
-                            });
-                        }
-                        this.launched = true;
+							if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
+								Ext.Viewport.add({
+									xclass: 'BeRoads.view.landscapephone.Main'
+								});
+							}
+							else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
+								Ext.Viewport.add({
+									xclass: 'BeRoads.view.portraitphone.Main'
+								});
+							}
+							else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
+								Ext.Viewport.add({
+									xclass: 'BeRoads.view.landscapetablet.Main'
+								});
+							}
+							else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
+								Ext.Viewport.add({
+									xclass: 'BeRoads.view.portraittablet.Main'
+								});
+							}else{
+								Ext.Viewport.add({
+									xclass: 'BeRoads.view.portraitphone.Main'
+								});
+							}
+							this.launched = true;
 
-                    }
-                }
+						}
+					}
 
-            };
+				};
+				setTimeout(function() { showView()},2000);
 
-            setTimeout(function() { showView()},2000);
+		
 
         },
 

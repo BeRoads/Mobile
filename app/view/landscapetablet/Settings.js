@@ -10,7 +10,7 @@ Ext.define('BeRoads.view.landscapetablet.Settings', {
             xtype: 'fieldset',
             id: 'userFormFieldset',
             title: _tr('preferences', localStorage.getItem('lang')),
-            instructions: this.defaultInstructions,
+            instructions: _tr('settings_message', localStorage.getItem('lang')),
             defaults: {
                 xtype: 'textfield',
                 labelAlign: 'left',

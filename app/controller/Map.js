@@ -19,9 +19,6 @@ Ext.define('BeRoads.controller.Map', {
         control: {
             trafficMap: {
                 maprender: 'renderTrafficMap'
-            },
-            preferenceButton : {
-                tap : 'openPreferences'
             }
         }
     },
@@ -30,6 +27,8 @@ Ext.define('BeRoads.controller.Map', {
         console.log("[+] Initialize default map controller");
         this.callParent(arguments);
     },
+	
+	
     renderTrafficMap : function(comp, map, eOpts) {
 
         //this.getPreferenceButton().show();
@@ -48,7 +47,7 @@ Ext.define('BeRoads.controller.Map', {
                 position:position,
                 title:camera.name,
                 html : '<span class=\"popupTitle\">'+camera.city+"</span><img src='http://src.sencha.io/detect/"+camera.img+"' />",
-                icon:'resources/img/camera.png'
+                icon:'resources/img/webcam.png'
             });
             google.maps.event.addListener(me.markers.cameras[camera.id], 'click', function () {
                 map.setCenter(this.position);

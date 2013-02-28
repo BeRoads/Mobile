@@ -6,8 +6,12 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
 
     config: {
         refs: {
+			preferenceButton : '#preferenceButton'
         },
         control: {
+            preferenceButton : {
+                tap : 'openPreferences'
+            }
         }
     },
 

@@ -101,8 +101,8 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
 						itemTpl : '<div class="thumbnail"><img src="{iconURL}" width="30" height="30" /></div><span class="name">{title}</span>',
                         //title : "<img src='resources/img/cars.png' alt='car' />",
                         data:[
-                            {   title:_tr('traffic', localStorage.getItem('lang')), xtype : 'trafficeventsList',  iconURL : 'resources/img/traffic_icon.png'},
-                            {   title:_tr('webcams', localStorage.getItem('lang')) , xtype : 'webcamsList', iconURL : 'resources/img/cameras_icon.png' },
+                            {   title:_tr('traffic', localStorage.getItem('lang')), xtype : 'trafficeventsList',  iconURL : 'resources/img/trafficevents_icon.png'},
+                            {   title:_tr('webcams', localStorage.getItem('lang')) , xtype : 'webcamsList', iconURL : 'resources/img/webcams_icon.png' },
                             {   title:_tr('radars', localStorage.getItem('lang')) , xtype : 'radarsList', iconURL : 'resources/img/radars_icon.png' }
                         ]
                     },

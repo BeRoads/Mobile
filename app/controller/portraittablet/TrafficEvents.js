@@ -70,8 +70,6 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
 		
 		
 		var scroll = function(start, end, text, offset){
-			
-	
 			if(me.displayed){
 				me.getTopToolbar().setTitle(text.substring(start%offset, end%offset));
 				setTimeout(function(){scroll(++start, ++end, text, offset);}, 250);

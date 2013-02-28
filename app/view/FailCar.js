@@ -8,34 +8,15 @@ Ext.define('BeRoads.view.FailCar', {
 
     
     initialize : function() {
-
-        this.callParent(arguments);
-		var toolbarBase = {
-            xtype: 'toolbar',
-            title: this.title
-        };
-        
-        if (this.prevCard !== undefined) {
-            toolbarBase.items = {
-                ui: 'back',
-                text: _tr('back', localStorage.getItem('lang')),
-                scope: this,
-                handler: function(){
-                    this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });
-                }
-            }
-        }
-        
-        this.dockedItems = toolbarBase;
-        
+        var me = this;
         Ext.Ajax.request({
-            url: "beroads/views/errors/index.html",
+            url: "app/view/errors/index.html",
             success: function(rs){
-                this.update(rs.responseText);
+                me.setHtml(rs.responseText);
             },
             scope: this
         });
-        
+        this.callParent(arguments);
     }
 
 });

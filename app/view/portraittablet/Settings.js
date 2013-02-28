@@ -6,8 +6,9 @@ Ext.define('BeRoads.view.portraittablet.Settings', {
         items: [ {
             xtype: 'fieldset',
             id: 'userFormFieldset',
+			
+            instructions: _tr('settings_message', localStorage.getItem('lang')),
             title: _tr('preferences', localStorage.getItem('lang')),
-            instructions: this.defaultInstructions,
             defaults: {
                 xtype: 'textfield',
                 labelAlign: 'left',
@@ -81,20 +82,5 @@ Ext.define('BeRoads.view.portraittablet.Settings', {
                 text : 'More'
             }
         ]
-    },
-
-    initialize: function(){
-
-        this.callParent(arguments);
-
-    	this.defaultInstructions = _tr('settings_message', localStorage.getItem('lang'));
-
-
-
     }
-
-
-
-
-
 });
