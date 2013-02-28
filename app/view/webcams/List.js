@@ -10,5 +10,4 @@ Ext.define('BeRoads.view.webcams.List', {
         itemTpl:'<div class="thumbnail"><img src="http://src.sencha.io/30/30/{img}" width="30" height="30" /></div>' +
             '<span class="name">{city}</span>'
     }
-
 });

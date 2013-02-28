@@ -1,7 +1,6 @@
 Ext.define('BeRoads.view.radars.Detail', {
     extend:'Ext.Panel',
-
-    xtype:'radarDetail',
+	xtype:'radarDetail',
 
     config:{
         styleHtmlContent:true,

@@ -6,7 +6,6 @@ Ext.define('BeRoads.view.FailCar', {
         title : 'Error'
     },
 
-    
     initialize : function() {
         var me = this;
         Ext.Ajax.request({

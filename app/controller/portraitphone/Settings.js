@@ -71,7 +71,6 @@ Ext.define('BeRoads.controller.portraitphone.Settings', {
             },
             scope: this
         });
-
     }
 });
 
