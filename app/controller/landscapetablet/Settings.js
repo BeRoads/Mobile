@@ -15,9 +15,11 @@ Ext.define('BeRoads.controller.landscapetablet.Settings', {
         },
         control:{
             settingsPanel : {
-                show : 'loadSettingsPanel',
-                erased : 'destroySettingsPanel'
+                show : 'loadSettingsPanel'
             },
+			userFormFieldset : {
+				erased : 'destroySettingsPanel'
+			},
             saveButton:{
                 tap:'onSaveButtonTap'
             },
@@ -28,16 +30,6 @@ Ext.define('BeRoads.controller.landscapetablet.Settings', {
     },
 
     init:function () {
-        this.callParent(arguments);
-    },
-
-    loadSettingsPanel : function(){
-        this.getSaveButton().show();
-    },
-
-    destroySettingsPanel : function(){
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
         this.callParent(arguments);
     },
 

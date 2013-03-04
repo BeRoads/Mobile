@@ -14,6 +14,10 @@ Ext.define('BeRoads.controller.Settings', {
             main:'#mainpanel'
         },
         control:{
+			userFormFieldset : {
+				show : 'loadSettingsPanel',
+                erased : 'destroySettingsPanel'
+            },
             saveButton:{
                 tap:'onSaveButtonTap'
             },
@@ -25,6 +29,18 @@ Ext.define('BeRoads.controller.Settings', {
 
     init:function () {
         this.callParent(arguments);
+    },
+
+	loadSettingsPanel : function(){
+		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+        this.getPreferenceButton().hide();
+        this.getSaveButton().show();
+    },
+
+	destroySettingsPanel : function(){
+        this.getPreferenceButton().show();
+        this.getSaveButton().hide();
+		
     },
 
 	/**

@@ -35,12 +35,6 @@ Ext.define('BeRoads.controller.portraitphone.Settings', {
         this.callParent(arguments);
     },
 
-    destroySettingsPanel : function(){
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
-        this.callParent(arguments);
-    },
-
     onPreferenceButtonTap : function(){
         this.getMapView().push({
             xtype : 'settings'
@@ -48,9 +42,7 @@ Ext.define('BeRoads.controller.portraitphone.Settings', {
     },
 
     loadSettingsPanel : function(){
-		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
-        this.getPreferenceButton().hide();
-        this.getSaveButton().show();
+		this.callParent(arguments);
         this.getMain().getNavigationBar().setTitle(_tr('settings', localStorage.getItem('lang')));
     },
 

@@ -38,11 +38,6 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
 	},
 	
-    destroySettingsPanel : function(){
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
-    },
-
     onMoreButtonTap:function () {
 
         var me = this;

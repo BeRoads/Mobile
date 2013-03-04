@@ -32,17 +32,7 @@ Ext.define('BeRoads.controller.landscapephone.Settings', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
-    },
-
-    destroySettingsPanel : function(){
-
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
-        this.callParent(arguments);
-
     },
 
     onPreferenceButtonTap : function(){
@@ -54,11 +44,8 @@ Ext.define('BeRoads.controller.landscapephone.Settings', {
     },
 
     loadSettingsPanel : function(){
-
-        this.getPreferenceButton().hide();
-        this.getSaveButton().show();
+        this.callParent(arguments);
         this.getMain().getNavigationBar().setTitle(_tr('settings', localStorage.getItem('lang')));
-
     },
 
     onMoreButtonTap:function () {

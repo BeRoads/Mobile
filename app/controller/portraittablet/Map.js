@@ -42,7 +42,10 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
             },
             webcamsButton : {
                 tap : 'onWebcamsButtonTap'
-            }
+            },
+			preferenceButton : {
+				tap : 'openPreferences'
+			}
         }
     },
 
@@ -110,7 +113,6 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
 	 *	@return 
 	 */
     openPreferences : function() {
-		
         this.getPreferenceButton().hide();
         this.getMapButton().show()
         this.getTrafficButton().show();
