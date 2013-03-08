@@ -9,7 +9,9 @@ Ext.define('BeRoads.model.TrafficEvent', {
 		{name: 'category', type:'string'},
 		{name: 'lat', type:'string'},
 		{name: 'lng', type:'string'},
-		{name: 'distance', type:'integer'}
+		{name: 'distance', type:'integer'},
+		{name : 'time', type : 'integer'},
+		{name : 'formatted_time', type : 'string'}
 		]
 	}
 }

@@ -48,3 +48,21 @@ var getDistance = function(lat1,lon1,lat2,lon2) {
 var deg2rad = function (deg) {
     return deg * (Math.PI/180)
 };
+
+var formatTimestamp = function(timestamp){
+	if(timestamp == null || timestamp == undefined)
+		return "/";
+	// create a new javascript Date object based on the timestamp
+	// multiplied by 1000 so that the argument is in milliseconds, not seconds
+	var date = new Date(timestamp*1000);
+	// hours part from the timestamp
+	var hours = date.getHours();
+	// minutes part from the timestamp
+	var minutes = date.getMinutes();
+	// seconds part from the timestamp
+	var seconds = date.getSeconds();
+
+	// will display time in 10:30:23 format
+	var formattedTime = hours + ':' + minutes + ':' + seconds;
+	return formattedTime;
+}

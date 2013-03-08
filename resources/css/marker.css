@@ -3,6 +3,17 @@
 	box-shadow: none !important;
 }
 
+.popupMenu .x-button-normal {
+  border: none !important;
+  background: #d9d9d9 url(../img/bg_list.jpg) repeat-x;
+  img {
+    background: #777 !important;
+  }
+	
+	-webkit-border-radius: 0px;
+}
+
+/* x-button x-button-normal */
 /*.popupMarker:before {
 	content: "";
 	position: absolute;

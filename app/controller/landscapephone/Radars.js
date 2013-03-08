@@ -18,5 +18,9 @@ Ext.define('BeRoads.controller.landscapephone.Radars', {
 
     init:function () {
         this.callParent(arguments);
+    },
+
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
     }
 });

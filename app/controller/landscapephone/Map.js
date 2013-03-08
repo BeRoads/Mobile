@@ -19,6 +19,14 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
 		this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
+    
     openPreferences : function() {
         this.getMapView().push({
             title : 'Settings',

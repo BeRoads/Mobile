@@ -180,6 +180,7 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                 xtype: 'panel',
                 hidden : true,
                 modal : true,
+				cls : 'popupMenu',
                 hideOnMaskTap: true,
                 defaultType: 'button',
                 layout: {

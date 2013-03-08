@@ -28,6 +28,14 @@ Ext.define('BeRoads.controller.Map', {
         this.callParent(arguments);
     },	
 	
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        console.log("Updating map area");
+    },
+
     renderTrafficMap : function(comp, map, eOpts) {
 
         var me = this;

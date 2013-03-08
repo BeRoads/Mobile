@@ -34,6 +34,10 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+    
 	loadSettingsPanel : function(cmp){
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
 	},

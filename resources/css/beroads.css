@@ -258,8 +258,8 @@ body {
 }
 
 span.name {
-	display: block;
-	font-weight: bold;
+	display: inline-block;
+	/*font-weight: bold;*/
 }
 
 span.secondary {
@@ -270,13 +270,13 @@ span.secondary {
 }
 
 span.distance {
-	position: absolute;
-	left: 10px;
+	position : absolute;
+	left : 10px;
+	vertical-align: middle;
 	display: inline-block;
 	font-weight: bold;
 	color: #fff;
 	background: #1346c9;
-	top: 10px;
 	padding: 0 5px;
 	font-size: 11px;
 	line-height: 25px;
@@ -307,4 +307,17 @@ span.distance {
 */
 }
 
-
+.tag {
+	display : inline-block;
+	position: absolute; 
+	bottom : 0;
+	right : 0;
+	font-size: 11px;
+	line-height: 25px;
+}
+.tag p {
+	position: absolute; 
+	top : 0;
+	margin-left : 10px;
+	color : white;
+}

@@ -18,6 +18,14 @@ Ext.define('BeRoads.controller.portraitphone.Map', {
     init:function () {
 		this.callParent(arguments);
     },
+    
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
 
     openPreferences : function() {
         this.getMapView().push({

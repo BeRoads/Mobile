@@ -3,12 +3,12 @@ Ext.define('BeRoads.controller.Settings', {
 
     views:['Settings'],
 
+    //the change event is call on creation but we don't want to switch at this moment
+    firstCall : true,
+
     config:{
         refs:{
-            userFormSaveButton:'#userFormSaveButton',
             userFormFieldset:'#userFormFieldset',
-            saveButton:'#saveButton',
-            settingsPanel : '#settingsPanel',
             preferenceButton : '#preferenceButton',
             moreButton : '#moreButton',
             main:'#mainpanel'
@@ -18,11 +18,23 @@ Ext.define('BeRoads.controller.Settings', {
 				show : 'loadSettingsPanel',
                 erased : 'destroySettingsPanel'
             },
-            saveButton:{
-                tap:'onSaveButtonTap'
-            },
             moreButton : {
                 tap : 'onMoreButtonTap'
+            },
+            displayTraffic : {
+                change : 'onDisplayTrafficChange'
+            },
+            displayRadars : {
+                change : 'onDisplayRadarsChange'
+            },
+            displayWebcams : {
+                change : 'onDisplayWebcamsChange'
+            },
+            area : {
+                change : 'onAreaChange'
+            },
+            lang : {
+                change : 'onLangChange'
             }
         }
     },
@@ -31,33 +43,75 @@ Ext.define('BeRoads.controller.Settings', {
         this.callParent(arguments);
     },
 
+    getProfile : function() {
+        var profile;
+        if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
+            profile = 'landscapephone';
+        }
+        else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
+            profile = 'portraitphone';
+        }
+        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
+            profile = 'landscapetablet';
+        }
+        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
+            profile = 'portraittablet';
+        }
+        else{
+           profile = 'portraitphone';
+        }
+        return profile;
+    },
+
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
 	loadSettingsPanel : function(){
 		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getPreferenceButton().hide();
-        this.getSaveButton().show();
     },
 
 	destroySettingsPanel : function(){
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
-		
+        this.getPreferenceButton().show();		
     },
 
-	/**
-	 *	Save the values from the userFormFieldset and store them into localStorage
-	 *  then reload the page so the application can take the changes into account 
-	 *	@return 
-	 */
-    onSaveButtonTap:function () {
+    onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
+        localStorage.setItem('displayWebcams', 1-localStorage.getItem('displayWebcams'));
+        var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+    }, 
 
-       	var values = this.getUserFormFieldset().getFieldsAsArray();
-	    localStorage.setItem('area', values[0].getValue());
-	    localStorage.setItem('lang', values[1].getValue());
-	    localStorage.setItem('displayTraffic', (values[2].getValue() == 0 ? false : true));
-	    localStorage.setItem('displayRadars', (values[3].getValue() == 0 ? false : true));
-	    localStorage.setItem('displayCameras', (values[4].getValue()== 0 ? false : true));
-	    localStorage.setItem('lastUpdate', 0);
-        window.location.reload();
+    onDisplayRadarsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
+        localStorage.setItem('displayRadars', (1 - localStorage.getItem('displayRadars')));
+        var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+    },
+
+    onDisplayTrafficChange : function(me, Slider, thumb, newValue, oldValue, eOpts){
+        localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
+        var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+    },
+
+    onAreaChange : function(cmp, newValue, oldValue, eOpts) {
+        
+        localStorage.setItem('area', newValue);
+
+        var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+        
+    },
+
+    onLangChange : function(cmp, newValue, oldValue, eOpts) {
+         
+        localStorage.setItem('lang', newValue);
+        var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateLanguage();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Radars').updateLanguage();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Settings').updateLanguage();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.TrafficEvents').updateLanguage();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Webcams').updateLanguage();
     },
 
 	/**

@@ -20,7 +20,10 @@ Ext.define('BeRoads.controller.landscapetablet.TrafficEvents', {
         this.callParent(arguments);
     },
 
-
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+    
     loadTrafficEventsPanel:function (cmp, eOpts) {
         cmp.setStore(null);
 		this.callParent(arguments);

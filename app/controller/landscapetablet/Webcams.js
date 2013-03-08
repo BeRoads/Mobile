@@ -20,6 +20,10 @@ Ext.define('BeRoads.controller.landscapetablet.Webcams', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+    
 	/**
 	 *	Bind the offline webcams store to the webcamsList view
 	 *	@return
@@ -38,8 +42,7 @@ Ext.define('BeRoads.controller.landscapetablet.Webcams', {
         var position = new google.maps.LatLng(record.getData().lat, record.getData().lng);
         var map = Ext.getCmp('trafficMap').getMap();
         map.setCenter(position);
-        var html =  "<span class=\"popupTitle\" >"+record.getData().city+
-                "</span><img margin-bottom='0px' height='80%' width='100%' src='"+record.getData().img+"' />";
+        var html =  '<span class=\"popupTitle\">'+record.getData().city+"</span><img src='http://src.sencha.io/detect/"+record.getData().img+"' />";
         this.getInfoPanel().setHtml(html);
         this.getInfoPanel().show();
 

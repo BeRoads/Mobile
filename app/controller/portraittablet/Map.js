@@ -54,6 +54,13 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
         this.callParent(arguments);
     },
 	
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
 	/**
 	 * Pop the current view and reset the title depending on the currently displayed view
 	 *	@return 

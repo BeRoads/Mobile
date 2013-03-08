@@ -5,33 +5,23 @@ Ext.define('BeRoads.controller.landscapetablet.Settings', {
 
     config:{
         refs:{
-            userFormSaveButton:'#userFormSaveButton',
-            userFormFieldset:'#userFormFieldset',
-            saveButton:'#saveButton',
-            settingsPanel : '#settingsPanel',
-            preferenceButton : '#preferenceButton',
             moreButton : '#moreButton',
-            mapNavigationView : '#mapNavigationView'
+            mapNavigationView : '#mapNavigationView',
+            displayTraffic : '#displayTraffic',
+            displayRadars : '#displayRadars',
+            displayWebcams : '#displayWebcams', 
+            lang : '#lang',
+            area : '#area'
         },
         control:{
-            settingsPanel : {
-                show : 'loadSettingsPanel'
-            },
-			userFormFieldset : {
-				erased : 'destroySettingsPanel'
-			},
-            saveButton:{
-                tap:'onSaveButtonTap'
-            },
-            moreButton : {
-                tap : 'onMoreButtonTap'
-            }
         }
     },
 
     init:function () {
         this.callParent(arguments);
     },
+
+    
 
     onMoreButtonTap:function () {
 
@@ -40,7 +30,6 @@ Ext.define('BeRoads.controller.landscapetablet.Settings', {
         Ext.Ajax.request({
             url: 'app/view/credits.html',
             success: function(rs){
-                me.getSaveButton().hide();
                 me.getMapNavigationView().push({
                     xtype: 'panel',
                     title: 'About',

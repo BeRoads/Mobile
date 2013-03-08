@@ -17,13 +17,13 @@ if(localStorage.getItem('area') == undefined || localStorage.getItem('area') == 
 	localStorage.setItem('area', 50);
 }
 if(localStorage.getItem('displayTraffic') == undefined || localStorage.getItem('displayTraffic') == null){
-	localStorage.setItem('displayTraffic', true);
+	localStorage.setItem('displayTraffic', 1);
 }
 if(localStorage.getItem('displayWebcams') == undefined || localStorage.getItem('displayWebcams') == null){
-	localStorage.setItem('displayWebcams', true);
+	localStorage.setItem('displayWebcams', 1);
 }
 if(localStorage.getItem('displayRadars') == undefined || localStorage.getItem('displayRadars') == null){
-	localStorage.setItem('displayRadars', true);
+	localStorage.setItem('displayRadars', 1);
 }
 if(localStorage.getItem('lastUpdate') == undefined || localStorage.getItem('lastUpdate') == null){
 	localStorage.setItem('lastUpdate', new Date().getTime());
@@ -174,6 +174,7 @@ if(!Ext.device.Connection.isOnline()){
 						this.each(function (record) {
 							var trafficEvents = record.raw.TrafficEvent.item;
 							for(var i = 0; i < trafficEvents.length; i++){
+								trafficEvents[i].formatted_time = formatTimestamp(trafficEvents[i].time);
 								trafficEvents[i].id = i;
 								Ext.getStore('offline.TrafficEvent').add(trafficEvents[i]);
 							}

@@ -54,21 +54,21 @@ Ext.define('BeRoads.view.landscapetablet.Settings', {
 					name: 'displayTraffic',
 					label: _tr('traffic', localStorage.getItem('lang')),
 					id : 'displayTraffic',
-					value : (localStorage.getItem('displayTraffic') == 'false' ? 0 : 1)
+					value : localStorage.getItem('displayTraffic')
 				},
 				{
 					xtype: 'togglefield',
 					name: 'displayRadars',
 					id : 'displayRadars',
 					label: _tr('radars', localStorage.getItem('lang')),
-					value : (localStorage.getItem('displayRadars') == 'false' ? 0 : 1)
+					value : localStorage.getItem('displayRadars')
 				},
 				{
 					xtype: 'togglefield',
-					name: 'displayCameras',
-					id : 'displayCameras',
+					name: 'displayWebcams',
+					id : 'displayWebcams',
 					label: _tr('webcams', localStorage.getItem('lang')),
-					value : (localStorage.getItem('displayCameras') == 'false' ? 0 : 1)
+					value : localStorage.getItem('displayWebcams')
 				}
 				]
 			}

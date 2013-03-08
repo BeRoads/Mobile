@@ -23,6 +23,9 @@ Ext.define('BeRoads.controller.TrafficEvents', {
 		this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
 	/**
 	 *	Bind the offline traffic events store to the trafficeventsList
 	 *	@return 

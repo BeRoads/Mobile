@@ -25,6 +25,14 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
+
 	/**
 	 *	Open the settings view 
 	 *	@return 

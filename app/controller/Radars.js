@@ -20,6 +20,10 @@ Ext.define('BeRoads.controller.Radars', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+    
 	/**
 	 *	Bind the offline radars store to the radarsList list view
 	 *	@return
