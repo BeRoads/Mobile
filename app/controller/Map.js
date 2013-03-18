@@ -3,10 +3,11 @@ Ext.define('BeRoads.controller.Map', {
 
     views: ['Main', 'Map', 'trafficevents.List'],
     stores : ['offline.Radar', 'online.Radar','offline.Webcam', 'online.Webcam', 'offline.TrafficEvent', 'online.TrafficEvent'],
-    markers : {
+    //store google maps marker for further access
+	markers : {
         trafficevents : [],
         radars : [],
-        cameras : []
+        webcams : []
     },
     config: {
         refs: {
@@ -19,46 +20,64 @@ Ext.define('BeRoads.controller.Map', {
         control: {
             trafficMap: {
                 maprender: 'renderTrafficMap'
-            },
-            preferenceButton : {
-                tap : 'openPreferences'
             }
         }
     },
 
     init:function () {
-        console.log("[+] Initialize default map controller");
         this.callParent(arguments);
+    },	
+	
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
     },
 
+    updateMapArea : function() {
+        console.log("Updating map area");
+    },
 
     renderTrafficMap : function(comp, map, eOpts) {
 
-
-        //this.getPreferenceButton().show();
         var me = this;
 
-        var showCenteredOverlay = function (data) {
-            console.log("open content !");
-            me.getInfoPanel().setHtml(data.html);
+		/**
+		 * Display the info panel with the clicked item information on it
+		 * @input marker : the clicked marker
+		 * @return
+		 */
+        var showCenteredOverlay = function (marker) {
+            me.getInfoPanel().setHtml(marker.html);
             me.getInfoPanel().show();
-
         };
 
-        var addCamera = function (camera, position) {
-            me.markers.cameras[camera.id] = new google.maps.Marker({
-                id : camera.id,
+		/**
+		 * Add a webcam marker to the map
+		 * @input webcam : a webcam object
+		 * @input position : a position object (latitude, longitude)
+		 * @return 
+		 */
+        var addWebcam = function (webcam, position) {
+            me.markers.webcams[webcam.id] = new google.maps.Marker({
+                id : webcam.id,
                 map:map,
                 position:position,
-                title:camera.name,
-                html : '<div style="color:#42cd27">'+camera.city+"<img margin-bottom='0px' height='90%' width='100%' src='"+camera.img+"' /></div>",
-                icon:'resources/img/camera.png'
+                title:webcam.name,
+                html : '<span class=\"popupTitle\">'+webcam.city+"</span><img src='http://src.sencha.io/detect/"+webcam.img+"' />",
+                icon:'resources/img/webcam.png'
             });
-            google.maps.event.addListener(me.markers.cameras[camera.id], 'click', function () {
+            google.maps.event.addListener(me.markers.webcams[webcam.id], 'click', function () {
                 map.setCenter(this.position);
-                showCenteredOverlay(me.markers.cameras[camera.id]);
+                showCenteredOverlay(me.markers.webcams[webcam.id]);
             });
         };
+
+		
+		/**
+		 * Add a radar marker to the map
+		 * @input radar : a radar object
+		 * @input position : a position object (latitude, longitude)
+		 * @return 
+		 */
         var addRadar = function (radar, position) {
 
             me.markers.radars[radar.id] = new google.maps.Marker({
@@ -71,52 +90,60 @@ Ext.define('BeRoads.controller.Map', {
             });
             google.maps.event.addListener(me.markers.radars[radar.id], 'click', function () {
                 map.setCenter(this.position);
-                //showCenteredOverlay(me.markers.radars[radar.id]);
             })
         };
 
-        var addMarker = function (trafficevent, position) {
-
+		/**
+		 * Add a traffic event marker to the map
+		 * @input trafficevent : a trafficevent object
+		 * @input position : a position object (latitude, longitude)
+		 * @return 
+		 */
+        var addTrafficEvent = function (trafficevent, position) {
+			
             if (trafficevent.category != undefined && trafficevent.category != null) {
+				trafficevent.category = trafficevent.category.toLowerCase().replace(" ", "");
                 me.markers.trafficevents[trafficevent.id] = new google.maps.Marker({
                     id : trafficevent.id,
                     map:map,
                     position:position,
                     title:trafficevent.location,
-                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span style=\"popupDescription\">'+
-                        truncateContent(trafficevent.message)+'</span>',
-                    icon:'resources/img/' + (trafficevent.category.toLowerCase()).replace(" ", "") + '.png'
+                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
+                        trafficevent.message+'</span>',
+                    icon:'resources/img/' + trafficevent.category + '.png'
                 });
                 google.maps.event.addListener(me.markers.trafficevents[trafficevent.id], 'click', function () {
-
                     map.setCenter(this.position);
                     showCenteredOverlay(me.markers.trafficevents[trafficevent.id]);
-
                 });
             }
-
-
         };
+
+		//create a GMap position with the geo updated values
         var userPosition = new google.maps.LatLng(Ext.USER_COORDS.position.coords.latitude,
             Ext.USER_COORDS.position.coords.longitude);
 
+		//create the user marker
         var marker = new google.maps.Marker({
             map:map,
             position:userPosition,
             icon:'resources/img/user.png'
         });
-        if (localStorage.getItem('displayTraffic') == 'true') {
 
+		
+        if (localStorage.getItem('displayTraffic') == 'true') {
+			// loop in traffic events store and add markers to the map
             var trafficStore = Ext.getStore('offline.TrafficEvent');
             trafficStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addMarker(item.data, position);
+                    addTrafficEvent(item.data, position);
                 }
             });
         }
 
         if (localStorage.getItem('displayRadars') == 'true') {
+			// loop in radars store and add markers to the map
             var radarStore = Ext.getStore('offline.Radar');
             radarStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
@@ -126,17 +153,17 @@ Ext.define('BeRoads.controller.Map', {
             });
         }
 
-        if (localStorage.getItem('displayCameras') == 'true') {
-            var cameraStore = Ext.getStore('offline.Webcam');
-            cameraStore.each(function(item){
+        if (localStorage.getItem('displayWebcams') == 'true') {
+			// loop in webcams store and add markers to the map
+            var webcamStore = Ext.getStore('offline.Webcam');
+            webcamStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addCamera(item.data, position);
+                    addWebcam(item.data, position);
                 }
             });
         }
+		//center the map on user's position
         map.setCenter(userPosition);
-
     }
-
 });

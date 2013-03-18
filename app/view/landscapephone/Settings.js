@@ -1,10 +1,8 @@
 Ext.define('BeRoads.view.landscapephone.Settings', {
     extend: 'Ext.form.Panel',
-    defaultInstructions: '',
     xtype : 'settings',
 
     config : {
-
         items: [
             {
                 xtype : 'button',
@@ -14,8 +12,6 @@ Ext.define('BeRoads.view.landscapephone.Settings', {
             {
             xtype: 'fieldset',
             id: 'userFormFieldset',
-
-            instructions: this.defaultInstructions,
             defaults: {
                 xtype: 'textfield',
                 labelAlign: 'left',
@@ -83,18 +79,5 @@ Ext.define('BeRoads.view.landscapephone.Settings', {
             ]
         }
         ]
-    },
-
-    initialize: function(){
-
-        //this.callParent(arguments);
-
-    	this.defaultInstructions = _tr('settings_message', localStorage.getItem('lang'));
-
     }
-
-
-
-
-
 });

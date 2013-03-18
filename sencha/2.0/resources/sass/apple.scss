@@ -1,14 +1,18 @@
 // Let's start with the basics
-$base-color: #7c92ae;
+$base-color: #333;
 $base-gradient: 'glossy';
+
 
 // Lists
 $list-active-gradient: 'bevel';
-$list-header-bg-color: transparentize(saturate($base-color, 10%), .25);
+$list-header-bg-color: transparentize($base-color, .25);
+$list-header-color : #fff;
 $list-header-gradient: 'matte';
 
 // Tabs
 $tabs-dark: #111;
+$tabs-dark-active-color :  #82cbe9;
+$tabs-dark-color : #333;
 
 @import 'sencha-touch/default/all';
 

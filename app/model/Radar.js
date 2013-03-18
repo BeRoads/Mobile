@@ -7,7 +7,6 @@ Ext.define('BeRoads.model.Radar', {
             {name: 'distance', type:'integer'},
             {name: 'lat', type:'string'},
             {name: 'lng', type:'string'}
-
         ]
     }
 });

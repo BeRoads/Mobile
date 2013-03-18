@@ -3,11 +3,11 @@ Ext.define('BeRoads.controller.portraitphone.TrafficEvents', {
 
     views:['trafficevents.List', 'trafficevents.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
-    loaded : false,
+    displayed : false,
     config: {
         refs: {
             trafficeventsList: '#trafficeventsList',
-            trafficeventsView : '#trafficeventsView',
+            main : '#trafficeventsView',
             tabPanel : '#tabpanel'
         },
         control: {
@@ -19,26 +19,28 @@ Ext.define('BeRoads.controller.portraitphone.TrafficEvents', {
     },
 
     init:function () {
-
-        console.log("[+] init traffic events controller");
+        this.callParent(arguments);
     },
-
-    loadTrafficEventsPanel:function (cmp, eOpts) {
-
-        cmp.setStore(Ext.getStore('offline.TrafficEvent'));
-        cmp.refresh();
-
-    },
-
+	
+	/**
+	 *	Push the traffic event detailed view, set the title and 
+	 *	start a 'title scroller' if necessary (like highway displays)
+	 *	@return
+	 */
     onItemTap : function(cmp, index, target, record, e, eOpts ){
 
-        if (record !== undefined) {
-            this.getTrafficeventsView().push({
-                xtype: 'trafficeventDetail',
-                title: record.getData().location,
-                data: record.getData(),
-                prevCard: this
-            });
-        }
+		this.callParent(arguments);
+        var me = this;
+    	this.displayed = true;
+		var title = record.getData().location;
+		var scroll = function(start, end, text, offset){
+			if(me.displayed){
+				me.getTrafficeventsView().getNavigationBar().setTitle(text.substring(start%offset, end%offset));
+				setTimeout(function(){scroll(++start, ++end, text, offset);}, 250);
+			}
+		};
+		if(title.length > 30)
+			scroll(0, 30, title, title.length);
+        
     }
 });

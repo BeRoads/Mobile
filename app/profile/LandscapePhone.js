@@ -3,8 +3,8 @@ Ext.define('BeRoads.profile.LandscapePhone', {
 
     config: {
         name: 'LandscapePhone',
-        controllers: ['Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings', 'About'],
-        views: ['Main', 'Settings', 'Map', 'AboutList',
+        controllers: ['Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings'],
+        views: ['Main', 'Settings', 'Map',
             'trafficevents.List', 'trafficevents.Detail', 'radars.List', 'radars.Detail', 'webcams.List', 'webcams.Detail']
     },
 

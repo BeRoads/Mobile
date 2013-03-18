@@ -8,26 +8,49 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
             menuList : '#menuList',
             navigationMenu : '#navigationMenu',
             mapNavigationView : '#mapNavigationView',
-            preferenceButton : '#preferenceButton'
+            preferenceButton : '#preferenceButton',
+			infoPanel : "#infoPanel"
         },
         control: {
             menuList :{
                 itemtap : 'onMenuListItemTap'
+            },
+            preferenceButton : {
+                tap : 'openPreferences'
             }
         }
     },
 
+    init:function () {
+        this.callParent(arguments);
+    },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
+
+	/**
+	 *	Open the settings view 
+	 *	@return 
+	 */
     openPreferences : function() {
 
+		this.getInfoPanel().hide();
         this.getPreferenceButton().hide();
         this.getMapNavigationView().push({
             xtype: 'settings',
             title : 'Settings'
         });
-        this.callParent(arguments);
-
     },
+
+	/**
+	 * Open the clicked view on the menuList
+	 *	@return 
+	 */
     onMenuListItemTap : function(cmp, index, target, record, e, eOpts) {
 
         if (record !== undefined) {
@@ -49,25 +72,17 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
                     xtype: record.getData().xtype
                 });
             }
-
         }
-
-
     },
 
-    init:function () {
-
-        console.log("[+] Initialize tablet map controller");
-        this.callParent(arguments);
-
-    },
-
+	/**
+	 * Add the traffic layer to the map then call the parent function to set up the map
+	 *	@return 
+	*/
     renderTrafficMap : function(comp, map, eOpts) {
-
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
         this.callParent(arguments);
-
     }
 
 

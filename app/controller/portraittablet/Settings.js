@@ -9,13 +9,16 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
             userFormFieldset:'#userFormFieldset',
             saveButton:'#saveButton',
             settingsPanel : '#settingsPanel',
+			navigationTabPanel : '#navigationTabPanel',
             preferenceButton : '#preferenceButton',
+			menuButton : '#menuButton',
             moreButton : '#moreButton',
-            mapNavigationView : '#mapNavigationView'
+			backButton : '#backButton',
+            settingsNavigationView : '#settingsNavigationView'
         },
         control:{
-            settingsPanel : {
-                show : 'loadSettingsPanel',
+            userFormFieldset : {
+				show : 'loadSettingsPanel',
                 erased : 'destroySettingsPanel'
             },
             saveButton:{
@@ -28,55 +31,36 @@ Ext.define('BeRoads.controller.portraittablet.Settings', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-    loadSettingsPanel : function(){
-
-        //this.getMain().getNavigationBar().setTitle(_tr('settings', localStorage.getItem('lang')));
-        this.getSaveButton().show();
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
     },
-
-    destroySettingsPanel : function(){
-
-        this.getPreferenceButton().show();
-        this.getSaveButton().hide();
-        //this.callParent(arguments);
-    },
-
-    onSaveButtonTap:function () {
-
-        //we reset this to 1970 epoch
-        var items = this.getUserFormFieldset().config.items;
-        localStorage.setItem('area', items[0].value);
-        localStorage.setItem('lang', items[1].items[0].value);
-        localStorage.setItem('displayTraffic', (items[2].items[0].value == 0 ? false : true));
-        localStorage.setItem('displayRadars', (items[2].items[1].value == 0 ? false : true));
-        localStorage.setItem('displayCameras', (items[2].items[2].value == 0 ? false : true));
-        localStorage.setItem('lastUpdate', 0);
-
-        this.destroy();
-        window.location.reload();
-    },
+    
+	loadSettingsPanel : function(cmp){
+        this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+	},
+	
     onMoreButtonTap:function () {
 
-
-        this.getSaveButton().hide();
-        this.getPreferenceButton().hide();
         var me = this;
         Ext.Ajax.request({
             url: 'app/view/credits.html',
             success: function(rs){
-                me.getSaveButton().hide();
-                me.getMapNavigationView().push({
+                me.getSettingsNavigationView().push({
                     xtype: 'panel',
                     title: 'About',
                     html:rs.responseText,
                     styleHtmlContent : true,
                     padding : '25 25 25 25'
                 });
+				
+				me.getSaveButton().hide();
+		        me.getPreferenceButton().hide();
+				me.getBackButton().show();
+				me.getMenuButton().hide();
+				
             },
             scope: this
         });

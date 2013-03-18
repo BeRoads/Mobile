@@ -6,11 +6,13 @@ Ext.define('BeRoads.store.offline.Webcam', {
         model: 'BeRoads.model.Webcam',
         autoLoad: false,
         storeId: 'offline.Webcam',
-        getGroupString: function(record) { return record.get('zone') },
+		grouper : {
+			property: 'zone',
+			sortProperty: 'zone'
+		},
         proxy: {
             type: 'localstorage',
             id: 'Webcam'
         }
     }
-
 });

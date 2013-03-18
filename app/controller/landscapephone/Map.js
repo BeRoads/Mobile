@@ -6,31 +6,39 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
 
     config: {
         refs: {
+			preferenceButton : '#preferenceButton'
         },
         control: {
+            preferenceButton : {
+                tap : 'openPreferences'
+            }
         }
     },
 
     init:function () {
-
-        console.log("[+] Initialize phone map controller");
+		this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+
+    updateMapArea : function() {
+        this.callParent(arguments);
+    },
+    
     openPreferences : function() {
         this.getMapView().push({
             title : 'Settings',
             xtype : 'settings'
         });
-
     },
 
-    loadTrafficMap : function(){
-        this.callParent(arguments);
-    },
-
+	/**
+	 * Add the traffic layer to the map then call the parent function to set up the map
+	 *	@return 
+	*/
     renderTrafficMap : function(comp, map, eOpts) {
-        //this.getMain().getNavigationBar().setTitle(_tr('map', localStorage.getItem('lang')));
-        //
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
         this.callParent(arguments);

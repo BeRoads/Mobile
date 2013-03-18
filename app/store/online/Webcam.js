@@ -23,5 +23,4 @@ Ext.define('BeRoads.store.online.Webcam', {
             }
         }
     }
-
 });

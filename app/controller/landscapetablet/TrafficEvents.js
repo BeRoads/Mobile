@@ -3,7 +3,6 @@ Ext.define('BeRoads.controller.landscapetablet.TrafficEvents', {
 
     views:['trafficevents.List', 'trafficevents.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
-    loaded : false,
     config: {
         refs: {
             infoPanel : '#infoPanel',
@@ -12,41 +11,37 @@ Ext.define('BeRoads.controller.landscapetablet.TrafficEvents', {
         control: {
             trafficeventsList: {
                 itemtap: 'onItemTap',
-                show  :'loadTrafficEventsPanel',
-                erased : 'eraseTrafficPanel'
+                show  :'loadTrafficEventsPanel'
             }
         }
     },
 
-    eraseTrafficPanel : function(){
-        this.destroy();
-    },
-
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+    
     loadTrafficEventsPanel:function (cmp, eOpts) {
-
         cmp.setStore(null);
-        cmp.setStore(Ext.getStore('offline.TrafficEvent'));
-        cmp.refresh();
-
+		this.callParent(arguments);
     },
 
+	/**
+	 *	Push the traffic event detailed view, set the title and 
+	 *	start a 'title scroller' if necessary (like highway displays)
+	 *	@return
+	 */
     onItemTap:function(cmp, index, target, record, e, eOpts) {
 
         var position = new google.maps.LatLng(record.getData().lat, record.getData().lng);
         var map = Ext.getCmp('trafficMap').getMap();
         map.setCenter(position);
-        console.log(Ext.getCmp('trafficMap'));
         var html = '<span class=\"popupTitle\">'+record.getData().location+'</span><span class=\"popupDescription\">'+
                 truncateContent(record.getData().message)+'</span>';
         this.getInfoPanel().setHtml(html);
         this.getInfoPanel().show();
-
     }
 });

@@ -27,7 +27,8 @@ function _tr(str, language){
 					displayWebcams : "Display webcams",
 					settings_message : "Please enter the information above",
 					preferences : "Preferences",
-					sorry : "Sorry"
+					sorry : "Sorry",
+					loading : "Loading"
 			},
 			
 			"fr" : {
@@ -50,7 +51,8 @@ function _tr(str, language){
 				displayWebcams : "Afficher cameras",
 				settings_message : "Veuillez compléter les informations ci-dessus",
 				preferences : "Préférences",
-				sorry : "Désolé"
+				sorry : "Désolé",
+				loading : "Loading"
 			},
 			
 			"nl" : {
@@ -73,7 +75,8 @@ function _tr(str, language){
 				displayWebcams : "Weer camera's",
 				settings_message : "Vul de bovenstaande informatie",
 				preferences : "Voorkeuren",
-				sorry : "Sorry"
+				sorry : "Sorry",
+				loading : "Loading"
 			},
 			
 			"de" : {
@@ -96,7 +99,8 @@ function _tr(str, language){
 				displayWebcams : "Anzeige kameras",
 				settings_message : "Bitte geben Sie die oben genannten Informationen",
 				preferences : "Vorlieben",
-				sorry : "Sorry"
+				sorry : "Sorry",
+				loading : "Loading"
 			}
 		
 				

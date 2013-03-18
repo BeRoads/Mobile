@@ -20,10 +20,7 @@ Ext.define('BeRoads.controller.landscapephone.Radars', {
         this.callParent(arguments);
     },
 
-
-    loadRadarPanel : function(cmp, eOpts) {
-        cmp.setStore(Ext.getStore('offline.Radar'));
-        cmp.refresh();
-
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
     }
 });

@@ -12,7 +12,6 @@ Ext.define('BeRoads.store.online.TrafficEvent', {
                 from:Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude,
                 area:localStorage.getItem('area')
             },
-
             noCache : true,
             timeout : 25000,
             actionMethods:  {create: "PUT", read: "GET", update: "POST", destroy: "DELETE"},

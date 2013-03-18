@@ -2,8 +2,6 @@ Ext.define('BeRoads.view.Main', {
     extend:'Ext.navigation.View',
 
     id:'mainpanel',
-
-
     requires:[
         'BeRoads.view.Map',
         'BeRoads.view.trafficevents.List',
@@ -12,7 +10,6 @@ Ext.define('BeRoads.view.Main', {
     ],
     config:{
         autoDestroy: false,
-
         navigationBar: {
             hidden : true
         },

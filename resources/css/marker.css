@@ -3,7 +3,18 @@
 	box-shadow: none !important;
 }
 
-.popupMarker:before {
+.popupMenu .x-button-normal {
+  border: none !important;
+  background: #d9d9d9 url(../img/bg_list.jpg) repeat-x;
+  img {
+    background: #777 !important;
+  }
+	
+	-webkit-border-radius: 0px;
+}
+
+/* x-button x-button-normal */
+/*.popupMarker:before {
 	content: "";
 	position: absolute;
 	bottom: 2px;
@@ -12,15 +23,14 @@
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: #000;
 	-webkit-transform: rotate(-45deg);
 	border-radius: 2px;
-}
+}*/
 
 
 .popupMarker .x-panel-body {
-	background: #000 !important;
-	color: #fff !important !important;
+	background: #fff !important;
+	color: #000 !important !important;
 	text-align: center !important;
 	padding-bottom: 5px;
 }
@@ -30,11 +40,13 @@
 	padding: 0 !important;
 }
 
-.popupMarker .popupTitle, .popupDescription {
-	color: #fff;
+.popupMarker .popupTitle {
+	color: #000;
 	display: block;
+	text-align : center;
 	font-weight: bold;
 	padding: 5px;
+	border-bottom : 1px solid black;
 }
 
 .popupMarker .popupTitle {
@@ -42,17 +54,9 @@
 }
 
 .popupMarker .popupDescription {
+	margin-left : 50px;
+	margin-right : 50px;
+	margin-top : 50px;
 	font-size: 11px;
-}
-
-#incident {
-	background-color : red;
-}
-
-#work{
-	background-color : orange;
-}
-
-#jam {
-	background-color : gray;
+	
 }

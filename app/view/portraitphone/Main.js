@@ -32,6 +32,8 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         html: 'This is a centered and modal panel',
                         modal: true,
                         hidden : true,
+						width : "50%",
+						height : "50%",
                         hideOnMaskTap: true,
                         centered: true,
                         cls : 'popupMarker'
@@ -39,7 +41,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                     {
                         xtype : 'navigationview',
                         id : 'mapView',
-                        iconCls: 'map',
+                        iconCls: 'mapTabButton',
                         title: _tr('map', localStorage.getItem('lang')),
                         navigationBar : {
                             items: [
@@ -87,7 +89,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                     },
                     {
                         xtype : 'navigationview',
-                        iconCls: 'traffic',
+                        iconCls: 'trafficeventsTabButton',
                         id : 'trafficeventsView',
                         title: _tr('traffic', localStorage.getItem('lang')),
                         items : [
@@ -100,7 +102,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                     },
                     {
                         xtype : 'navigationview',
-                        iconCls: 'radars',
+                        iconCls: 'radarsTabButton',
                         id : 'radarsView',
                         title: _tr('radars', localStorage.getItem('lang')),
                         items : [
@@ -112,7 +114,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                     },
                     {
                         xtype : 'navigationview',
-                        iconCls: 'cameras',
+                        iconCls: 'webcamsTabButton',
                         id : 'webcamsView',
                         title: _tr('webcams', localStorage.getItem('lang')),
                         items : [

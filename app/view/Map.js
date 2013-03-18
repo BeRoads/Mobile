@@ -3,7 +3,6 @@ Ext.define('BeRoads.view.Map', {
     id : 'trafficMap',
     xtype : 'trafficMap',
 
-
     config:{
         title: _tr('map', localStorage.getItem('lang')),
         highAccuracy:true,

@@ -18,27 +18,33 @@ Ext.define('BeRoads.controller.Webcams', {
     },
 
     init:function () {
-
         this.callParent(arguments);
-
     },
 
-
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+	/**
+	 *	Bind the offline webcams store to the webcamsList view
+	 *	@return
+	*/
     loadWebcamsList : function(cmp, eOpts) {
-
         cmp.setStore(Ext.getStore('offline.Webcam'));
         cmp.refresh();
-
     },
 
-    onItemTap:function (cmp, record, target, index, e, eOpts ) {
-        console.log(record);
-        /*if (record !== undefined) {
+	/**
+	 *	Push the webcam detailed view
+	 *	@return
+	*/
+    onItemTap:function (cmp, index, target, record, e, eOpts) {
+        
+        if (record !== undefined) {
             this.getMain().push({
                 xtype: 'webcamDetail',
                 title: record.getData().city,
                 data: record.getData()
             });
-        }*/
+        }
     }
 });

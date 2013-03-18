@@ -7,7 +7,7 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
         fullscreen:true,
 
         layout:{
-            type:'hbox',
+            type:'card',
             animation:{
                 type:'slide',
                 direction:'left',
@@ -20,7 +20,7 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                 xtype:'navigationview',
                 id :'mapNavigationView',
                 docked : 'right',
-                width:'80%',
+                width:'70%',
 
                 navigationBar : {
                     items: [
@@ -59,12 +59,11 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                     ]
                 },
                 items : [
-
+					
+					
                     {
                         id : 'infoPanel',
                         xtype: 'panel',
-                        height : '50%',
-                        width : '50%',
                         styleHtmlCls : true,
                         style: "background-color: #dddddd",
                         modal: true,
@@ -73,10 +72,12 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                         centered: true,
                         cls : 'popupMarker'
                     },
+					
                     {
                         xtype : 'trafficMap',
                         itemId : 'trafficMap',
                         title : "BeRoads"
+					
                     }
                 ]
             },
@@ -86,22 +87,33 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                 xtype:'navigationview',
                 id :'navigationMenu',
                 docked:'left',
-
-                width:'20%',
+                width:'30%',
+	
+				shadow:true,
+				floating:true,
+				shadowOffset:20,
                 items:[
                     {
                         xtype:'list',
                         width:'100%',
-                        itemTpl: '{title}',
                         id : 'menuList',
                         title : '',
+						itemTpl : '<div class="thumbnail"><img src="{iconURL}" width="30" height="30" /></div><span class="name">{title}</span>',
                         //title : "<img src='resources/img/cars.png' alt='car' />",
                         data:[
-                            {   title:'Traffic' , xtype : 'trafficeventsList' },
-                            {   title:'Webcams' , xtype : 'webcamsList' },
-                            {   title:'Radars' , xtype : 'radarsList' }
+                            {   title:_tr('traffic', localStorage.getItem('lang')), xtype : 'trafficeventsList',  iconURL : 'resources/img/trafficevents_icon.png'},
+                            {   title:_tr('webcams', localStorage.getItem('lang')) , xtype : 'webcamsList', iconURL : 'resources/img/webcams_icon.png' },
+                            {   title:_tr('radars', localStorage.getItem('lang')) , xtype : 'radarsList', iconURL : 'resources/img/radars_icon.png' }
                         ]
-                    }
+                    },
+						{
+							xtype : 'panel',
+							width : '3px',
+							floating : true,
+							styleHtmlCls : true,
+							style : 'background-image: linear-gradient(right , rgb(255,255,255) 0%, rgb(0,0,0) 66%);background-image: -o-linear-gradient(right , rgb(255,255,255) 0%, rgb(0,0,0) 66%);background-image: -moz-linear-gradient(right , rgb(255,255,255) 0%, rgb(0,0,0) 66%);background-image: -webkit-linear-gradient(right , rgb(255,255,255) 0%, rgb(0,0,0) 66%);background-image: -ms-linear-gradient(right , rgb(255,255,255) 0%, rgb(0,0,0) 66%); background-image: -webkit-gradient(linear,right bottom,left bottom,color-stop(0, rgb(255,255,255)),color-stop(0.66, rgb(0,0,0)));',							
+							docked :'right'
+						}
                 ]
 
 

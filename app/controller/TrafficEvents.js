@@ -1,9 +1,9 @@
 Ext.define('BeRoads.controller.TrafficEvents', {
     extend:'Ext.app.Controller',
 
+	displayed : false,		//if true, the title of the detailed view keep scrolling
     views:['trafficevents.List', 'trafficevents.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
-
     config: {
         refs: {
             trafficeventsList: '#trafficeventsList',
@@ -19,22 +19,30 @@ Ext.define('BeRoads.controller.TrafficEvents', {
     },
 
     init:function () {
-
+		this.displayed = true;
+		this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
+	/**
+	 *	Bind the offline traffic events store to the trafficeventsList
+	 *	@return 
+	*/
     loadTrafficEventsPanel:function (cmp, eOpts) {
-
-        /*console.log("[+] Loading traffic events list...");
-        cmp.setStore(null);
-        cmp.setStore(Ext.getStore('offline.TrafficEvent'));
-        cmp.refresh();*/
-
+      	this.displayed = false;
+  		cmp.setStore(Ext.getStore('offline.TrafficEvent'));
+        cmp.refresh();
     },
 
-    onItemTap:function (cmp, record, target, index, e, eOpts ) {
-        console.log(record);
+	/**
+	 *	Push the traffic event detailed view
+	 *	@return
+	*/
+    onItemTap:function (cmp, index, target, record, e, eOpts ){
+		this.displayed = true;
         if (record !== undefined) {
-
             this.getMain().push({
                 xtype: 'trafficeventDetail',
                 title: record.getData().location,
