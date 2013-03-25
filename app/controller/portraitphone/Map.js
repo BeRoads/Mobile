@@ -6,12 +6,8 @@ Ext.define('BeRoads.controller.portraitphone.Map', {
 
     config: {
         refs: {
-			preferenceButton : '#preferenceButton'
         },
         control: {
-            preferenceButton : {
-                tap : 'openPreferences'
-            }
         }
     },
 
@@ -20,18 +16,12 @@ Ext.define('BeRoads.controller.portraitphone.Map', {
     },
     
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getMapView().getNavigationBar().setTitle(_tr('map', localStorage.getItem('lang')));
+        this.callParent(arguments);
     },
 
     updateMapArea : function() {
         this.callParent(arguments);
-    },
-
-    openPreferences : function() {
-        this.getMapView().push({
-            title : 'Settings',
-            xtype : 'settings'
-        });
     },
 
 	/**

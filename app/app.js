@@ -1,12 +1,11 @@
 
 //set fallback user coordinates
 Ext.USER_COORDS = {
-	position : {
-		coords : {
+	coords : {
 			latitude : 0,
 			longitude : 0
 		}
-	}
+	
 };
 
 //check if localStorage items are defined 
@@ -89,6 +88,106 @@ if(!Ext.device.Connection.isOnline()){
 			114: 'resources/icons/icon@2x.png',
 			144: 'resources/icons/icon@144.png'
 		},
+
+		showPosition : function(position) {
+			
+						var me = this;
+						if (position != undefined) {
+							
+							var now = new Date().getTime();
+							
+								console.log(position);
+								//Load online stores and bind it to the offline stores so we don't make unnecessary requests
+								//TODO : fix it for offline use !
+								Ext.USER_COORDS = position;
+								var trafficStore = Ext.getStore('online.TrafficEvent');
+								trafficStore.getProxy().setExtraParam('from',
+								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+								trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
+
+								trafficStore.addListener('refresh', function () {
+									console.log("refresh traffic store");
+									Ext.getStore('offline.TrafficEvent').getProxy().clear();
+									this.each(function (record) {
+										var trafficEvents = record.raw.TrafficEvent.item;
+										for(var i = 0; i < trafficEvents.length; i++){
+											trafficEvents[i].formatted_time = formatTimestamp(trafficEvents[i].time);
+											trafficEvents[i].id = i;
+											Ext.getStore('offline.TrafficEvent').add(trafficEvents[i]);
+										}
+									});
+									Ext.getStore('offline.TrafficEvent').sync();
+									me.loaded++;
+								});
+								trafficStore.load();
+
+								var radarStore = Ext.getStore('online.Radar');
+								radarStore.getProxy().setExtraParam('from',
+								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+								radarStore.getProxy().setExtraParam('area',
+								localStorage.getItem('area'));
+
+								radarStore.addListener('refresh', function () {
+									Ext.getStore('offline.Radar').getProxy().clear();
+									this.each(function (record) {
+										var radars = record.raw.Radar.item;
+										for(var i = 0; i < radars.length; i++){
+											radars[i].id = i;
+											Ext.getStore('offline.Radar').add(radars[i]);
+										}
+									});
+									Ext.getStore('offline.Radar').sync();
+									me.loaded++;
+								});
+								radarStore.load();
+
+
+								var webcamStore = Ext.getStore('online.Webcam');
+								webcamStore.getProxy().setExtraParam('from',
+								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+								webcamStore.getProxy().setExtraParam('area',
+								localStorage.getItem('area'));
+
+								webcamStore.addListener('refresh', function () {
+									Ext.getStore('offline.Webcam').getProxy().clear();
+									this.each(function (record) {
+										var cameras = record.raw.Camera.item;
+										for(var i = 0; i < cameras.length; i++){
+											cameras[i].id = i;
+											Ext.getStore('offline.Webcam').add(cameras[i]);
+										}
+									});
+									Ext.getStore('offline.Webcam').sync();
+									me.loaded++;
+
+								});
+								webcamStore.load();
+
+								//set last update valu
+								localStorage.setItem('lastUpdate', new Date().getTime());
+							
+						}
+		},
+
+		showError : function(error)
+		  {
+		  switch(error.code) 
+		    {
+		    case error.PERMISSION_DENIED:
+		      console.log("User denied the request for Geolocation.");
+		      break;
+		    case error.POSITION_UNAVAILABLE:
+		      console.log("Location information is unavailable.");
+		      break;
+		    case error.TIMEOUT:
+		      console.log("The request to get user location timed out.");
+		      break;
+		    case error.UNKNOWN_ERROR:
+		      console.log("An unknown error occurred.");
+		      break;
+		    }
+		  },
+
 		launch: function() {
 
 			//Display a loading mask while we are fetching data from the API
@@ -100,12 +199,12 @@ if(!Ext.device.Connection.isOnline()){
 				}
 			});
 
-			//set up a location update listener to keep data relevant regarding of the user location
-			this.geo = new Ext.util.GeoLocation({
-				autoUpdate:true
-			});
-			this.geo.on('locationupdate', this.onGeoUpdate, this);
-			this.geo.updateLocation();
+			if (navigator.geolocation)
+		    {
+		    	navigator.geolocation.getCurrentPosition(this.showPosition);
+		    	navigator.geolocation.watchPosition(this.showPosition);
+		    }
+			
 
 			var showView = function(){
 				//if the app isn't already launched
@@ -146,90 +245,10 @@ if(!Ext.device.Connection.isOnline()){
 				}
 			};
 			setTimeout(function() { showView()},2000);
-		},
 
 
-		/**
-		* Callback for geo coords update
-		*/
-		onGeoUpdate:function (coords) {
-
-
-			var me = this;
-			if (coords != undefined) {
-				var now = new Date().getTime();
-				if(this.loaded==0){
-
-					//Load online stores and bind it to the offline stores so we don't make unnecessary requests
-					//TODO : fix it for offline use !
-					Ext.USER_COORDS = coords;
-					var trafficStore = Ext.getStore('online.TrafficEvent');
-					trafficStore.getProxy().setExtraParam('from',
-					Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude);
-					trafficStore.getProxy().setExtraParam('area',
-					localStorage.getItem('area'));
-
-					trafficStore.addListener('refresh', function () {
-						Ext.getStore('offline.TrafficEvent').getProxy().clear();
-						this.each(function (record) {
-							var trafficEvents = record.raw.TrafficEvent.item;
-							for(var i = 0; i < trafficEvents.length; i++){
-								trafficEvents[i].formatted_time = formatTimestamp(trafficEvents[i].time);
-								trafficEvents[i].id = i;
-								Ext.getStore('offline.TrafficEvent').add(trafficEvents[i]);
-							}
-						});
-						Ext.getStore('offline.TrafficEvent').sync();
-						me.loaded++;
-					});
-					trafficStore.load();
-
-					var radarStore = Ext.getStore('online.Radar');
-					radarStore.getProxy().setExtraParam('from',
-					Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude);
-					radarStore.getProxy().setExtraParam('area',
-					localStorage.getItem('area'));
-
-					radarStore.addListener('refresh', function () {
-						Ext.getStore('offline.Radar').getProxy().clear();
-						this.each(function (record) {
-							var radars = record.raw.Radar.item;
-							for(var i = 0; i < radars.length; i++){
-								radars[i].id = i;
-								Ext.getStore('offline.Radar').add(radars[i]);
-							}
-						});
-						Ext.getStore('offline.Radar').sync();
-						me.loaded++;
-					});
-					radarStore.load();
-
-
-					var webcamStore = Ext.getStore('online.Webcam');
-					webcamStore.getProxy().setExtraParam('from',
-					Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude);
-					webcamStore.getProxy().setExtraParam('area',
-					localStorage.getItem('area'));
-
-					webcamStore.addListener('refresh', function () {
-						Ext.getStore('offline.Webcam').getProxy().clear();
-						this.each(function (record) {
-							var cameras = record.raw.Camera.item;
-							for(var i = 0; i < cameras.length; i++){
-								cameras[i].id = i;
-								Ext.getStore('offline.Webcam').add(cameras[i]);
-							}
-						});
-						Ext.getStore('offline.Webcam').sync();
-						me.loaded++;
-
-					});
-					webcamStore.load();
-
-					//set last update valu
-					localStorage.setItem('lastUpdate', new Date().getTime());
-				}
-			}
 		}
+
+		
 	});
 }

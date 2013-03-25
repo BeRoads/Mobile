@@ -6,12 +6,8 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
 
     config: {
         refs: {
-			preferenceButton : '#preferenceButton'
         },
         control: {
-            preferenceButton : {
-                tap : 'openPreferences'
-            }
         }
     },
 
@@ -20,19 +16,14 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getMapView().getNavigationBar().setTitle(_tr('map', localStorage.getItem('lang')));
+        this.callParent(arguments);
     },
 
     updateMapArea : function() {
         this.callParent(arguments);
     },
     
-    openPreferences : function() {
-        this.getMapView().push({
-            title : 'Settings',
-            xtype : 'settings'
-        });
-    },
 
 	/**
 	 * Add the traffic layer to the map then call the parent function to set up the map

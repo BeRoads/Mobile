@@ -22,6 +22,7 @@ Ext.define('BeRoads.controller.Radars', {
 
     updateLanguage : function() {
         console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getRadarsList().setTitle(_tr('radars', localStorage.getItem('lang')));
     },
     
 	/**

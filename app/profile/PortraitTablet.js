@@ -3,7 +3,7 @@ Ext.define('BeRoads.profile.PortraitTablet', {
 
     config: {
         name: 'PortraitTablet',
-        controllers: ['Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings'],
+        controllers: ['Main', 'Webcams', 'Radars', 'TrafficEvents', 'Map', 'Settings'],
         views: ['Main', 'Settings', 'Map', 
             'trafficevents.List', 'trafficevents.Detail', 'radars.List', 'radars.Detail', 'webcams.List', 'webcams.Detail']
     },
