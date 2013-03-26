@@ -24,8 +24,7 @@ Ext.define('BeRoads.controller.Settings', {
                 tap : 'onPreferenceButtonTap'
             },
 			userFormFieldset : {
-				show : 'loadSettingsPanel',
-                erased : 'destroySettingsPanel'
+				show : 'loadSettingsPanel'
             },
             displayTraffic : {
                 change : 'onDisplayTrafficChange'
@@ -47,6 +46,7 @@ Ext.define('BeRoads.controller.Settings', {
 
     init:function () {
         this.callParent(arguments);
+
     },
 
     getProfile : function() {
@@ -79,37 +79,42 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
 	loadSettingsPanel : function(){
+
 		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getPreferenceButton().hide();
-    },
-
-	destroySettingsPanel : function(){
-        this.getPreferenceButton().show();		
+       
     },
 
     onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
-        console.log("display webcams change");
-        localStorage.setItem('displayWebcams', 1-localStorage.getItem('displayWebcams'));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('webcams');
+        
+        if(!this.firstCall){
+            localStorage.setItem('displayWebcams', 1-localStorage.getItem('displayWebcams'));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('webcams');
+        }
+        
+
     }, 
 
     onDisplayRadarsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
-        console.log("display radar change");
-        localStorage.setItem('displayRadars', (1 - localStorage.getItem('displayRadars')));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('radars');
+        
+        if(!this.firstCall){
+            localStorage.setItem('displayRadars', (1 - localStorage.getItem('displayRadars')));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('radars');
+        }
+        
     },
 
     onDisplayTrafficChange : function(me, Slider, thumb, newValue, oldValue, eOpts){
-        console.log("display traffic change");
-        localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('traffic');
+        if(!this.firstCall){
+            localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('traffic');
+        }
     },
 
     onAreaChange : function(cmp, newValue, oldValue, eOpts) {
-        console.log("area change");
         localStorage.setItem('area', newValue);
         var profile = this.getProfile();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
@@ -117,7 +122,6 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     onLangChange : function(cmp, newValue, oldValue, eOpts) {
-         console.log("lang change");
         localStorage.setItem('lang', newValue);
         var profile = this.getProfile();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Main').updateLanguage();
@@ -131,6 +135,6 @@ Ext.define('BeRoads.controller.Settings', {
     onPreferenceButtonTap : function(){
 
         this.getSettingsPanel().show();
-
+        this.firstCall = false;
     }
 });

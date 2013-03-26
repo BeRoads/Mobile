@@ -48,21 +48,21 @@ Ext.define('BeRoads.view.Settings', {
 
 					label: '<span style="float:left"><img height="32px"  src="resources/img/trafficevents_icon.png"/></span>',
 					id : 'displayTraffic',
-					value : (localStorage.getItem('displayTraffic') == 'false' ? 0 : 1)
+					value : (localStorage.getItem('displayTraffic'))
 				},
 				{
 					xtype: 'togglefield',
 					name: 'displayRadars',
 					id : 'displayRadars',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/radars_icon.png"/></span>',
-					value : (localStorage.getItem('displayRadars') == 'false' ? 0 : 1)
+					value : (localStorage.getItem('displayRadars'))
 				},
 				{
 					xtype: 'togglefield',
 					name: 'displayWebcams',
 					id : 'displayWebcams',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>',
-					value : (localStorage.getItem('displayWebcams') == 'false' ? 0 : 1)
+					value : (localStorage.getItem('displayWebcams'))
 				}
 			]
 		},
@@ -75,14 +75,9 @@ Ext.define('BeRoads.view.Settings', {
 				xtype: 'numberfield',
 				disabled: true,
 				id : 'irail',
-				label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>'
+				labelWidth: '100%',
+				label: '<img height="32px" style="margin-left:25%;margin-right:10%;" src="resources/img/irail.png"/><img height="32px" style="margin-right:25%;" src="resources/img/thedatatank.png"/>'
 				},
-				{
-				xtype: 'numberfield',
-				disabled: true,
-				id : 'beroads',
-				label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>'
-				}
 			]
 		}
 		]

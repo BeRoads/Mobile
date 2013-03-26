@@ -1,4 +1,3 @@
-
 //set fallback user coordinates
 Ext.USER_COORDS = {
 	coords : {
@@ -60,7 +59,7 @@ if(!Ext.device.Connection.isOnline()){
 	
 }else{
 	
-	Ext.application({
+	var app = Ext.application({
 		name: 'BeRoads',
 		launched : false,
 		last_update : 0,
@@ -90,15 +89,13 @@ if(!Ext.device.Connection.isOnline()){
 		},
 
 		showPosition : function(position) {
-			
+					
 						var me = this;
-						if (position != undefined) {
+						if (position != undefined && getDistance(position.coords.latitude, position.coords.longitude, 
+																Ext.USER_COORDS.coords.latitude, Ext.USER_COORDS.coords.longitude)>0.1) {
 							
 							var now = new Date().getTime();
 							
-								console.log(position);
-								//Load online stores and bind it to the offline stores so we don't make unnecessary requests
-								//TODO : fix it for offline use !
 								Ext.USER_COORDS = position;
 								var trafficStore = Ext.getStore('online.TrafficEvent');
 								trafficStore.getProxy().setExtraParam('from',
@@ -106,7 +103,7 @@ if(!Ext.device.Connection.isOnline()){
 								trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
 
 								trafficStore.addListener('refresh', function () {
-									console.log("refresh traffic store");
+									
 									Ext.getStore('offline.TrafficEvent').getProxy().clear();
 									this.each(function (record) {
 										var trafficEvents = record.raw.TrafficEvent.item;
@@ -115,11 +112,13 @@ if(!Ext.device.Connection.isOnline()){
 											trafficEvents[i].id = i;
 											Ext.getStore('offline.TrafficEvent').add(trafficEvents[i]);
 										}
+										
 									});
 									Ext.getStore('offline.TrafficEvent').sync();
-									me.loaded++;
+									BeRoads.app.loaded++;
 								});
 								trafficStore.load();
+								
 
 								var radarStore = Ext.getStore('online.Radar');
 								radarStore.getProxy().setExtraParam('from',
@@ -137,10 +136,10 @@ if(!Ext.device.Connection.isOnline()){
 										}
 									});
 									Ext.getStore('offline.Radar').sync();
-									me.loaded++;
+									BeRoads.app.loaded++;
 								});
+								
 								radarStore.load();
-
 
 								var webcamStore = Ext.getStore('online.Webcam');
 								webcamStore.getProxy().setExtraParam('from',
@@ -158,12 +157,9 @@ if(!Ext.device.Connection.isOnline()){
 										}
 									});
 									Ext.getStore('offline.Webcam').sync();
-									me.loaded++;
-
+									BeRoads.app.loaded++;
 								});
 								webcamStore.load();
-
-								//set last update valu
 								localStorage.setItem('lastUpdate', new Date().getTime());
 							
 						}
@@ -190,6 +186,7 @@ if(!Ext.device.Connection.isOnline()){
 
 		launch: function() {
 
+			var me = this;
 			//Display a loading mask while we are fetching data from the API
 			var loadingMask = Ext.Viewport.add({
 				masked: {
@@ -208,9 +205,9 @@ if(!Ext.device.Connection.isOnline()){
 
 			var showView = function(){
 				//if the app isn't already launched
-				if(!this.launched){
+				if(!me.launched){
 					//if our stores aren't fully loaded, we keep calling it
-					if(this.loaded < 3){
+					if(me.loaded < 3){
 						setTimeout(function() { showView(); }, 1000);
 					}else{
 						//remove the loading mask and display a specific view depending on the device profile
@@ -240,11 +237,11 @@ if(!Ext.device.Connection.isOnline()){
 							});
 						}
 						//Now the application is launched
-						this.launched = true;
+						me.launched = true;
 					}
 				}
 			};
-			setTimeout(function() { showView()},2000);
+			setTimeout(function() { showView()},1000);
 
 
 		}
