@@ -146,4 +146,7 @@
   .x-toggle-on {
     @include background-gradient($confirm-color, 'recessed');
   }
+  .x-toggle-off {
+    @include background-gradient($alert-color, 'recessed');
+  }
 }

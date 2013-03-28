@@ -3,8 +3,8 @@ Ext.define('BeRoads.view.Settings', {
 	xtype : 'settings',
 
 	config : {
-		
-		items: [
+
+        items: [
 		{
 			xtype: 'fieldset',
 			id: 'userFormFieldset',
@@ -45,7 +45,7 @@ Ext.define('BeRoads.view.Settings', {
 
 					xtype: 'togglefield',
 					name: 'displayTraffic',
-
+                    cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/trafficevents_icon.png"/></span>',
 					id : 'displayTraffic',
 					value : (localStorage.getItem('displayTraffic'))
@@ -54,6 +54,7 @@ Ext.define('BeRoads.view.Settings', {
 					xtype: 'togglefield',
 					name: 'displayRadars',
 					id : 'displayRadars',
+                    cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/radars_icon.png"/></span>',
 					value : (localStorage.getItem('displayRadars'))
 				},
@@ -61,6 +62,7 @@ Ext.define('BeRoads.view.Settings', {
 					xtype: 'togglefield',
 					name: 'displayWebcams',
 					id : 'displayWebcams',
+                    cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>',
 					value : (localStorage.getItem('displayWebcams'))
 				}
@@ -77,7 +79,7 @@ Ext.define('BeRoads.view.Settings', {
 				id : 'irail',
 				labelWidth: '100%',
 				label: '<img height="32px" style="margin-left:25%;margin-right:10%;" src="resources/img/irail.png"/><img height="32px" style="margin-right:25%;" src="resources/img/thedatatank.png"/>'
-				},
+				}
 			]
 		}
 		]

@@ -59,25 +59,10 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                                     xtype: 'button',
                                     id: 'preferenceButton',
                                     iconCls : 'settings',
+                                    ui : 'flat-turquoise',
                                     iconMask : true,
                                     align: 'right',
                                     hidden: false,
-                                    hideAnimation: Ext.os.is.Android ? false : {
-                                        type: 'fadeOut',
-                                        duration: 200
-                                    },
-                                    showAnimation: Ext.os.is.Android ? false : {
-                                        type: 'fadeIn',
-                                        duration: 200
-                                    }
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'saveButton',
-                                    text: 'Save',
-                                    ui: 'sencha',
-                                    align: 'right',
-                                    hidden: true,
                                     hideAnimation: Ext.os.is.Android ? false : {
                                         type: 'fadeOut',
                                         duration: 200

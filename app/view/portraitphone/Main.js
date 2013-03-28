@@ -57,27 +57,12 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    ui : 'flat-turquoise',
                                     id: 'preferenceButton',
                                     iconCls : 'settings',
                                     iconMask : true,
                                     align: 'right',
                                     hidden: false,
-                                    hideAnimation: Ext.os.is.Android ? false : {
-                                        type: 'fadeOut',
-                                        duration: 200
-                                    },
-                                    showAnimation: Ext.os.is.Android ? false : {
-                                        type: 'fadeIn',
-                                        duration: 200
-                                    }
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'saveButton',
-                                    text: 'Save',
-                                    ui: 'sencha',
-                                    align: 'right',
-                                    hidden: true,
                                     hideAnimation: Ext.os.is.Android ? false : {
                                         type: 'fadeOut',
                                         duration: 200
