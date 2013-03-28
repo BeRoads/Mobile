@@ -13,6 +13,6 @@ Ext.define('BeRoads.profile.PortraitTablet', {
     },
 
     launch: function() {
-        console.log("Launching portrait tablet version...");
+        return;
     }
 });

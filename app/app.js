@@ -1,4 +1,8 @@
-//set fallback user coordinates
+
+
+/* 
+	Fallback user coordinates
+*/
 Ext.USER_COORDS = {
 	coords : {
 			latitude : 0,
@@ -7,7 +11,9 @@ Ext.USER_COORDS = {
 	
 };
 
-//check if localStorage items are defined 
+/*
+	Set default value for localStorage values that we are using if not set
+*/ 
 if(localStorage.getItem('lang') == undefined || localStorage.getItem('lang') == null){
 	localStorage.setItem('lang', 'nl');
 }
@@ -59,15 +65,16 @@ if(!Ext.device.Connection.isOnline()){
 	
 }else{
 
-    console.log("[+] Launching BeRoads app...");
 	var app = Ext.application({
 		name: 'BeRoads',
 		launched : false,
 		last_update : 0,
+		loadingMask : null,
 		loaded : 0,
 		loadingMask : null,
 		autoCreateViewport: true,
 		models: ['Webcam', 'Radar', 'TrafficEvent'],
+		views : ['FailCar'],
 		stores : ['offline.Radar', 'online.Radar','offline.Webcam', 'online.Webcam', 'offline.TrafficEvent',
 		'online.TrafficEvent'],
 		profiles: ['PortraitPhone', 'LandscapePhone', 'PortraitTablet', 'LandscapeTablet'],
@@ -91,105 +98,110 @@ if(!Ext.device.Connection.isOnline()){
 
 		showPosition : function(position) {
 					
-						var me = this;
-						if (position != undefined && getDistance(position.coords.latitude, position.coords.longitude, 
-																Ext.USER_COORDS.coords.latitude, Ext.USER_COORDS.coords.longitude)>0.1) {
+			var me = this;
+			if (position != undefined && getDistance(position.coords.latitude, position.coords.longitude, 
+				Ext.USER_COORDS.coords.latitude, Ext.USER_COORDS.coords.longitude)>0.1) {
 							
-							var now = new Date().getTime();
-							
-								Ext.USER_COORDS = position;
+				now = new Date().getTime();
+				Ext.USER_COORDS = position;
 
-                                console.log("Loading traffic store...");
-                                var trafficStore = Ext.getStore('online.TrafficEvent');
-								trafficStore.getProxy().setExtraParam('from',
-								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
-								trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
+                var trafficStore = Ext.getStore('online.TrafficEvent');
+				trafficStore.getProxy().setExtraParam('from',
+				Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+				trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
 
-								trafficStore.addListener('refresh', function () {
-
-                                    console.log("Refresh traffic store");
-                                    console.log(this);
-                                    var localTrafficStore = Ext.getStore('offline.TrafficEvent');
-                                    localTrafficStore.removeAll();
-                                    localTrafficStore.getProxy().clear();
-									this.each(function (record) {
-										var trafficEvent = localTrafficStore.add(record.data)[0];
-									});
-                                    localTrafficStore.sync();
-									BeRoads.app.loaded++;
-								});
-								trafficStore.load();
+				trafficStore.addListener('refresh', function () {
+					var localTrafficStore = Ext.getStore('offline.TrafficEvent');
+                    localTrafficStore.removeAll();
+                    localTrafficStore.getProxy().clear();
+					this.each(function (record) {
+						var trafficEvent = localTrafficStore.add(record.data)[0];
+					});
+                    localTrafficStore.sync();
+					BeRoads.app.loaded++;
+				});
+				trafficStore.load();
 								
+				var radarStore = Ext.getStore('online.Radar');
+				radarStore.getProxy().setExtraParam('from',
+				Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+				radarStore.getProxy().setExtraParam('area',
+				localStorage.getItem('area'));
 
-								var radarStore = Ext.getStore('online.Radar');
-								radarStore.getProxy().setExtraParam('from',
-								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
-								radarStore.getProxy().setExtraParam('area',
-								localStorage.getItem('area'));
+				radarStore.addListener('refresh', function () {
+					var localRadarStore = Ext.getStore('offline.Radar');
+                    localRadarStore.removeAll();
+                    localRadarStore.getProxy().clear();
+					this.each(function (record) {
+						var radar = localRadarStore.add(record.data)[0];
+					});
+                    localRadarStore.sync();
+					BeRoads.app.loaded++;
+				});
+				radarStore.load();
 
-								radarStore.addListener('refresh', function () {
-                                    console.log("Refresh radar store");
-                                    console.log(this);
-									var localRadarStore = Ext.getStore('offline.Radar');
-                                    localRadarStore.removeAll();
-                                    localRadarStore.getProxy().clear();
-									this.each(function (record) {
-										var radar = localRadarStore.add(record.data)[0];
-									});
-                                    localRadarStore.sync();
-									BeRoads.app.loaded++;
-								});
-								
-								radarStore.load();
+				var webcamStore = Ext.getStore('online.Webcam');
+				webcamStore.getProxy().setExtraParam('from',
+				Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+				webcamStore.getProxy().setExtraParam('area',
+				localStorage.getItem('area'));
 
-								var webcamStore = Ext.getStore('online.Webcam');
-								webcamStore.getProxy().setExtraParam('from',
-								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
-								webcamStore.getProxy().setExtraParam('area',
-								localStorage.getItem('area'));
-
-								webcamStore.addListener('refresh', function () {
-                                    console.log("Refresh webcams store");
-                                    console.log(this);
-									var localWebcamStore = Ext.getStore('offline.Webcam');
-                                    localWebcamStore.removeAll();
-                                    localWebcamStore.getProxy().clear();
-									this.each(function (record) {
-										var webcam = localWebcamStore.add(record.data)[0];
-									});
-                                    localWebcamStore.sync();
-									BeRoads.app.loaded++;
-								});
-								webcamStore.load();
-								localStorage.setItem('lastUpdate', new Date().getTime());
-							
-						}
+				webcamStore.addListener('refresh', function () {
+					var localWebcamStore = Ext.getStore('offline.Webcam');
+                    localWebcamStore.removeAll();
+                    localWebcamStore.getProxy().clear();
+					this.each(function (record) {
+						var webcam = localWebcamStore.add(record.data)[0];
+					});
+                    localWebcamStore.sync();
+					BeRoads.app.loaded++;
+				});
+				webcamStore.load();
+				localStorage.setItem('lastUpdate', new Date().getTime());
+			}
 		},
 
 		showError : function(error)
-		  {
-		  switch(error.code) 
+		{
+			
+			switch(error.code) 
 		    {
-		    case error.PERMISSION_DENIED:
-		      console.log("User denied the request for Geolocation.");
-		      break;
-		    case error.POSITION_UNAVAILABLE:
-		      console.log("Location information is unavailable.");
-		      break;
-		    case error.TIMEOUT:
-		      console.log("The request to get user location timed out.");
-		      break;
-		    case error.UNKNOWN_ERROR:
-		      console.log("An unknown error occurred.");
-		      break;
+			    case error.PERMISSION_DENIED:
+			    	Ext.Msg.alert('Geolocation', "BeRoads can't run if you don't share your geolocation. Sorry.", Ext.emptyFn);
+			    	Ext.Viewport.remove(BeRoads.app.loadingMask);
+					Ext.Viewport.add({
+						xclass: 'BeRoads.view.FailCar'
+					});
+			      	break;
+			    case error.POSITION_UNAVAILABLE:
+			      	Ext.Msg.alert('Geolocation', "Are you in a tunnel ? Seems BeRoads can't access your geolocation", Ext.emptyFn);
+			      	Ext.Viewport.remove(BeRoads.app.loadingMask);
+					Ext.Viewport.add({
+						xclass: 'BeRoads.view.FailCar'
+					});
+			      	break;
+			    case error.TIMEOUT:
+			      	Ext.Msg.alert('Geolocation', "BeRoads wasn't fast enough to get your geolocation, please refresh the page", Ext.emptyFn);
+			      	Ext.Viewport.remove(BeRoads.app.loadingMask);
+					Ext.Viewport.add({
+						xclass: 'BeRoads.view.FailCar'
+					});
+			      	break;
+			    case error.UNKNOWN_ERROR:
+			      	Ext.Msg.alert('Geolocation', 'An unknown error occured while accessing your geolocation, please refresh the page.', Ext.emptyFn);
+			      	Ext.Viewport.remove(BeRoads.app.loadingMask);
+					Ext.Viewport.add({
+						xclass: 'BeRoads.view.FailCar'
+					});
+			      	break;
 		    }
-		  },
+		},
 
 		launch: function() {
 
 			var me = this;
 			//Display a loading mask while we are fetching data from the API
-			var loadingMask = Ext.Viewport.add({
+			me.loadingMask = Ext.Viewport.add({
 				masked: {
 					xtype: 'loadmask',
 					message: "<center><img height='50' width='100' src='resources/img/loader.gif'/><br />"+_tr('loading', localStorage.getItem('lang'))+"</center>",
@@ -199,7 +211,7 @@ if(!Ext.device.Connection.isOnline()){
 
 			if (navigator.geolocation)
 		    {
-		    	navigator.geolocation.getCurrentPosition(this.showPosition);
+		    	navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
 		    	navigator.geolocation.watchPosition(this.showPosition);
 		    }
 			
@@ -210,34 +222,30 @@ if(!Ext.device.Connection.isOnline()){
 					//if our stores aren't fully loaded, we keep calling it
 					if(me.loaded < 3){
 						setTimeout(function() { showView(); }, 1000);
-					}else{
+					}
+					else{
 						//remove the loading mask and display a specific view depending on the device profile
-						Ext.Viewport.remove(loadingMask);
+						Ext.Viewport.remove(me.loadingMask);
 						if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
-                            console.log("[+] Profile : landscapephone");
                             Ext.Viewport.add({
 								xclass: 'BeRoads.view.landscapephone.Main'
 							});
 						}
 						else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
-                            console.log("[+] Profile : portraitphone");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraitphone.Main'
 							});
 						}
 						else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
-                            console.log("[+] Profile : landscapetablet");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.landscapetablet.Main'
 							});
 						}
 						else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
-                            console.log("[+] Profile : portraittablet");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraittablet.Main'
 							});
 						}else{
-                            console.log("[+] Profile : portraitphone");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraitphone.Main'
 							});
@@ -248,10 +256,6 @@ if(!Ext.device.Connection.isOnline()){
 				}
 			};
 			setTimeout(function() { showView()},1000);
-
-
 		}
-
-		
 	});
 }

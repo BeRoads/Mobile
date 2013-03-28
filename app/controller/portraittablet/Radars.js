@@ -18,8 +18,5 @@ Ext.define('BeRoads.controller.portraittablet.Radars', {
 
     init:function () {
         this.callParent(arguments);
-    },
-    updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
     }
 });
