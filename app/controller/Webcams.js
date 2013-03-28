@@ -18,6 +18,7 @@ Ext.define('BeRoads.controller.Webcams', {
     },
 
     init:function () {
+        console.log("[+] Setup Webcams controller");
         this.callParent(arguments);
     },
 

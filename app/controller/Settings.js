@@ -45,6 +45,7 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
+        console.log("[+] Setup Settings controller");
         this.callParent(arguments);
 
     },
@@ -118,7 +119,6 @@ Ext.define('BeRoads.controller.Settings', {
         localStorage.setItem('area', newValue);
         var profile = this.getProfile();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
-        
     },
 
     onLangChange : function(cmp, newValue, oldValue, eOpts) {

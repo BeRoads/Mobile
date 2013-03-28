@@ -17,7 +17,7 @@ Ext.define('BeRoads.store.online.TrafficEvent', {
             actionMethods:  {create: "PUT", read: "GET", update: "POST", destroy: "DELETE"},
             reader: {
                 type: 'json',
-                root: 'item'
+                rootProperty: 'TrafficEvent.item'
             }
         }
     }

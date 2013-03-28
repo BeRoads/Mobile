@@ -18,7 +18,7 @@ Ext.define('BeRoads.store.online.Radar', {
             actionMethods:  {create: "PUT", read: "GET", update: "POST", destroy: "DELETE"},
             reader: {
                 type: 'json',
-                root: 'Radar.item'
+                rootProperty: 'Radar.item'
             }
         }
     }

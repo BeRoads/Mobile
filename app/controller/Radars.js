@@ -17,6 +17,7 @@ Ext.define('BeRoads.controller.Radars', {
     },
 
     init:function () {
+        console.log("[+] Setup Radars controller");
         this.callParent(arguments);
     },
 

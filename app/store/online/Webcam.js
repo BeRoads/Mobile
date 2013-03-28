@@ -13,13 +13,12 @@ Ext.define('BeRoads.store.online.Webcam', {
                 from:Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude,
                 area:localStorage.getItem('area')
             },
-            rootProperty:'Camera.item',
             noCache : true,
             timeout : 25000,
             actionMethods:  {create: "PUT", read: "GET", update: "POST", destroy: "DELETE"},
             reader: {
                 type: 'json',
-                root : 'Camera.item'
+                rootProperty : 'Camera.item'
             }
         }
     }

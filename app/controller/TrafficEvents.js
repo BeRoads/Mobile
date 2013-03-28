@@ -19,6 +19,7 @@ Ext.define('BeRoads.controller.TrafficEvents', {
     },
 
     init:function () {
+        console.log("[+] Setup Trafficevents controller");
 		this.displayed = true;
 		this.callParent(arguments);
     },

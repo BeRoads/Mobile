@@ -54,11 +54,12 @@ if(!Ext.device.Connection.isOnline()){
 			Ext.Viewport.add({
 				xclass: 'BeRoads.view.FailCar'
 			});
-		},
+		}
 	});
 	
 }else{
-	
+
+    console.log("[+] Launching BeRoads app...");
 	var app = Ext.application({
 		name: 'BeRoads',
 		launched : false,
@@ -97,24 +98,24 @@ if(!Ext.device.Connection.isOnline()){
 							var now = new Date().getTime();
 							
 								Ext.USER_COORDS = position;
-								var trafficStore = Ext.getStore('online.TrafficEvent');
+
+                                console.log("Loading traffic store...");
+                                var trafficStore = Ext.getStore('online.TrafficEvent');
 								trafficStore.getProxy().setExtraParam('from',
 								Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
 								trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
 
 								trafficStore.addListener('refresh', function () {
-									
-									Ext.getStore('offline.TrafficEvent').getProxy().clear();
+
+                                    console.log("Refresh traffic store");
+                                    console.log(this);
+                                    var localTrafficStore = Ext.getStore('offline.TrafficEvent');
+                                    localTrafficStore.removeAll();
+                                    localTrafficStore.getProxy().clear();
 									this.each(function (record) {
-										var trafficEvents = record.raw.TrafficEvent.item;
-										for(var i = 0; i < trafficEvents.length; i++){
-											trafficEvents[i].formatted_time = formatTimestamp(trafficEvents[i].time);
-											trafficEvents[i].id = i;
-											Ext.getStore('offline.TrafficEvent').add(trafficEvents[i]);
-										}
-										
+										var trafficEvent = localTrafficStore.add(record.data)[0];
 									});
-									Ext.getStore('offline.TrafficEvent').sync();
+                                    localTrafficStore.sync();
 									BeRoads.app.loaded++;
 								});
 								trafficStore.load();
@@ -127,15 +128,15 @@ if(!Ext.device.Connection.isOnline()){
 								localStorage.getItem('area'));
 
 								radarStore.addListener('refresh', function () {
-									Ext.getStore('offline.Radar').getProxy().clear();
+                                    console.log("Refresh radar store");
+                                    console.log(this);
+									var localRadarStore = Ext.getStore('offline.Radar');
+                                    localRadarStore.removeAll();
+                                    localRadarStore.getProxy().clear();
 									this.each(function (record) {
-										var radars = record.raw.Radar.item;
-										for(var i = 0; i < radars.length; i++){
-											radars[i].id = i;
-											Ext.getStore('offline.Radar').add(radars[i]);
-										}
+										var radar = localRadarStore.add(record.data)[0];
 									});
-									Ext.getStore('offline.Radar').sync();
+                                    localRadarStore.sync();
 									BeRoads.app.loaded++;
 								});
 								
@@ -148,15 +149,15 @@ if(!Ext.device.Connection.isOnline()){
 								localStorage.getItem('area'));
 
 								webcamStore.addListener('refresh', function () {
-									Ext.getStore('offline.Webcam').getProxy().clear();
+                                    console.log("Refresh webcams store");
+                                    console.log(this);
+									var localWebcamStore = Ext.getStore('offline.Webcam');
+                                    localWebcamStore.removeAll();
+                                    localWebcamStore.getProxy().clear();
 									this.each(function (record) {
-										var cameras = record.raw.Camera.item;
-										for(var i = 0; i < cameras.length; i++){
-											cameras[i].id = i;
-											Ext.getStore('offline.Webcam').add(cameras[i]);
-										}
+										var webcam = localWebcamStore.add(record.data)[0];
 									});
-									Ext.getStore('offline.Webcam').sync();
+                                    localWebcamStore.sync();
 									BeRoads.app.loaded++;
 								});
 								webcamStore.load();
@@ -213,25 +214,30 @@ if(!Ext.device.Connection.isOnline()){
 						//remove the loading mask and display a specific view depending on the device profile
 						Ext.Viewport.remove(loadingMask);
 						if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
-							Ext.Viewport.add({
+                            console.log("[+] Profile : landscapephone");
+                            Ext.Viewport.add({
 								xclass: 'BeRoads.view.landscapephone.Main'
 							});
 						}
 						else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
+                            console.log("[+] Profile : portraitphone");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraitphone.Main'
 							});
 						}
 						else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
+                            console.log("[+] Profile : landscapetablet");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.landscapetablet.Main'
 							});
 						}
 						else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
+                            console.log("[+] Profile : portraittablet");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraittablet.Main'
 							});
 						}else{
+                            console.log("[+] Profile : portraitphone");
 							Ext.Viewport.add({
 								xclass: 'BeRoads.view.portraitphone.Main'
 							});
