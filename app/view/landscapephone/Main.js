@@ -37,6 +37,16 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                         cls : 'popupMarker'
                     },
                     {
+                        id : 'settingsPanel',
+                        xtype : 'settings',
+                        modal : true,
+                        hidden : 'true',
+                        width : "25%",
+                        height : "80%",
+                        hideOnMaskTap: true,
+                        centered: true
+                    },
+                    {
                         xtype : 'navigationview',
                         id : 'mapView',
                         iconCls: 'mapTabButton',

@@ -39,6 +39,16 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         cls : 'popupMarker'
                     },
                     {
+                        id : 'settingsPanel',
+                        xtype : 'settings',
+                        modal : true,
+                        hidden : 'true',
+                        width : "80%",
+                        height : "60%",
+                        hideOnMaskTap: true,
+                        centered: true
+                    },
+                    {
                         xtype : 'navigationview',
                         id : 'mapView',
                         iconCls: 'mapTabButton',

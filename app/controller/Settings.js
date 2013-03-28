@@ -1,25 +1,30 @@
 Ext.define('BeRoads.controller.Settings', {
     extend:'Ext.app.Controller',
 
-    views:['Settings'],
+    views:['Main'],
 
     //the change event is call on creation but we don't want to switch at this moment
     firstCall : true,
 
     config:{
         refs:{
+            displayTraffic : '#displayTraffic',
+            displayRadars : '#displayRadars',
+            displayWebcams : '#displayWebcams',
+            lang : "#lang",
+            area : "#area",
             userFormFieldset:'#userFormFieldset',
+            thanksFieldset : '#thanksFieldset',
             preferenceButton : '#preferenceButton',
-            moreButton : '#moreButton',
-            main:'#mainpanel'
+            settingsPanel : '#settingsPanel',
+            main : '#mainpanel'
         },
         control:{
-			userFormFieldset : {
-				show : 'loadSettingsPanel',
-                erased : 'destroySettingsPanel'
+            preferenceButton : {
+                tap : 'onPreferenceButtonTap'
             },
-            moreButton : {
-                tap : 'onMoreButtonTap'
+			userFormFieldset : {
+				show : 'loadSettingsPanel'
             },
             displayTraffic : {
                 change : 'onDisplayTrafficChange'
@@ -41,6 +46,7 @@ Ext.define('BeRoads.controller.Settings', {
 
     init:function () {
         this.callParent(arguments);
+
     },
 
     getProfile : function() {
@@ -65,48 +71,60 @@ Ext.define('BeRoads.controller.Settings', {
 
     updateLanguage : function() {
         console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+        this.getUserFormFieldset().setTitle(_tr('settings', localStorage.getItem('lang')));
+        this.getLang().setLabel(_tr('lang', localStorage.getItem('lang')));
+        this.getArea().setLabel(_tr('area', localStorage.getItem('lang')));
+        this.getThanksFieldset().setTitle(_tr('thanks', localStorage.getItem('lang')));
     },
 
 	loadSettingsPanel : function(){
+
 		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getPreferenceButton().hide();
-    },
-
-	destroySettingsPanel : function(){
-        this.getPreferenceButton().show();		
+       
     },
 
     onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
-        localStorage.setItem('displayWebcams', 1-localStorage.getItem('displayWebcams'));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+        
+        if(!this.firstCall){
+            localStorage.setItem('displayWebcams', 1-localStorage.getItem('displayWebcams'));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('webcams');
+        }
+        
+
     }, 
 
     onDisplayRadarsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
-        localStorage.setItem('displayRadars', (1 - localStorage.getItem('displayRadars')));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+        
+        if(!this.firstCall){
+            localStorage.setItem('displayRadars', (1 - localStorage.getItem('displayRadars')));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('radars');
+        }
+        
     },
 
     onDisplayTrafficChange : function(me, Slider, thumb, newValue, oldValue, eOpts){
-        localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
-        var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+        if(!this.firstCall){
+            localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
+            var profile = this.getProfile();
+            this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea('traffic');
+        }
     },
 
     onAreaChange : function(cmp, newValue, oldValue, eOpts) {
-        
         localStorage.setItem('area', newValue);
-
         var profile = this.getProfile();
-        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
         
     },
 
     onLangChange : function(cmp, newValue, oldValue, eOpts) {
-         
         localStorage.setItem('lang', newValue);
         var profile = this.getProfile();
+        this.getApplication().getController('BeRoads.controller.'+profile+'.Main').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Map').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Radars').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Settings').updateLanguage();
@@ -114,13 +132,9 @@ Ext.define('BeRoads.controller.Settings', {
         this.getApplication().getController('BeRoads.controller.'+profile+'.Webcams').updateLanguage();
     },
 
-	/**
-	 * Push a 'credits' like page
-	 */
-    onMoreButtonTap:function () {
-        this.getPreferenceButton().hide();
-        this.getMain().push({
-            xtype: 'aboutList'
-        });
+    onPreferenceButtonTap : function(){
+
+        this.getSettingsPanel().show();
+        this.firstCall = false;
     }
 });

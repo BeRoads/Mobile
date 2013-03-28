@@ -9,7 +9,7 @@ Ext.define('BeRoads.store.online.TrafficEvent', {
             type: 'jsonp',
             url:'http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.jsonp',
             extraParams:{
-                from:Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude,
+                from:Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude,
                 area:localStorage.getItem('area')
             },
             noCache : true,

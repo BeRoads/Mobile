@@ -4,7 +4,10 @@ Ext.define('BeRoads.controller.Map', {
     views: ['Main', 'Map', 'trafficevents.List'],
     stores : ['offline.Radar', 'online.Radar','offline.Webcam', 'online.Webcam', 'offline.TrafficEvent', 'online.TrafficEvent'],
     //store google maps marker for further access
-	markers : {
+
+
+    markers : {
+        user : null,
         trafficevents : [],
         radars : [],
         webcams : []
@@ -24,16 +27,139 @@ Ext.define('BeRoads.controller.Map', {
         }
     },
 
+
     init:function () {
         this.callParent(arguments);
     },	
+
 	
     updateLanguage : function() {
         console.log("Updating language to "+localStorage.getItem('lang'));
+
+        if(localStorage.getItem('displayTraffic')){
+            var trafficStore = Ext.getStore('online.TrafficEvent');
+            trafficStore.getProxy().setUrl('http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.jsonp');
+            trafficStore.getProxy().setExtraParam('from',
+            Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+            trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
+            trafficStore.load();
+        }
     },
 
-    updateMapArea : function() {
-        console.log("Updating map area");
+    updateMapArea : function(type) {
+            switch(type){
+
+                //we have to reload the content because the area had change
+                case "area":
+                    if(localStorage.getItem('displayTraffic')==1){
+
+                        var trafficStore = Ext.getStore('online.TrafficEvent');
+                        trafficStore.removeAll();
+                        for(var i = 0; i < this.markers.trafficevents.length; i++){
+                            this.markers.trafficevents[i].setMap(null);
+                        }
+                        this.markers.trafficevents = [];
+                        trafficStore.getProxy().setUrl('http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.jsonp');
+                        trafficStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
+                        trafficStore.load();
+                    }
+                    if(localStorage.getItem('displayRadars')==1){
+                        var radarStore = Ext.getStore('online.Radar');
+                        radarStore.removeAll();
+                        for(var i = 0; i < this.markers.radars.length; i++){
+                            this.markers.radars[i].setMap(null);
+                        } 
+                        this.markers.radars = [];
+                        radarStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        radarStore.getProxy().setExtraParam('area',
+                        localStorage.getItem('area'));
+                        radarStore.load();
+                    }
+                    if(localStorage.getItem('displayWebcams')==1){
+                        var webcamStore = Ext.getStore('online.Webcam');
+                        webcamStore.removeAll();
+                        for(var i = 0; i < this.markers.webcams.length; i++){
+                            this.markers.webcams[i].setMap(null);
+                        } 
+                        this.markers.webcams = [];
+                        webcamStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        webcamStore.getProxy().setExtraParam('area',
+                        localStorage.getItem('area'));
+                        webcamStore.load();
+                    }
+                    this.renderTrafficMap(this,this.getTrafficMap().getMap(),null);
+                    break;
+                case "traffic":
+
+                    for(var i = 0; i < this.markers.trafficevents.length; i++){
+                        this.markers.trafficevents[i].setVisible((localStorage.getItem('displayTraffic')==1?true:false));
+                    }
+                    
+                    if(this.markers.trafficevents.length == 0 && localStorage.getItem('displayTraffic')==1){
+                        var trafficStore = Ext.getStore('online.TrafficEvent');
+                        trafficStore.removeAll();
+                        for(var i = 0; i < this.markers.trafficevents.length; i++){
+                            this.markers.trafficevents[i].setMap(null);
+                        }
+                        this.markers.trafficevents = [];
+                        trafficStore.getProxy().setUrl('http://data.beroads.com/IWay/TrafficEvent/'+localStorage.getItem('lang')+'/all.jsonp');
+                        trafficStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
+                        trafficStore.load();
+                        this.renderTrafficMap(this,this.getTrafficMap().getMap(),null);
+                    }
+                    
+                    break;
+                case "radars":
+                    
+                    for(var i = 0; i < this.markers.radars.length; i++){
+                        this.markers.radars[i].setVisible((localStorage.getItem('displayRadars')==1?true:false));
+                    }
+                    
+                    //we load it if the user switch it on
+                    if(this.markers.radars.length==0 && localStorage.getItem('displayRadars')==1){
+                        var radarStore = Ext.getStore('online.Radar');
+                        radarStore.removeAll();
+                        for(var i = 0; i < this.markers.radars.length; i++){
+                            this.markers.radars[i].setMap(null);
+                        } 
+                        this.markers.radars = [];
+                        radarStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        radarStore.getProxy().setExtraParam('area',
+                        localStorage.getItem('area'));
+                        radarStore.load();
+                        this.renderTrafficMap(this,this.getTrafficMap().getMap(),null);
+                    }
+                    break;
+                case "webcams":
+                    
+                    for(var i = 0; i < this.markers.webcams.length; i++){
+                        this.markers.webcams[i].setVisible((localStorage.getItem('displayWebcams')==1?true:false));
+                    }
+                    //we load it if the user switch it on
+                    if(this.markers.webcams.length==0 && localStorage.getItem('displayWebcams')==1){
+                        var webcamStore = Ext.getStore('online.Webcam');
+                        webcamStore.removeAll();
+                        for(var i = 0; i < this.markers.webcams.length; i++){
+                            this.markers.webcams[i].setMap(null);
+                        } 
+                        this.markers.webcams = [];
+                        webcamStore.getProxy().setExtraParam('from',
+                        Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude);
+                        webcamStore.getProxy().setExtraParam('area',
+                        localStorage.getItem('area'));
+                        webcamStore.load();
+                        this.renderTrafficMap(this,this.getTrafficMap().getMap(),null);
+                    }
+                    break;
+            } 
+        
     },
 
     renderTrafficMap : function(comp, map, eOpts) {
@@ -79,7 +205,6 @@ Ext.define('BeRoads.controller.Map', {
 		 * @return 
 		 */
         var addRadar = function (radar, position) {
-
             me.markers.radars[radar.id] = new google.maps.Marker({
                 id : radar.id,
                 map:map,
@@ -120,18 +245,18 @@ Ext.define('BeRoads.controller.Map', {
         };
 
 		//create a GMap position with the geo updated values
-        var userPosition = new google.maps.LatLng(Ext.USER_COORDS.position.coords.latitude,
-            Ext.USER_COORDS.position.coords.longitude);
+        var userPosition = new google.maps.LatLng(Ext.USER_COORDS.coords.latitude,
+            Ext.USER_COORDS.coords.longitude);
 
 		//create the user marker
-        var marker = new google.maps.Marker({
+        me.markers.user = new google.maps.Marker({
             map:map,
             position:userPosition,
             icon:'resources/img/user.png'
         });
 
-		
-        if (localStorage.getItem('displayTraffic') == 'true') {
+        if (localStorage.getItem('displayTraffic')==1) {
+
 			// loop in traffic events store and add markers to the map
             var trafficStore = Ext.getStore('offline.TrafficEvent');
             trafficStore.each(function(item){
@@ -142,7 +267,7 @@ Ext.define('BeRoads.controller.Map', {
             });
         }
 
-        if (localStorage.getItem('displayRadars') == 'true') {
+        if (localStorage.getItem('displayRadars')==1) {
 			// loop in radars store and add markers to the map
             var radarStore = Ext.getStore('offline.Radar');
             radarStore.each(function(item){
@@ -153,7 +278,7 @@ Ext.define('BeRoads.controller.Map', {
             });
         }
 
-        if (localStorage.getItem('displayWebcams') == 'true') {
+        if (localStorage.getItem('displayWebcams')==1) {
 			// loop in webcams store and add markers to the map
             var webcamStore = Ext.getStore('offline.Webcam');
             webcamStore.each(function(item){
@@ -165,5 +290,19 @@ Ext.define('BeRoads.controller.Map', {
         }
 		//center the map on user's position
         map.setCenter(userPosition);
+
+        //Update user position in real time 
+        var user = me.markers.user;
+        navigator.geolocation.watchPosition(function(position){
+            
+            //if the user has moved from more than 100 meters, we recenter the map to follow him
+            if(getDistance(position.coords.latitude, position.coords.longitude, user.getPosition().lat(), user.getPosition().lng()) > 0.100){
+                var userPosition = new google.maps.LatLng(position.coords.latitude,
+                position.coords.longitude);
+                user.setPosition(userPosition);
+                map.setCenter(userPosition);
+            }
+            
+        });
     }
 });

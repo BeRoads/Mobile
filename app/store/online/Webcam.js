@@ -10,7 +10,7 @@ Ext.define('BeRoads.store.online.Webcam', {
             type: 'jsonp',
             url:'http://data.beroads.com/IWay/Camera.jsonp',
             extraParams:{
-                from:Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude,
+                from:Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude,
                 area:localStorage.getItem('area')
             },
             rootProperty:'Camera.item',

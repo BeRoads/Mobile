@@ -10,7 +10,7 @@ Ext.define('BeRoads.store.online.Radar', {
             type: 'jsonp',
             url:'http://data.beroads.com/IWay/Radar.jsonp',
             extraParams:{
-                from:Ext.USER_COORDS.position.coords.latitude + "," + Ext.USER_COORDS.position.coords.longitude,
+                from:Ext.USER_COORDS.coords.latitude + "," + Ext.USER_COORDS.coords.longitude,
                 area:localStorage.getItem('area')
             },
             noCache : true,

@@ -111,6 +111,16 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                         centered: true
                     },
                     {
+                        id : 'settingsPanel',
+                        xtype : 'settings',
+                        modal : true,
+                        hidden : 'true',
+                        width : "50%",
+                        height : "50%",
+                        hideOnMaskTap: true,
+                        centered: true
+                    },
+                    {
                         xtype : 'tabpanel',
                         id : 'navigationTabPanel',
                         tabBar : {
@@ -156,19 +166,6 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                                 itemId : 'radarsList',
                                 title : "Radars",
 								navigationBar : false,
-                            },
-							{
-                                xtype : 'navigationview',
-                                itemId : 'settingsNavigationView',
-                                title : "Settings",
-								navigationBar : false,
-                                items : [
-                                    {
-		                                xtype : 'settings',
-		                                itemId : 'settingsPanel',
-		                                title : "Settings"
-		                            }
-                                ]
                             }
                             
                         ]
