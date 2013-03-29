@@ -1,7 +1,10 @@
 Ext.define('BeRoads.controller.TrafficEvents', {
     extend:'Ext.app.Controller',
 
-	displayed : false,		//if true, the title of the detailed view keep scrolling
+    /*
+        This variable is used to scroll a traffic event title when a detailed view shows up
+    */
+	displayed : false,	
     views:['trafficevents.List', 'trafficevents.Detail'],
     store : ['offline.TrafficEvent','online.TrafficEvent'],
     config: {
@@ -19,14 +22,16 @@ Ext.define('BeRoads.controller.TrafficEvents', {
     },
 
     init:function () {
-        console.log("[+] Setup Trafficevents controller");
 		this.displayed = true;
 		this.callParent(arguments);
     },
 
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
-        this.getTrafficeventsList().setTitle(_tr('traffic', localStorage.getItem('lang')));
+        return;
     },
 	/**
 	 *	Bind the offline traffic events store to the trafficeventsList

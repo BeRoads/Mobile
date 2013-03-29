@@ -13,7 +13,6 @@ Ext.define('BeRoads.profile.PortraitPhone', {
     },
 
     launch: function() {
-        console.log("Launching portrait phone version...");
-
+        return;
     }
 });

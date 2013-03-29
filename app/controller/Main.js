@@ -9,8 +9,6 @@ Ext.define('BeRoads.controller.Main', {
             radarsView : "#radarsView",
             webcamsView : "#webcamsView",
             tabpanel : "#tabpanel"
-        },
-        control: {
         }
     },
 
@@ -18,7 +16,11 @@ Ext.define('BeRoads.controller.Main', {
 		this.callParent(arguments);
     },
 
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
-        
+        return;
     }
 });
