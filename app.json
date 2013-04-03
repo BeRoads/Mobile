@@ -1,0 +1,48 @@
+{
+    "name": "BeRoads",
+    "indexHtmlPath": "index.html",
+    "url": "http://dev.beroads.com",
+    "js": [
+        {
+            "path": "http://src.sencha.io/screen.js",
+            "remote": "true"
+        },
+        {
+            "path": "touch/sencha-touch.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "app.js",
+            "bundle": true,
+            "update": "delta"
+        },
+        {
+            "path": "language.js"
+        },
+        {
+            "path": "utils.js"
+        }
+    ],
+    "css": [
+        {
+            "path": "resources/css/flat.css",
+            "update": "delta"
+        }
+    ],
+    "cache": [
+        "index.html"
+    ],
+    "network": [
+        "*"
+    ],
+    "fallback": [],
+    "resources": [
+        "resources/img",
+        "resources/icons",
+        "resources/startup"
+    ],
+    "ignore": [
+        ".git$"
+    ],
+    "id": "4554eb52-522a-43db-97ae-9d670a7555c0"
+}

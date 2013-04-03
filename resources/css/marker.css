@@ -1,0 +1,62 @@
+.popupMarker {
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+.popupMenu .x-button-normal {
+  border: none !important;
+  background: #d9d9d9 url(../img/bg_list.jpg) repeat-x;
+  img {
+    background: #777 !important;
+  }
+	
+	-webkit-border-radius: 0px;
+}
+
+/* x-button x-button-normal */
+/*.popupMarker:before {
+	content: "";
+	position: absolute;
+	bottom: 2px;
+	left: 50%;
+	margin-left: -10px;
+	display: block;
+	width: 20px;
+	height: 20px;
+	-webkit-transform: rotate(-45deg);
+	border-radius: 2px;
+}*/
+
+
+.popupMarker .x-panel-body {
+	background: #fff !important;
+	color: #000 !important !important;
+	text-align: center !important;
+	padding-bottom: 5px;
+}
+
+
+.popupMarker .x-panel-body .x-html {
+	padding: 0 !important;
+}
+
+.popupMarker .popupTitle {
+	color: #000;
+	display: block;
+	text-align : center;
+	font-weight: bold;
+	padding: 5px;
+	border-bottom : 1px solid black;
+}
+
+.popupMarker .popupTitle {
+	font-size: 14px;
+}
+
+.popupMarker .popupDescription {
+	margin-left : 50px;
+	margin-right : 50px;
+	margin-top : 50px;
+	font-size: 11px;
+	
+}
