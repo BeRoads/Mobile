@@ -17,15 +17,13 @@ Ext.define('BeRoads.controller.Radars', {
     },
 
     init:function () {
+        console.log("[+] Setup Radars controller");
         this.callParent(arguments);
     },
 
-    /**
-     *   Change the text values of the view to the current language value.
-     *   @return 
-    */
     updateLanguage : function() {
-        return;
+        console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getRadarsList().setTitle(_tr('radars', localStorage.getItem('lang')));
     },
     
 	/**
@@ -33,6 +31,7 @@ Ext.define('BeRoads.controller.Radars', {
 	 *	@return
 	 */
     loadRadarPanel : function(cmp, eOpts) {
+        cmp.setStore(Ext.getStore('offline.Radar'));
         cmp.refresh();
     },
 
@@ -41,6 +40,13 @@ Ext.define('BeRoads.controller.Radars', {
 	 *	@return
 	 */
     onItemTap:function (cmp, index, target, record, e, eOpts ){
-       return;
+       
+        /*if (record !== undefined) {
+            this.getMain().push({
+                xtype: 'radarDetail',
+                title: record.getData().id,
+                data: record.getData()
+            });
+        }*/
     }
 });

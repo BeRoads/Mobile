@@ -17,15 +17,13 @@ Ext.define('BeRoads.controller.Webcams', {
     },
 
     init:function () {
+        console.log("[+] Setup Webcams controller");
         this.callParent(arguments);
     },
 
-    /**
-     *   Change the text values of the view to the current language value.
-     *   @return 
-    */
     updateLanguage : function() {
-        return;
+        console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getWebcamsList().setTitle(_tr('webcams', localStorage.getItem('lang')));
     },
 	/**
 	 *	Bind the offline webcams store to the webcamsList view

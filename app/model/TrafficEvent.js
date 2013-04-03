@@ -1,16 +1,17 @@
 Ext.define('BeRoads.model.TrafficEvent', {
 	extend: 'Ext.data.Model',
+
 	config: {
 		fields: [
-			{name: 'source', type: 'string'},
-			{name: 'location', type: 'string'},
-			{name: 'message', type: 'string'},
-			{name: 'category', type: 'string'},
-			{name: 'lat', type: 'string'},
-			{name: 'lng', type: 'string'},
-			{name: 'distance', type: 'string'},
-			{name : 'time', type: 'string'},
-			{name : 'formatted_time', type : 'string'}
+		{name: 'source'},
+		{name: 'location'},
+		{name: 'message'},
+		{name: 'category'},
+		{name: 'lat'},
+		{name: 'lng'},
+		{name: 'distance'},
+		{name : 'time'},
+		{name : 'formatted_time', type : 'string'}
 		]
 	}
 }

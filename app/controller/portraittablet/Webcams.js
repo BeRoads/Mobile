@@ -24,6 +24,9 @@ Ext.define('BeRoads.controller.portraittablet.Webcams', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
 	/**
 	 *	Push the webcam detailed view
 	 *	@return

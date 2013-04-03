@@ -47,11 +47,9 @@ Ext.define('BeRoads.controller.portraittablet.Main', {
 		this.callParent(arguments);
     },
 
-    /**
-     *   Change the text values of the view to the current language value.
-     *   @return 
-    */
     updateLanguage : function() {
+        
+       
         this.getTopToolbar().setTitle(_tr(this.currentView, localStorage.getItem('lang')));
         this.getMapButton().setText(_tr('map', localStorage.getItem('lang')));
         this.getTrafficButton().setText(_tr('traffic', localStorage.getItem('lang')));

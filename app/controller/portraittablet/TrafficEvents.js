@@ -33,6 +33,9 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
         this.callParent(arguments);
     },
 
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
 	/**
 	 *	Push the traffic event detailed view, set the title and 
 	 *	start a 'title scroller' if necessary (like highway displays)

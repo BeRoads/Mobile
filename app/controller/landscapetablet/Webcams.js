@@ -19,6 +19,10 @@ Ext.define('BeRoads.controller.landscapetablet.Webcams', {
     init:function () {
         this.callParent(arguments);
     },
+
+    updateLanguage : function() {
+        console.log("Updating language to "+localStorage.getItem('lang'));
+    },
     
 	/**
 	 *	Bind the offline webcams store to the webcamsList view

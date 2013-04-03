@@ -13,7 +13,8 @@ Ext.define('BeRoads.profile.LandscapeTablet', {
     },
 
     launch: function() {
-        return;
+        console.log("Launching tablet landscape version...");
+
     }
 });
 

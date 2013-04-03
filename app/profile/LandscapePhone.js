@@ -13,6 +13,7 @@ Ext.define('BeRoads.profile.LandscapePhone', {
     },
 
     launch: function() {
-        return;
+        console.log("Launching landscape phone version...");
+
     }
 });

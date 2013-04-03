@@ -8,6 +8,8 @@ Ext.define('BeRoads.controller.portraitphone.Main', {
             radarsView : "#radarsView",
             webcamsView : "#webcamsView",
             tabpanel : "#tabpanel"
+        },
+        control: {
         }
     },
 
@@ -15,10 +17,6 @@ Ext.define('BeRoads.controller.portraitphone.Main', {
 		this.callParent(arguments);
     },
 
-    /**
-     *   Change the text values of the view to the current language value.
-     *   @return 
-    */
     updateLanguage : function() {
         this.getTrafficeventsView().getNavigationBar().setTitle(_tr('traffic', localStorage.getItem('lang')));
         this.getRadarsView().getNavigationBar().setTitle(_tr('radars', localStorage.getItem('lang')));
