@@ -21,7 +21,7 @@ Ext.define('BeRoads.controller.landscapetablet.Radars', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
     },
     
 	/**

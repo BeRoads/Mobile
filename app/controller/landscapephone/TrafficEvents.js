@@ -22,7 +22,7 @@ Ext.define('BeRoads.controller.landscapephone.TrafficEvents', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
     },
 
 	/**

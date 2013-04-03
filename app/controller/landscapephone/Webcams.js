@@ -21,6 +21,6 @@ Ext.define('BeRoads.controller.landscapephone.Webcams', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
     }
 });

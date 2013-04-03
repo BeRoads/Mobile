@@ -17,12 +17,12 @@ Ext.define('BeRoads.controller.Webcams', {
     },
 
     init:function () {
-        console.log("[+] Setup Webcams controller");
+        
         this.callParent(arguments);
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
         this.getWebcamsList().setTitle(_tr('webcams', localStorage.getItem('lang')));
     },
 	/**

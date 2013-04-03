@@ -17,7 +17,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
     },
 	
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
         this.callParent(arguments);
     },
 

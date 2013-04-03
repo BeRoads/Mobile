@@ -20,13 +20,13 @@ Ext.define('BeRoads.controller.TrafficEvents', {
     },
 
     init:function () {
-        console.log("[+] Setup Trafficevents controller");
+        
 		this.displayed = true;
 		this.callParent(arguments);
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
         this.getTrafficeventsList().setTitle(_tr('traffic', localStorage.getItem('lang')));
     },
 	/**

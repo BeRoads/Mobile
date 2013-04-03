@@ -17,12 +17,12 @@ Ext.define('BeRoads.controller.Radars', {
     },
 
     init:function () {
-        console.log("[+] Setup Radars controller");
+        
         this.callParent(arguments);
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
         this.getRadarsList().setTitle(_tr('radars', localStorage.getItem('lang')));
     },
     

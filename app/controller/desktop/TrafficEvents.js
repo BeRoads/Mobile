@@ -21,7 +21,7 @@ Ext.define('BeRoads.controller.desktop.TrafficEvents', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
     },
     
     loadTrafficEventsPanel:function (cmp, eOpts) {

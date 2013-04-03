@@ -44,7 +44,7 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
-        console.log("[+] Setup Settings controller");
+        
         this.callParent(arguments);
 
     },
@@ -73,7 +73,7 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getUserFormFieldset().setTitle(_tr('settings', localStorage.getItem('lang')));
         this.getLang().setLabel(_tr('lang', localStorage.getItem('lang')));

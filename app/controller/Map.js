@@ -27,13 +27,13 @@ Ext.define('BeRoads.controller.Map', {
 
 
     init:function () {
-        console.log("[+] Setup Map controller");
+        
         this.callParent(arguments);
     },	
 
 	
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
 
         if(localStorage.getItem('displayTraffic')){
             var trafficStore = Ext.getStore('online.TrafficEvent');
@@ -102,9 +102,9 @@ Ext.define('BeRoads.controller.Map', {
                     break;
                 case "traffic":
                     var trafficStore = Ext.getStore('online.TrafficEvent');
-                    console.log(trafficStore);
-                    console.log("Store Size : "+trafficStore.getCount());
-                    console.log("Markers Size : "+this.markers.trafficevents.length+" | visible : "+(localStorage.getItem('displayTraffic')==1?true:false));
+                    
+                    
+                    
                     for(var i = 0; i < this.markers.trafficevents.length; i++){
                         this.markers.trafficevents[i].setVisible((localStorage.getItem('displayTraffic')==1?true:false));
                     }
@@ -128,9 +128,9 @@ Ext.define('BeRoads.controller.Map', {
                 case "radars":
 
                     var radarStore = Ext.getStore('online.Radar');
-                    console.log(radarStore);
-                    console.log("Store Size : "+radarStore.getCount());
-                    console.log("Markers Size : "+this.markers.radars.length+" | visible : "+(localStorage.getItem('displayRadars')==1?true:false));
+                    
+                    
+                    
                     for(var i = 0; i < this.markers.radars.length; i++){
                         this.markers.radars[i].setVisible((localStorage.getItem('displayRadars')==1?true:false));
                     }
@@ -153,9 +153,9 @@ Ext.define('BeRoads.controller.Map', {
                     break;
                 case "webcams":
                     var webcamStore = Ext.getStore('online.Webcam');
-                    console.log(webcamStore);
-                    console.log("Store Size : "+webcamStore.getCount());
-                    console.log("Markers Size : "+this.markers.webcams.length+" | visible : "+(localStorage.getItem('displayWebcams')==1?true:false));
+                    
+                    
+                    
                     for(var i = 0; i < this.markers.webcams.length; i++){
                         this.markers.webcams[i].setVisible((localStorage.getItem('displayWebcams')==1?true:false));
                     }

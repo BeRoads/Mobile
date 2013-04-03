@@ -34,7 +34,7 @@ Ext.define('BeRoads.controller.portraittablet.TrafficEvents', {
     },
 
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        
     },
 	/**
 	 *	Push the traffic event detailed view, set the title and 

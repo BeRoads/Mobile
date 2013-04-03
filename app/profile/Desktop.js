@@ -13,7 +13,7 @@ Ext.define('BeRoads.profile.Desktop', {
     },
 
     launch: function() {
-        console.log("Launching desktop version...");
+        
 
     }
 });
