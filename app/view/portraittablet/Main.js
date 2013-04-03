@@ -21,7 +21,7 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                 xtype : 'toolbar',
                 docked : 'top',
 				id : 'topToolbar',
-                title : _tr('map', localStorage.getItem('lang')),
+                title : '',
                 items: [
                     {
                         xtype: 'button',
@@ -173,19 +173,19 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                     {
                         hidden : true,
                         id : 'mapButton',
-                        text: _tr('map', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'trafficButton',
-                        text: _tr('traffic', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'radarsButton',
-                        text: _tr('radars', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'webcamsButton',
-                        text: _tr('webcams', localStorage.getItem('lang'))
+                        text: ''
                     }
                 ],
                 left: 1

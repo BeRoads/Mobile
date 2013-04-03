@@ -44,7 +44,6 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
-        
         this.callParent(arguments);
 
     },
@@ -77,15 +76,19 @@ Ext.define('BeRoads.controller.Settings', {
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getUserFormFieldset().setTitle(_tr('settings', localStorage.getItem('lang')));
         this.getLang().setLabel(_tr('lang', localStorage.getItem('lang')));
+        this.getLang().setValue(localStorage.getItem('lang'));
         this.getArea().setLabel(_tr('area', localStorage.getItem('lang')));
+        this.getArea().setValue(localStorage.getItem('area'));
         this.getThanksFieldset().setTitle(_tr('thanks', localStorage.getItem('lang')));
+
+        this.getDisplayRadars().setValue(localStorage.getItem('displayRadars'));
+        this.getDisplayTraffic().setValue(localStorage.getItem('displayTraffic'));
+        this.getDisplayWebcams().setValue(localStorage.getItem('displayWebcams'));
     },
 
 	loadSettingsPanel : function(){
-
-		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+        this.updateLanguage();
         this.getPreferenceButton().hide();
-       
     },
 
     onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
@@ -138,6 +141,7 @@ Ext.define('BeRoads.controller.Settings', {
     onPreferenceButtonTap : function(){
 
         this.getSettingsPanel().show();
+        this.updateLanguage();
         this.firstCall = false;
     }
 });

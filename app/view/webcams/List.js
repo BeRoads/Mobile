@@ -5,7 +5,7 @@ Ext.define('BeRoads.view.webcams.List', {
     requires: ['Ext.data.proxy.LocalStorage','Ext.data.Store', 'Ext.data.proxy.JsonP'],
 
     config:{
-        title:_tr('webcams', localStorage.getItem('lang')),
+        title:'',
         store:null,
         grouped : true,
         itemTpl:'<div class="thumbnail"><img src="http://src.sencha.io/30/30/{img}" width="30" height="30" /></div>' +

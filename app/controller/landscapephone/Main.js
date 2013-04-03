@@ -10,6 +10,9 @@ Ext.define('BeRoads.controller.landscapephone.Main', {
             tabpanel : "#tabpanel"
         },
         control: {
+            tabpanel : {
+                show : 'updateLanguage'
+            }
         }
     },
 
@@ -18,6 +21,7 @@ Ext.define('BeRoads.controller.landscapephone.Main', {
     },
 
     updateLanguage : function() {
+
         this.getTrafficeventsView().getNavigationBar().setTitle(_tr('traffic', localStorage.getItem('lang')));
         this.getRadarsView().getNavigationBar().setTitle(_tr('radars', localStorage.getItem('lang')));
         this.getWebcamsView().getNavigationBar().setTitle(_tr('webcams', localStorage.getItem('lang')));

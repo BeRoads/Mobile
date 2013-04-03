@@ -10,6 +10,9 @@ Ext.define('BeRoads.controller.portraitphone.Main', {
             tabpanel : "#tabpanel"
         },
         control: {
+            tabpanel : {
+                show : 'updateLanguage'
+            }
         }
     },
 

@@ -5,7 +5,7 @@
     "js": [
         {
             "path": "http://src.sencha.io/screen.js",
-            "remote": "true"
+            "remote": true
         },
         {
             "path": "touch/sencha-touch.js",
@@ -24,11 +24,6 @@
         }
     ],
     "css": [
-
-        {
-            "path": "resources/css/ff.css",
-            "update": "delta"
-        },
         {
             "path": "resources/css/flat.css",
             "update": "delta"

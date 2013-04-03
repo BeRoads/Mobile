@@ -8,8 +8,8 @@ Ext.define('BeRoads.view.Settings', {
 		{
 			xtype: 'fieldset',
 			id: 'userFormFieldset',
-			title :  _tr('preferences', localStorage.getItem('lang')),
-			instructions: _tr('settings_message', localStorage.getItem('lang')),
+			title :  '',
+			instructions: '',
 			defaults: {
 				xtype: 'textfield',
 				labelAlign: 'left',
@@ -23,23 +23,23 @@ Ext.define('BeRoads.view.Settings', {
 				xtype: 'numberfield',
 				id : 'area',
 				name: 'area',
-				label: _tr('area', localStorage.getItem('lang')),
+				label: '',
 				maxLength: 10,
-				value : localStorage.getItem('area'),
+				value : 0,
 				clearIcon: true
 			},
 			{
 				xtype: 'selectfield',
 				name: 'lang',
 				id: 'lang',
-				label:  _tr('language', localStorage.getItem('lang')),
+				label:  '',
 				options: [
 				{text: 'Français',  value: 'fr'},
 				{text: 'Dutch', value: 'nl'},
 				{text: 'German', value: 'de'},
 				{text: 'English', value: 'en'}
 				],
-				value : localStorage.getItem('lang')
+				value : 'nl'
 			},
 			{
 
@@ -48,7 +48,7 @@ Ext.define('BeRoads.view.Settings', {
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/trafficevents_icon.png"/></span>',
 					id : 'displayTraffic',
-					value : (localStorage.getItem('displayTraffic'))
+					value : true
 				},
 				{
 					xtype: 'togglefield',
@@ -56,7 +56,7 @@ Ext.define('BeRoads.view.Settings', {
 					id : 'displayRadars',
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/radars_icon.png"/></span>',
-					value : (localStorage.getItem('displayRadars'))
+					value : true
 				},
 				{
 					xtype: 'togglefield',
@@ -64,14 +64,14 @@ Ext.define('BeRoads.view.Settings', {
 					id : 'displayWebcams',
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>',
-					value : (localStorage.getItem('displayWebcams'))
+					value : true
 				}
 			]
 		},
 		{
 			xtype: 'fieldset',
 			id: 'thanksFieldset',
-			title :  _tr('thanks', localStorage.getItem('lang')),
+			title : '',
 			items : [
 				{
 				xtype: 'numberfield',

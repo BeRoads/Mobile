@@ -2,39 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fb650e2-9051-4141-b05e-ef5582b63057" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/Coordinates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserSettings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store/offline/UserSettings.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sencha/workspace/plugin.xml" afterPath="$PROJECT_DIR$/.sencha/workspace/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sencha/workspace/sencha.cfg" afterPath="$PROJECT_DIR$/.sencha/workspace/sencha.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Map.js" afterPath="$PROJECT_DIR$/app/controller/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Radars.js" afterPath="$PROJECT_DIR$/app/controller/Radars.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Settings.js" afterPath="$PROJECT_DIR$/app/controller/Settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/TrafficEvents.js" afterPath="$PROJECT_DIR$/app/controller/TrafficEvents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Webcams.js" afterPath="$PROJECT_DIR$/app/controller/Webcams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/desktop/Radars.js" afterPath="$PROJECT_DIR$/app/controller/desktop/Radars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/desktop/TrafficEvents.js" afterPath="$PROJECT_DIR$/app/controller/desktop/TrafficEvents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/desktop/Webcams.js" afterPath="$PROJECT_DIR$/app/controller/desktop/Webcams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Radars.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Radars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/TrafficEvents.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/TrafficEvents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Webcams.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Webcams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapetablet/Radars.js" afterPath="$PROJECT_DIR$/app/controller/landscapetablet/Radars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapetablet/TrafficEvents.js" afterPath="$PROJECT_DIR$/app/controller/landscapetablet/TrafficEvents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapetablet/Webcams.js" afterPath="$PROJECT_DIR$/app/controller/landscapetablet/Webcams.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/desktop/Map.js" afterPath="$PROJECT_DIR$/app/controller/desktop/Map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Main.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Map.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" afterPath="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraitphone/Main.js" afterPath="$PROJECT_DIR$/app/controller/portraitphone/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraitphone/Map.js" afterPath="$PROJECT_DIR$/app/controller/portraitphone/Map.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraittablet/Map.js" afterPath="$PROJECT_DIR$/app/controller/portraittablet/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraittablet/Radars.js" afterPath="$PROJECT_DIR$/app/controller/portraittablet/Radars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraittablet/TrafficEvents.js" afterPath="$PROJECT_DIR$/app/controller/portraittablet/TrafficEvents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraittablet/Webcams.js" afterPath="$PROJECT_DIR$/app/controller/portraittablet/Webcams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile/Desktop.js" afterPath="$PROJECT_DIR$/app/profile/Desktop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile/LandscapePhone.js" afterPath="$PROJECT_DIR$/app/profile/LandscapePhone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile/LandscapeTablet.js" afterPath="$PROJECT_DIR$/app/profile/LandscapeTablet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile/PortraitPhone.js" afterPath="$PROJECT_DIR$/app/profile/PortraitPhone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile/PortraitTablet.js" afterPath="$PROJECT_DIR$/app/profile/PortraitTablet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Map.js" afterPath="$PROJECT_DIR$/app/view/Map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Settings.js" afterPath="$PROJECT_DIR$/app/view/Settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/desktop/FailCar.js" afterPath="$PROJECT_DIR$/app/view/desktop/FailCar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/desktop/Main.js" afterPath="$PROJECT_DIR$/app/view/desktop/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" afterPath="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapephone/Main.js" afterPath="$PROJECT_DIR$/app/view/landscapephone/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapetablet/FailCar.js" afterPath="$PROJECT_DIR$/app/view/landscapetablet/FailCar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapetablet/Main.js" afterPath="$PROJECT_DIR$/app/view/landscapetablet/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" afterPath="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraitphone/Main.js" afterPath="$PROJECT_DIR$/app/view/portraitphone/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraittablet/FailCar.js" afterPath="$PROJECT_DIR$/app/view/portraittablet/FailCar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraittablet/Main.js" afterPath="$PROJECT_DIR$/app/view/portraittablet/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/radars/List.js" afterPath="$PROJECT_DIR$/app/view/radars/List.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/trafficevents/List.js" afterPath="$PROJECT_DIR$/app/view/trafficevents/List.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/webcams/List.js" afterPath="$PROJECT_DIR$/app/view/webcams/List.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/4c9612393b0038de8709bf9ac3bd4c8d9273cc77.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/4c9612393b0038de8709bf9ac3bd4c8d9273cc77.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e51eb2e34df305c204778c257a69e32582fc393.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e51eb2e34df305c204778c257a69e32582fc393.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e8e6df097caa43df0c74aec01a41eb5db69d3b7.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e8e6df097caa43df0c74aec01a41eb5db69d3b7.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/production/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/language.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/language.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/resources/css/flat.css" afterPath="$PROJECT_DIR$/build/BeRoads/production/resources/css/flat.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/utils.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/utils.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/testing/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/language.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/language.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/utils.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/utils.js" />
     </list>
@@ -58,91 +71,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mobile2/app.js">
+      <file leaf-file-name="FailCar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/landscapephone/FailCar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="52" selection-start="6801" selection-end="6801" vertical-scroll-proportion="0.0">
+            <state line="20" column="23" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mobile2/app.json">
+      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/desktop/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="6" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+            <state line="36" column="33" selection-start="987" selection-end="1018" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="10" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sencha.cfg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mobile2/.sencha/app/sencha.cfg">
+      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="25" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
+            <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sencha.cfg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.sencha/app/sencha.cfg">
+      <file leaf-file-name="Map.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+            <state line="23" column="32" selection-start="547" selection-end="547" vertical-scroll-proportion="0.486692">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sencha.cfg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.sencha/workspace/sencha.cfg">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+            <state line="14" column="13" selection-start="363" selection-end="429" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="16" selection-start="288" selection-end="288" vertical-scroll-proportion="-0.3">
+            <state line="34" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/Settings.js">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="0" selection-start="3205" selection-end="3205" vertical-scroll-proportion="0.44606948">
+            <state line="14" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mobile2/app/controller/Settings.js">
+      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="40" selection-start="4497" selection-end="4497" vertical-scroll-proportion="0.0">
+            <state line="35" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mobile2/index.html">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/desktop/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="25" selection-start="1821" selection-end="1821" vertical-scroll-proportion="-13.666667">
+            <state line="31" column="37" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,22 +175,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../Mobile2/app/view/desktop/Settings.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/view/desktop/webcams/Detail.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/view/desktop/webcams/List.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/controller/Map.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/view/landscapetablet/Main.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/view/desktop/Main.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app.json" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/store/online/Webcam.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/store/online/TrafficEvent.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/store/online/Radar.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/app/controller/Settings.js" />
-        <option value="$PROJECT_DIR$/../Mobile2/index.html" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/.sencha/app/sencha.cfg" />
+        <option value="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" />
+        <option value="$PROJECT_DIR$/app/view/landscapephone/Main.js" />
+        <option value="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" />
+        <option value="$PROJECT_DIR$/app/view/desktop/Main.js" />
+        <option value="$PROJECT_DIR$/app/view/desktop/FailCar.js" />
+        <option value="$PROJECT_DIR$/app/view/trafficevents/List.js" />
+        <option value="$PROJECT_DIR$/app/store/online/TrafficEvent.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/controller/Settings.js" />
+        <option value="$PROJECT_DIR$/app/controller/desktop/Map.js" />
+        <option value="$PROJECT_DIR$/app/controller/landscapephone/Main.js" />
+        <option value="$PROJECT_DIR$/app/controller/landscapephone/Map.js" />
+        <option value="$PROJECT_DIR$/app/controller/portraitphone/Main.js" />
+        <option value="$PROJECT_DIR$/app/controller/portraitphone/Map.js" />
+        <option value="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" />
+        <option value="$PROJECT_DIR$/app/controller/portraittablet/Map.js" />
       </list>
     </option>
   </component>
@@ -237,7 +250,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
+              <option name="myItemId" value="Mobile" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,151 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".sencha" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".sencha" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -406,6 +275,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landscapephone" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,6 +319,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,13 +466,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1368" height="746" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.6700337" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.6700337" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -639,114 +542,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/view/desktop/Main.js">
+    <entry file="file://$PROJECT_DIR$/app/view/trafficevents/List.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="28" selection-start="2654" selection-end="2654" vertical-scroll-proportion="-4.2">
+        <state line="11" column="3" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/store/online/TrafficEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="625" selection-end="625" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/store/online/TrafficEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="25" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/store/online/Webcam.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="9" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/store/online/Radar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/controller/desktop/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="52" selection-start="6801" selection-end="6801" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app/controller/Settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="40" selection-start="4497" selection-end="4497" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="25" selection-start="1821" selection-end="1821" vertical-scroll-proportion="-13.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="6" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="10" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Mobile2/.sencha/app/sencha.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="25" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.sencha/app/sencha.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.sencha/workspace/sencha.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+        <state line="25" column="104" selection-start="841" selection-end="928" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="288" selection-end="288" vertical-scroll-proportion="-0.3">
+        <state line="52" column="20" selection-start="2441" selection-end="2441" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/Settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="0" selection-start="3205" selection-end="3205" vertical-scroll-proportion="0.44606948">
+        <state line="80" column="62" selection-start="2647" selection-end="2647" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/desktop/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="37" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/desktop/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="38" selection-start="410" selection-end="427" vertical-scroll-proportion="0.3508772">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/landscapephone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="91" selection-end="100" vertical-scroll-proportion="0.05703422">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/landscapephone/FailCar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="23" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="363" selection-end="429" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/desktop/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="33" selection-start="987" selection-end="1018" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="32" selection-start="547" selection-end="547" vertical-scroll-proportion="0.486692">
           <folding />
         </state>
       </provider>

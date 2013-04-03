@@ -52,7 +52,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         id : 'mapView',
                         iconCls: 'mapTabButton',
-                        title: _tr('map', localStorage.getItem('lang')),
+                        title: '',
                         navigationBar : {
                             items: [
                                 {
@@ -86,7 +86,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'trafficeventsTabButton',
                         id : 'trafficeventsView',
-                        title: _tr('traffic', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'trafficeventsList',
@@ -99,7 +99,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'radarsTabButton',
                         id : 'radarsView',
-                        title: _tr('radars', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'radarsList',
@@ -111,7 +111,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'webcamsTabButton',
                         id : 'webcamsView',
-                        title: _tr('webcams', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'webcamsList',

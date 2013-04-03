@@ -18,7 +18,7 @@ Ext.define('BeRoads.view.desktop.FailCar', {
         if (this.prevCard !== undefined) {
             toolbarBase.items = {
                 ui: 'back',
-                text: _tr('back', localStorage.getItem('lang')),
+                text: '',
                 scope: this,
                 handler: function(){
                     this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });

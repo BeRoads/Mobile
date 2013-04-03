@@ -6,7 +6,7 @@ Ext.define('BeRoads.view.radars.List', {
     requires: ['Ext.data.proxy.LocalStorage','Ext.data.Store', 'Ext.data.proxy.JsonP'],
 
     config:{
-        title:_tr('radars', localStorage.getItem('lang')),
+        title:'',
         store:null,
         itemTpl: '<span class="listItemSpan"><span class="distance">{distance} km</span>' +
             '<span class="name">{name}</span><span class="speedLimit">{speedLimit}</span></span>'

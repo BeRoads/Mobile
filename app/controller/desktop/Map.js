@@ -35,6 +35,7 @@ Ext.define('BeRoads.controller.desktop.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 

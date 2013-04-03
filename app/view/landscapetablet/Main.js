@@ -72,7 +72,7 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                     {
                         xtype : 'trafficMap',
                         itemId : 'trafficMap',
-                        title : _tr('map', localStorage.getItem('lang'))
+                        title : ''
 					
                     }
                 ]
