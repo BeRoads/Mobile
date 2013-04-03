@@ -6,21 +6,26 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
             'offline.TrafficEvent', 'online.TrafficEvent'],
         refs: {
             mapView : "mapNavigationView"
-        },
-        control: {
         }
     },
 
-	
     init:function () {
         this.callParent(arguments);
     },
 	
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
         this.callParent(arguments);
     },
 
+    /**
+     * Called when there is a modification in the 'displayX' values or in the area value. 
+     * Update visible markers on the map and delete/reload some values depending on the 
+     * new area value.
+     */
     updateMapArea : function() {
         this.callParent(arguments);
     },

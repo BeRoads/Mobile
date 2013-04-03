@@ -21,6 +21,7 @@ Ext.define('BeRoads.controller.landscapetablet.Main', {
 		this.callParent(arguments);
     },
 
+<<<<<<< HEAD
     loadMenuList : function() {
         this.getMenuList().setStore(Ext.create('Ext.data.Store', {
             data:[
@@ -32,18 +33,22 @@ Ext.define('BeRoads.controller.landscapetablet.Main', {
         this.getMenuList().refresh();
     },
 
+=======
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
+>>>>>>> 8fb781646e3d42e194ce10c08bb2e7a6392f422a
     updateLanguage : function() {
         
-        
         this.getMenuList().setStore(Ext.create('Ext.data.Store', {
-                            data:[
-                                {   title:_tr('traffic', localStorage.getItem('lang')), value : 'traffic', xtype : 'trafficeventsList',  iconURL : 'resources/img/trafficevents_icon.png'},
-                                {   title:_tr('webcams', localStorage.getItem('lang')), value : 'webcams', xtype : 'webcamsList', iconURL : 'resources/img/webcams_icon.png' },
-                                {   title:_tr('radars', localStorage.getItem('lang')) , value : 'radars', xtype : 'radarsList', iconURL : 'resources/img/radars_icon.png' }
-                            ]
-                        }));
+            data:[
+                {   title:_tr('traffic', localStorage.getItem('lang')), value : 'traffic', xtype : 'trafficeventsList',  iconURL : 'resources/img/trafficevents_icon.png'},
+                {   title:_tr('webcams', localStorage.getItem('lang')), value : 'webcams', xtype : 'webcamsList', iconURL : 'resources/img/webcams_icon.png' },
+                {   title:_tr('radars', localStorage.getItem('lang')) , value : 'radars', xtype : 'radarsList', iconURL : 'resources/img/radars_icon.png' }
+            ]
+        }));
         this.getMenuList().refresh();
-
         this.callParent(arguments);
     },
 

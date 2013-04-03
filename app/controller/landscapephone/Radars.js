@@ -19,7 +19,12 @@ Ext.define('BeRoads.controller.landscapephone.Radars', {
         this.callParent(arguments);
     },
 
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
+        this.getRadarsList().setTitle(_tr('radars', localStorage.getItem('lang')));
+        this.callParent(arguments);
     }
 });

@@ -17,6 +17,10 @@ Ext.define('BeRoads.controller.landscapephone.Main', {
 		this.callParent(arguments);
     },
 
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
         this.getTrafficeventsView().getNavigationBar().setTitle(_tr('traffic', localStorage.getItem('lang')));
         this.getRadarsView().getNavigationBar().setTitle(_tr('radars', localStorage.getItem('lang')));

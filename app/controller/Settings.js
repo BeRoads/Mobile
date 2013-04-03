@@ -1,7 +1,15 @@
 Ext.define('BeRoads.controller.Settings', {
     extend:'Ext.app.Controller',
 
+<<<<<<< HEAD
     //the change event is call on creation but we don't want to switch at this moment
+=======
+    views:['Main'],
+
+    /*
+        The togglefields 'change' event is call on creation but we don't want to switch values on creation.
+    */
+>>>>>>> 8fb781646e3d42e194ce10c08bb2e7a6392f422a
     firstCall : true,
 
     config:{
@@ -44,11 +52,13 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
-        console.log("[+] Setup Settings controller");
         this.callParent(arguments);
-
     },
 
+    /**
+        Return the current profile depending on device type and screen orientation
+        @return string profile
+    **/
     getProfile : function() {
         var profile;
         if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
@@ -72,8 +82,11 @@ Ext.define('BeRoads.controller.Settings', {
         return profile;
     },
 
+    /**
+     *   Change the text values of the view to the current language value.
+     *   @return 
+    */
     updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getUserFormFieldset().setTitle(_tr('settings', localStorage.getItem('lang')));
         this.getLang().setLabel(_tr('lang', localStorage.getItem('lang')));
@@ -81,13 +94,19 @@ Ext.define('BeRoads.controller.Settings', {
         this.getThanksFieldset().setTitle(_tr('thanks', localStorage.getItem('lang')));
     },
 
+    /**
+     *   No description needed, read the code you dumbass ! 
+     */
 	loadSettingsPanel : function(){
-
 		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getPreferenceButton().hide();
-       
     },
 
+    /**
+        Called when the user toggle the 'displayWebcams' togglefield. Change the localStorage value 
+        and call impacted controllers so they update their values.
+        @return
+    **/
     onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
         
         if(!this.firstCall){
@@ -95,10 +114,13 @@ Ext.define('BeRoads.controller.Settings', {
             var profile = this.getProfile();
             BeRoads.app.getController('BeRoads.controller.'+profile+'.Map').updateMapArea('webcams');
         }
-        
-
     }, 
 
+    /**
+     *  Called when the user toggle the 'displayRadars' togglefield. Change the localStorage value 
+     *  and call impacted controllers so they update their values.
+     *   @return
+     */
     onDisplayRadarsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
         
         if(!this.firstCall){
@@ -106,9 +128,13 @@ Ext.define('BeRoads.controller.Settings', {
             var profile = this.getProfile();
             BeRoads.app.getController('BeRoads.controller.'+profile+'.Map').updateMapArea('radars');
         }
-        
     },
 
+    /**
+     *  Called when the user toggle the 'displayTraffic' togglefield. Change the localStorage value 
+     *  and call impacted controllers so they update their values.
+     *  @return
+     */
     onDisplayTrafficChange : function(me, Slider, thumb, newValue, oldValue, eOpts){
         if(!this.firstCall){
             localStorage.setItem('displayTraffic', (1-localStorage.getItem('displayTraffic')));
@@ -117,12 +143,22 @@ Ext.define('BeRoads.controller.Settings', {
         }
     },
 
+    /**
+     *  Called when the user change the value of the area numberfield. Change the localStorage value 
+     *  and call impacted controllers so they update their values.
+     *  @return
+     */
     onAreaChange : function(cmp, newValue, oldValue, eOpts) {
         localStorage.setItem('area', newValue);
         var profile = this.getProfile();
         BeRoads.app.getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
     },
 
+    /**
+     *  Called when the user change the value of the lang selectfield. Change the localStorage value 
+     *  and call impacted controllers so they update their values.
+     *  @return
+     */
     onLangChange : function(cmp, newValue, oldValue, eOpts) {
         localStorage.setItem('lang', newValue);
         var profile = this.getProfile();
@@ -135,8 +171,11 @@ Ext.define('BeRoads.controller.Settings', {
         this.getApplication().getController('BeRoads.controller.'+profile+'.Webcams').updateLanguage();
     },
 
+    /**
+     *  Called when the user press the settings button. Shows uo the floating settings panel
+     *  @return
+     */
     onPreferenceButtonTap : function(){
-
         this.getSettingsPanel().show();
         this.firstCall = false;
     }

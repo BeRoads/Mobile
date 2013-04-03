@@ -19,10 +19,6 @@ Ext.define('BeRoads.controller.landscapetablet.Radars', {
     init:function () {
         this.callParent(arguments);
     },
-
-    updateLanguage : function() {
-        console.log("Updating language to "+localStorage.getItem('lang'));
-    },
     
 	/**
 	 *	Bind the offline radars store to the radarsList list view
