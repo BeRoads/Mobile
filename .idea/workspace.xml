@@ -2,36 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fb650e2-9051-4141-b05e-ef5582b63057" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/Coordinates.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserSettings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store/offline/UserSettings.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controller/WebSocket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/beroads.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/main.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/tests/websocket_unittests.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Mobile.iml" afterPath="$PROJECT_DIR$/.idea/Mobile.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Settings.js" afterPath="$PROJECT_DIR$/app/controller/Settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/desktop/Map.js" afterPath="$PROJECT_DIR$/app/controller/desktop/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Main.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapephone/Map.js" afterPath="$PROJECT_DIR$/app/controller/landscapephone/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" afterPath="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraitphone/Main.js" afterPath="$PROJECT_DIR$/app/controller/portraitphone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraitphone/Map.js" afterPath="$PROJECT_DIR$/app/controller/portraitphone/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/portraittablet/Map.js" afterPath="$PROJECT_DIR$/app/controller/portraittablet/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Map.js" afterPath="$PROJECT_DIR$/app/view/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/Settings.js" afterPath="$PROJECT_DIR$/app/view/Settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/desktop/FailCar.js" afterPath="$PROJECT_DIR$/app/view/desktop/FailCar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/desktop/Main.js" afterPath="$PROJECT_DIR$/app/view/desktop/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" afterPath="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapephone/Main.js" afterPath="$PROJECT_DIR$/app/view/landscapephone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapetablet/FailCar.js" afterPath="$PROJECT_DIR$/app/view/landscapetablet/FailCar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/landscapetablet/Main.js" afterPath="$PROJECT_DIR$/app/view/landscapetablet/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" afterPath="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraitphone/Main.js" afterPath="$PROJECT_DIR$/app/view/portraitphone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraittablet/FailCar.js" afterPath="$PROJECT_DIR$/app/view/portraittablet/FailCar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/portraittablet/Main.js" afterPath="$PROJECT_DIR$/app/view/portraittablet/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/radars/List.js" afterPath="$PROJECT_DIR$/app/view/radars/List.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/trafficevents/List.js" afterPath="$PROJECT_DIR$/app/view/trafficevents/List.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/webcams/List.js" afterPath="$PROJECT_DIR$/app/view/webcams/List.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" />
@@ -41,15 +20,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/eadae3a425a32d2fe4ddc83971e293bd17a5d829.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/eadae3a425a32d2fe4ddc83971e293bd17a5d829.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/production/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/language.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/language.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/resources/css/flat.css" afterPath="$PROJECT_DIR$/build/BeRoads/production/resources/css/flat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/utils.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/testing/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/language.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/language.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/utils.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/utils.js" />
     </list>
     <ignored path="Mobile.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,91 +43,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FailCar.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/landscapephone/FailCar.js">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="23" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
+            <state line="158" column="47" selection-start="6868" selection-end="6868" vertical-scroll-proportion="-10.4">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebSocket.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/WebSocket.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="453" selection-end="453" vertical-scroll-proportion="0.6910569">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/desktop/Map.js">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="33" selection-start="987" selection-end="1018" vertical-scroll-proportion="0.0">
+            <state line="21" column="34" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Main.js">
+      <file leaf-file-name="Webcams.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/Webcams.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="1230" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
+      <file leaf-file-name="websocket_unittests.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server/tests/websocket_unittests.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="32" selection-start="547" selection-end="547" vertical-scroll-proportion="0.486692">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="363" selection-end="429" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/desktop/Main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="37" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+            <state line="74" column="20" selection-start="2586" selection-end="2586" vertical-scroll-proportion="-3.125">
               <folding />
             </state>
           </provider>
@@ -175,32 +104,32 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/portraitphone/FailCar.js" />
-        <option value="$PROJECT_DIR$/app/view/landscapephone/Main.js" />
-        <option value="$PROJECT_DIR$/app/view/landscapephone/FailCar.js" />
-        <option value="$PROJECT_DIR$/app/view/desktop/Main.js" />
-        <option value="$PROJECT_DIR$/app/view/desktop/FailCar.js" />
-        <option value="$PROJECT_DIR$/app/view/trafficevents/List.js" />
-        <option value="$PROJECT_DIR$/app/store/online/TrafficEvent.js" />
+        <option value="$PROJECT_DIR$/../server/traffic_loader.py" />
+        <option value="$PROJECT_DIR$/../server/fr.json" />
+        <option value="$PROJECT_DIR$/../server/en.json" />
+        <option value="$PROJECT_DIR$/../server/de.json" />
+        <option value="$PROJECT_DIR$/../server/nl.json" />
+        <option value="$PROJECT_DIR$/../server/utils.py" />
+        <option value="$PROJECT_DIR$/../server/data/subscriber.py" />
+        <option value="$PROJECT_DIR$/../server/traffic_differ.py" />
+        <option value="$PROJECT_DIR$/../server/beroads.log" />
+        <option value="$PROJECT_DIR$/../server/websocket_unittests.html" />
+        <option value="$PROJECT_DIR$/../server/tests/websocket_unittests.html" />
+        <option value="$PROJECT_DIR$/../server/config.ini" />
+        <option value="$PROJECT_DIR$/../server/config.py" />
+        <option value="$PROJECT_DIR$/../server/main.py" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/app/controller/Settings.js" />
-        <option value="$PROJECT_DIR$/app/controller/desktop/Map.js" />
-        <option value="$PROJECT_DIR$/app/controller/landscapephone/Main.js" />
-        <option value="$PROJECT_DIR$/app/controller/landscapephone/Map.js" />
-        <option value="$PROJECT_DIR$/app/controller/portraitphone/Main.js" />
-        <option value="$PROJECT_DIR$/app/controller/portraitphone/Map.js" />
-        <option value="$PROJECT_DIR$/app/controller/landscapetablet/Map.js" />
-        <option value="$PROJECT_DIR$/app/controller/portraittablet/Map.js" />
+        <option value="$PROJECT_DIR$/app/controller/WebSocket.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
+    <option name="x" value="1" />
     <option name="y" value="27" />
-    <option name="width" value="1368" />
-    <option name="height" value="746" />
+    <option name="width" value="1356" />
+    <option name="height" value="736" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -250,6 +179,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Mobile" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -265,64 +218,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="landscapephone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,10 +246,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="options.searchVisible" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -372,8 +269,31 @@
       <recent name="$PROJECT_DIR$/resources/css" />
       <recent name="$PROJECT_DIR$/sencha/2.0/resources/css" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../server/tests" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="server" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../server/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -383,7 +303,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="Mobile" />
+      <module name="server" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
@@ -397,7 +317,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="Mobile" />
+      <module name="server" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
@@ -434,7 +354,9 @@
       </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.main" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
@@ -465,18 +387,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1368" height="746" extended-state="6" />
-    <editor active="false" />
+    <frame x="1" y="27" width="1356" height="736" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.6700337" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26183206" sideWeight="0.6706282" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37542087" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -542,114 +464,98 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/view/trafficevents/List.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+        <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="52607" selection-start="52607" selection-end="52607" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="52993" selection-start="52993" selection-end="52993" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/nl.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="52340" selection-start="52340" selection-end="52340" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/beroads.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="751" column="0" selection-start="49738" selection-end="49738" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib64/python2.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="0" selection-start="7712" selection-end="7712" vertical-scroll-proportion="0.33333334" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1054" column="0" selection-start="44922" selection-end="44922" vertical-scroll-proportion="0.3313253" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/site-packages/tornado-3.0-py2.7.egg/tornado/ioloop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="0" selection-start="23783" selection-end="23783" vertical-scroll-proportion="0.026642984">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/online/TrafficEvent.js">
+    <entry file="file://$PROJECT_DIR$/../server/fr.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="104" selection-start="841" selection-end="928" vertical-scroll-proportion="0.0">
+        <state line="0" column="410" selection-start="404" selection-end="410" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/Webcams.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1230" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/tests/websocket_unittests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="20" selection-start="2586" selection-end="2586" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="47" selection-start="6868" selection-end="6868" vertical-scroll-proportion="-10.4">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="20" selection-start="2441" selection-end="2441" vertical-scroll-proportion="0.0">
+        <state line="21" column="34" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/Settings.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/WebSocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="62" selection-start="2647" selection-end="2647" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/desktop/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="37" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/desktop/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="410" selection-end="427" vertical-scroll-proportion="0.3508772">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/landscapephone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="17" selection-start="91" selection-end="100" vertical-scroll-proportion="0.05703422">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/landscapephone/FailCar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/landscapephone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="363" selection-end="429" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/portraitphone/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="30" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/desktop/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="33" selection-start="987" selection-end="1018" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="32" selection-start="547" selection-end="547" vertical-scroll-proportion="0.486692">
+        <state line="20" column="13" selection-start="453" selection-end="453" vertical-scroll-proportion="0.6910569">
           <folding />
         </state>
       </provider>

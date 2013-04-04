@@ -19,6 +19,7 @@ var app = Ext.application({
         views:['FailCar'],
         stores:['offline.Radar', 'online.Radar', 'offline.Webcam', 'online.Webcam', 'offline.TrafficEvent',
             'online.TrafficEvent'],
+        controllers:['WebSocket'],
         profiles:['Desktop', 'PortraitPhone', 'LandscapePhone', 'PortraitTablet', 'LandscapeTablet'],
         //sets up the icon and startup screens for when the app is added to a phone/tablet home screen
         startupImage:{
