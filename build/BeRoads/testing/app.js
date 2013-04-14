@@ -70092,7 +70092,7 @@ Ext.define('BeRoads.view.Map', {
     xtype : 'trafficMap',
 
     config:{
-        title: _tr('map', localStorage.getItem('lang')),
+        title: '',
         highAccuracy:true,
         mapOptions:{
             zoom:12,
@@ -70111,7 +70111,7 @@ Ext.define('BeRoads.view.trafficevents.List', {
     xtype : 'trafficeventsList',
                                                                                        
     config:{
-        title:_tr('traffic', localStorage.getItem('lang')),
+        title:'',
         store:null,
         itemTpl:'<span class="name">{location}</span><span class="distance">{distance} km</span>'
     }
@@ -70126,7 +70126,7 @@ Ext.define('BeRoads.view.radars.List', {
                                                                                        
 
     config:{
-        title:_tr('radars', localStorage.getItem('lang')),
+        title:'',
         store:null,
         itemTpl: '<span class="listItemSpan"><span class="distance">{distance} km</span>' +
             '<span class="name">{name}</span><span class="speedLimit">{speedLimit}</span></span>'
@@ -70140,7 +70140,7 @@ Ext.define('BeRoads.view.webcams.List', {
                                                                                        
 
     config:{
-        title:_tr('webcams', localStorage.getItem('lang')),
+        title:'',
         store:null,
         grouped : true,
         itemTpl:'<div class="thumbnail"><img src="http://src.sencha.io/30/30/{img}" width="30" height="30" /></div>' +
@@ -70158,8 +70158,8 @@ Ext.define('BeRoads.view.Settings', {
 		{
 			xtype: 'fieldset',
 			id: 'userFormFieldset',
-			title :  _tr('preferences', localStorage.getItem('lang')),
-			instructions: _tr('settings_message', localStorage.getItem('lang')),
+			title :  '',
+			instructions: '',
 			defaults: {
 				xtype: 'textfield',
 				labelAlign: 'left',
@@ -70173,23 +70173,23 @@ Ext.define('BeRoads.view.Settings', {
 				xtype: 'numberfield',
 				id : 'area',
 				name: 'area',
-				label: _tr('area', localStorage.getItem('lang')),
+				label: '',
 				maxLength: 10,
-				value : localStorage.getItem('area'),
+				value : 0,
 				clearIcon: true
 			},
 			{
 				xtype: 'selectfield',
 				name: 'lang',
 				id: 'lang',
-				label:  _tr('language', localStorage.getItem('lang')),
+				label:  '',
 				options: [
 				{text: 'Français',  value: 'fr'},
 				{text: 'Dutch', value: 'nl'},
 				{text: 'German', value: 'de'},
 				{text: 'English', value: 'en'}
 				],
-				value : localStorage.getItem('lang')
+				value : 'nl'
 			},
 			{
 
@@ -70198,7 +70198,7 @@ Ext.define('BeRoads.view.Settings', {
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/trafficevents_icon.png"/></span>',
 					id : 'displayTraffic',
-					value : (localStorage.getItem('displayTraffic'))
+					value : true
 				},
 				{
 					xtype: 'togglefield',
@@ -70206,7 +70206,7 @@ Ext.define('BeRoads.view.Settings', {
 					id : 'displayRadars',
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/radars_icon.png"/></span>',
-					value : (localStorage.getItem('displayRadars'))
+					value : true
 				},
 				{
 					xtype: 'togglefield',
@@ -70214,14 +70214,14 @@ Ext.define('BeRoads.view.Settings', {
 					id : 'displayWebcams',
                     cls : 'customtoggle',
 					label: '<span style="float:left"><img height="32px"  src="resources/img/webcams_icon.png"/></span>',
-					value : (localStorage.getItem('displayWebcams'))
+					value : true
 				}
 			]
 		},
 		{
 			xtype: 'fieldset',
 			id: 'thanksFieldset',
-			title :  _tr('thanks', localStorage.getItem('lang')),
+			title : '',
 			items : [
 				{
 				xtype: 'numberfield',
@@ -70290,7 +70290,7 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                         iconCls: 'mapTabButton',
 						ui : 'plain',
 						iconMask: true,
-                        title: _tr('map', localStorage.getItem('lang')),
+                        title: '',
                         navigationBar : {
                             items: [
                                 {
@@ -70324,7 +70324,7 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                         iconCls: 'trafficeventsTabButton',
 						iconMask: true,
                         id : 'trafficeventsView',
-                        title: _tr('traffic', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                             xtype:'trafficeventsList',
@@ -70338,7 +70338,7 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                         iconCls: 'radarsTabButton',
 						iconMask: true,
                         id : 'radarsView',
-                        title: _tr('radars', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'radarsList',
@@ -70351,7 +70351,7 @@ Ext.define('BeRoads.view.landscapephone.Main', {
                         iconCls: 'webcamsTabButton',
 						iconMask: true,
                         id : 'webcamsView',
-                        title: _tr('webcams', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'webcamsList',
@@ -70421,7 +70421,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         id : 'mapView',
                         iconCls: 'mapTabButton',
-                        title: _tr('map', localStorage.getItem('lang')),
+                        title: '',
                         navigationBar : {
                             items: [
                                 {
@@ -70455,7 +70455,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'trafficeventsTabButton',
                         id : 'trafficeventsView',
-                        title: _tr('traffic', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'trafficeventsList',
@@ -70468,7 +70468,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'radarsTabButton',
                         id : 'radarsView',
-                        title: _tr('radars', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'radarsList',
@@ -70480,7 +70480,7 @@ Ext.define('BeRoads.view.portraitphone.Main', {
                         xtype : 'navigationview',
                         iconCls: 'webcamsTabButton',
                         id : 'webcamsView',
-                        title: _tr('webcams', localStorage.getItem('lang')),
+                        title: '',
                         items : [
                             {
                                 xtype:'webcamsList',
@@ -70570,7 +70570,7 @@ Ext.define('BeRoads.view.landscapetablet.Main', {
                     {
                         xtype : 'trafficMap',
                         itemId : 'trafficMap',
-                        title : _tr('map', localStorage.getItem('lang'))
+                        title : ''
 					
                     }
                 ]
@@ -70636,7 +70636,7 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                 xtype : 'toolbar',
                 docked : 'top',
 				id : 'topToolbar',
-                title : _tr('map', localStorage.getItem('lang')),
+                title : '',
                 items: [
                     {
                         xtype: 'button',
@@ -70788,19 +70788,19 @@ Ext.define('BeRoads.view.portraittablet.Main', {
                     {
                         hidden : true,
                         id : 'mapButton',
-                        text: _tr('map', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'trafficButton',
-                        text: _tr('traffic', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'radarsButton',
-                        text: _tr('radars', localStorage.getItem('lang'))
+                        text: ''
                     },
                     {
                         id : 'webcamsButton',
-                        text: _tr('webcams', localStorage.getItem('lang'))
+                        text: ''
                     }
                 ],
                 left: 1
@@ -70885,7 +70885,7 @@ Ext.define('BeRoads.view.desktop.Main', {
                     {
                         xtype : 'trafficMap',
                         itemId : 'trafficMap',
-                        title : _tr('map', localStorage.getItem('lang'))
+                        title : ''
 					
                     }
                 ]
@@ -70924,6 +70924,214 @@ Ext.define('BeRoads.view.desktop.Main', {
             }
         ]
 
+
+    }
+});
+
+Ext.define('BeRoads.model.TrafficEvent', {
+	extend:  Ext.data.Model ,
+
+	config: {
+		fields: [
+		{name: 'source'},
+		{name: 'location'},
+		{name: 'message'},
+		{name: 'category'},
+		{name: 'lat'},
+		{name: 'lng'},
+		{name: 'distance'},
+		{name : 'time'},
+		{name : 'formatted_time', type : 'string'}
+		]
+	}
+}
+);
+
+
+Ext.define('BeRoads.store.offline.TrafficEvent', {
+    extend :  Ext.data.Store ,
+                                                                           
+
+    config : {
+        model: 'BeRoads.model.TrafficEvent',
+        autoLoad: false,
+        storeId: 'offline.TrafficEvent',
+        proxy: {
+            type: 'localstorage',
+            id: 'TrafficEvent'
+        }
+    }
+});
+
+Ext.define('BeRoads.model.Radar', {
+    extend:  Ext.data.Model ,
+
+    config: {
+        fields: [
+            {name: 'speedLimit', type: 'integer'},
+            {name: 'distance', type:'integer'},
+            {name: 'lat', type:'string'},
+            {name: 'lng', type:'string'}
+        ]
+    }
+});
+
+Ext.define('BeRoads.store.offline.Radar', {
+    extend :  Ext.data.Store ,
+                                                                     
+
+    config : {
+        model: 'BeRoads.model.Radar',
+        autoLoad: false,
+        storeId: 'offline.Radar',
+        proxy: {
+            type: 'localstorage',
+            id: 'Radar'
+        }
+    }
+});
+
+Ext.define('BeRoads.model.Webcam', {
+    extend:  Ext.data.Model ,
+
+    config: {
+        fields: ['distance', 'zone', 'city', 'img', 'lat','lng']
+    }
+});
+
+Ext.define('BeRoads.store.offline.Webcam', {
+    extend :  Ext.data.Store ,
+                                                                     
+
+    config : {
+        model: 'BeRoads.model.Webcam',
+        autoLoad: false,
+        storeId: 'offline.Webcam',
+		grouper : {
+			property: 'zone',
+			sortProperty: 'zone'
+		},
+        proxy: {
+            type: 'localstorage',
+            id: 'Webcam'
+        }
+    }
+});
+
+Ext.define('BeRoads.controller.WebSocket', {
+    extend:  Ext.app.Controller ,
+
+    host : "ws://0.0.0.0:8080/socket",
+    socket : null,
+    ack : 0,
+    config: {
+        stores: ['offline.TrafficEvent', 'offline.Radar', 'offline.Webcam'],
+        refs: {
+        },
+        control: {
+        }
+    },
+
+    init:function () {
+
+        var me = this;
+
+        this.socket = new WebSocket(this.host);
+
+        this.socket.onopen = function(){
+            console.log('Socket Status: '+me.socket.readyState+' (open)');
+        };
+
+        this.socket.onmessage = function(msg){
+
+            var record = JSON.parse(msg.data);
+            //first ACK message, we set the transmitted uuid
+            if(record.code==2){
+                me.ack--;
+            }
+            //we receive a publish message, we have to update the client
+            if(record.code==3){
+                var event = Ext.getStore('offline.TrafficEvent').add(record.data)[0];
+                Ext.getStore('offline.TrafficEvent').sort('distance', 'ASC');
+                Ext.getStore('offline.TrafficEvent').sync();
+                var position = new google.maps.LatLng(record.data.lat, record.data.lng);
+                BeRoads.app.getController('BeRoads.controller.'+me.getProfile()+'.Map').
+                    addTrafficEvent(record.data, position);
+            }
+        };
+
+        this.socket.onclose = function(){
+            console.log('Socket Status: '+me.socket.readyState+' (Closed)');
+        };
+        this.callParent(arguments);
+    },
+
+    getProfile : function() {
+        var profile;
+        if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'landscape'){
+            profile = 'landscapephone';
+        }
+        else if(Ext.os.is.Phone && Ext.Viewport.getOrientation() == 'portrait'){
+            profile = 'portraitphone';
+        }
+        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'landscape'){
+            profile = 'landscapetablet';
+        }
+        else if(Ext.os.is.Tablet && Ext.Viewport.getOrientation() == 'portrait'){
+            profile = 'portraittablet';
+        }
+        else if(Ext.os.is.Desktop){
+            profile = 'desktop';
+        }
+        else{
+            profile = 'portraitphone';
+        }
+        return profile;
+    },
+
+    subscribe : function() {
+
+        var me = this;
+        if(this.socket.readyState != 1 ){
+            throw "Can't subscribe if the websocket is closed.";
+        }
+
+        if(this.ack>0){
+            setTimeout(function(){me.subscribe();},1000);
+        }else{
+            var message = {
+                "code" : 1,
+                "coords" : BeRoads.app.user_coords.coords,
+                "area" : localStorage.getItem("area"),
+                "language" : localStorage.getItem("lang")
+            };
+            console.log("Subscribing...");
+            console.log(message);
+            this.ack++;
+            this.socket.send(JSON.stringify(message));
+        }
+    },
+
+    update : function() {
+
+        var me = this;
+        if(this.socket.readyState != 1 ){
+            throw "Can't subscribe if the websocket is closed.";
+        }
+        if(this.ack>0){
+            setTimeout(function(){me.update();},1000);
+        }else{
+            var message = {
+                "code" : 1,
+                "coords" : BeRoads.app.user_coords.coords,
+                "area" : localStorage.getItem("area"),
+                "language" : localStorage.getItem("lang")
+            };
+            console.log("Updating...");
+            console.log(message);
+            this.ack++;
+            this.socket.send(JSON.stringify(message));
+        }
 
     }
 });
@@ -71167,14 +71375,6 @@ Ext.define('BeRoads.controller.desktop.Main', {
     }
 });
 
-Ext.define('BeRoads.model.Webcam', {
-    extend:  Ext.data.Model ,
-
-    config: {
-        fields: ['distance', 'zone', 'city', 'img', 'lat','lng']
-    }
-});
-
 Ext.define('BeRoads.store.online.Webcam', {
     extend :  Ext.data.Store ,
                                                                
@@ -71214,25 +71414,6 @@ Ext.define('BeRoads.store.online.Webcam', {
              rootProperty : 'Camera.item'
              }
         });
-    }
-});
-
-Ext.define('BeRoads.store.offline.Webcam', {
-    extend :  Ext.data.Store ,
-                                                                     
-
-    config : {
-        model: 'BeRoads.model.Webcam',
-        autoLoad: false,
-        storeId: 'offline.Webcam',
-		grouper : {
-			property: 'zone',
-			sortProperty: 'zone'
-		},
-        proxy: {
-            type: 'localstorage',
-            id: 'Webcam'
-        }
     }
 });
 
@@ -71541,34 +71722,6 @@ Ext.define('BeRoads.controller.desktop.TrafficEvents', {
     }
 });
 
-Ext.define('BeRoads.model.Radar', {
-    extend:  Ext.data.Model ,
-
-    config: {
-        fields: [
-            {name: 'speedLimit', type: 'integer'},
-            {name: 'distance', type:'integer'},
-            {name: 'lat', type:'string'},
-            {name: 'lng', type:'string'}
-        ]
-    }
-});
-
-Ext.define('BeRoads.store.offline.Radar', {
-    extend :  Ext.data.Store ,
-                                                                     
-
-    config : {
-        model: 'BeRoads.model.Radar',
-        autoLoad: false,
-        storeId: 'offline.Radar',
-        proxy: {
-            type: 'localstorage',
-            id: 'Radar'
-        }
-    }
-});
-
 Ext.define('BeRoads.store.online.Radar', {
     extend :  Ext.data.Store ,
                                                              
@@ -71608,41 +71761,6 @@ Ext.define('BeRoads.store.online.Radar', {
              rootProperty: 'Radar.item'
              }
         });
-    }
-});
-
-Ext.define('BeRoads.model.TrafficEvent', {
-	extend:  Ext.data.Model ,
-
-	config: {
-		fields: [
-		{name: 'source'},
-		{name: 'location'},
-		{name: 'message'},
-		{name: 'category'},
-		{name: 'lat'},
-		{name: 'lng'},
-		{name: 'distance'},
-		{name : 'time'},
-		{name : 'formatted_time', type : 'string'}
-		]
-	}
-}
-);
-
-
-Ext.define('BeRoads.store.offline.TrafficEvent', {
-    extend :  Ext.data.Store ,
-                                                                           
-
-    config : {
-        model: 'BeRoads.model.TrafficEvent',
-        autoLoad: false,
-        storeId: 'offline.TrafficEvent',
-        proxy: {
-            type: 'localstorage',
-            id: 'TrafficEvent'
-        }
     }
 });
 
@@ -71868,6 +71986,71 @@ Ext.define('BeRoads.controller.Map', {
         
     },
 
+    /**
+     * Add a radar marker to the map
+     * @input radar : a radar object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addRadar : function (radar, position) {
+        var size = this.markers.radars.push(new google.maps.Marker({
+            id : radar.id,
+            map:this.map,
+            position:position,
+            title:radar.name,
+            html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
+            icon:'resources/img/radar.png'
+        }));
+        google.maps.event.addListener(this.markers.radars[size-1], 'click', function () {
+            showCenteredOverlay(this.markers.radars[size-1]);
+        })
+    },
+
+    /**
+     * Add a webcam marker to the map
+     * @input webcam : a webcam object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addWebcam : function (webcam, position) {
+        var size =this.markers.webcams.push(new google.maps.Marker({
+            id : webcam.id,
+            map:this.map,
+            position:position,
+            title:webcam.name,
+            html : '<span class=\"popupTitle\">'+webcam.city+"</span><img src='http://src.sencha.io/detect/"+webcam.img+"' />",
+            icon:'resources/img/webcam.png'
+        }));
+        google.maps.event.addListener(this.markers.webcams[size-1], 'click', function () {
+            showCenteredOverlay(this.markers.webcams[size-1]);
+        });
+    },
+
+    /**
+     * Add a traffic event marker to the map
+     * @input trafficevent : a trafficevent object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addTrafficEvent : function (trafficevent, position) {
+
+        if (trafficevent.category != undefined && trafficevent.category != null) {
+            trafficevent.category = trafficevent.category.toLowerCase().replace(" ", "");
+            var size = this.markers.trafficevents.push(new google.maps.Marker({
+                id : trafficevent.id,
+                map:this.map,
+                position:position,
+                title:trafficevent.location,
+                html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
+                    trafficevent.message+'</span>',
+                icon:'resources/img/' + trafficevent.category + '.png'
+            }));
+            google.maps.event.addListener(this.markers.trafficevents[size-1], 'click', function () {
+                showCenteredOverlay(this.markers.trafficevents[size-1]);
+            });
+        }
+    },
+
     renderTrafficMap : function(comp, map, eOpts) {
 
         var me = this;
@@ -71880,74 +72063,6 @@ Ext.define('BeRoads.controller.Map', {
         var showCenteredOverlay = function (marker) {
             me.getInfoPanel().setHtml(marker.html);
             me.getInfoPanel().show();
-        };
-
-		/**
-		 * Add a webcam marker to the map
-		 * @input webcam : a webcam object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addWebcam = function (webcam, position) {
-            var size =me.markers.webcams.push(new google.maps.Marker({
-                id : webcam.id,
-                map:me.map,
-                position:position,
-                title:webcam.name,
-                html : '<span class=\"popupTitle\">'+webcam.city+"</span><img src='http://src.sencha.io/detect/"+webcam.img+"' />",
-                icon:'resources/img/webcam.png'
-            }));
-            google.maps.event.addListener(me.markers.webcams[size-1], 'click', function () {
-                me.map.setCenter(this.position);
-                showCenteredOverlay(me.markers.webcams[size-1]);
-            });
-        };
-
-		
-		/**
-		 * Add a radar marker to the map
-		 * @input radar : a radar object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addRadar = function (radar, position) {
-            var size = me.markers.radars.push(new google.maps.Marker({
-                id : radar.id,
-                map:me.map,
-                position:position,
-                title:radar.name,
-                html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
-                icon:'resources/img/radar.png'
-            }));
-            google.maps.event.addListener(me.markers.radars[size-1], 'click', function () {
-                me.map.setCenter(this.position);
-            })
-        };
-
-		/**
-		 * Add a traffic event marker to the map
-		 * @input trafficevent : a trafficevent object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addTrafficEvent = function (trafficevent, position) {
-			
-            if (trafficevent.category != undefined && trafficevent.category != null) {
-				trafficevent.category = trafficevent.category.toLowerCase().replace(" ", "");
-                var size = me.markers.trafficevents.push(new google.maps.Marker({
-                    id : trafficevent.id,
-                    map:me.map,
-                    position:position,
-                    title:trafficevent.location,
-                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
-                        trafficevent.message+'</span>',
-                    icon:'resources/img/' + trafficevent.category + '.png'
-                }));
-                google.maps.event.addListener(me.markers.trafficevents[size-1], 'click', function () {
-                    me.map.setCenter(this.position);
-                    showCenteredOverlay(me.markers.trafficevents[size-1]);
-                });
-            }
         };
 
 		//create a GMap position with the geo updated values
@@ -71968,7 +72083,7 @@ Ext.define('BeRoads.controller.Map', {
             trafficStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addTrafficEvent(item.data, position);
+                    me.addTrafficEvent(item.data, position);
                 }
             });
         }
@@ -71979,7 +72094,7 @@ Ext.define('BeRoads.controller.Map', {
             radarStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addRadar(item.data, position);
+                    me.addRadar(item.data, position);
                 }
             });
         }
@@ -71990,7 +72105,7 @@ Ext.define('BeRoads.controller.Map', {
             webcamStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addWebcam(item.data, position);
+                    me.addWebcam(item.data, position);
                 }
             });
         }
@@ -72050,6 +72165,7 @@ Ext.define('BeRoads.controller.desktop.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 
@@ -72103,7 +72219,6 @@ Ext.define('BeRoads.controller.Settings', {
     },
 
     init:function () {
-        
         this.callParent(arguments);
 
     },
@@ -72136,15 +72251,19 @@ Ext.define('BeRoads.controller.Settings', {
         this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
         this.getUserFormFieldset().setTitle(_tr('settings', localStorage.getItem('lang')));
         this.getLang().setLabel(_tr('lang', localStorage.getItem('lang')));
+        this.getLang().setValue(localStorage.getItem('lang'));
         this.getArea().setLabel(_tr('area', localStorage.getItem('lang')));
+        this.getArea().setValue(localStorage.getItem('area'));
         this.getThanksFieldset().setTitle(_tr('thanks', localStorage.getItem('lang')));
+
+        this.getDisplayRadars().setValue(localStorage.getItem('displayRadars'));
+        this.getDisplayTraffic().setValue(localStorage.getItem('displayTraffic'));
+        this.getDisplayWebcams().setValue(localStorage.getItem('displayWebcams'));
     },
 
 	loadSettingsPanel : function(){
-
-		this.getUserFormFieldset().setInstructions(_tr('settings_message', localStorage.getItem('lang')));
+        this.updateLanguage();
         this.getPreferenceButton().hide();
-       
     },
 
     onDisplayWebcamsChange : function(me, Slider, thumb, newValue, oldValue, eOpts) {
@@ -72180,6 +72299,7 @@ Ext.define('BeRoads.controller.Settings', {
         localStorage.setItem('area', newValue);
         var profile = this.getProfile();
         BeRoads.app.getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
+        BeRoads.app.getController('BeRoads.controller.WebSocket').update();
     },
 
     onLangChange : function(cmp, newValue, oldValue, eOpts) {
@@ -72192,11 +72312,13 @@ Ext.define('BeRoads.controller.Settings', {
         this.getApplication().getController('BeRoads.controller.'+profile+'.Settings').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.TrafficEvents').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Webcams').updateLanguage();
+        BeRoads.app.getController('BeRoads.controller.WebSocket').update();
     },
 
     onPreferenceButtonTap : function(){
 
         this.getSettingsPanel().show();
+        this.updateLanguage();
         this.firstCall = false;
     }
 });
@@ -72300,6 +72422,9 @@ Ext.define('BeRoads.controller.portraitphone.Main', {
             tabpanel : "#tabpanel"
         },
         control: {
+            tabpanel : {
+                show : 'updateLanguage'
+            }
         }
     },
 
@@ -72448,6 +72573,7 @@ Ext.define('BeRoads.controller.portraitphone.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 });
@@ -72550,6 +72676,9 @@ Ext.define('BeRoads.controller.landscapephone.Main', {
             tabpanel : "#tabpanel"
         },
         control: {
+            tabpanel : {
+                show : 'updateLanguage'
+            }
         }
     },
 
@@ -72558,6 +72687,7 @@ Ext.define('BeRoads.controller.landscapephone.Main', {
     },
 
     updateLanguage : function() {
+
         this.getTrafficeventsView().getNavigationBar().setTitle(_tr('traffic', localStorage.getItem('lang')));
         this.getRadarsView().getNavigationBar().setTitle(_tr('radars', localStorage.getItem('lang')));
         this.getWebcamsView().getNavigationBar().setTitle(_tr('webcams', localStorage.getItem('lang')));
@@ -72704,6 +72834,7 @@ Ext.define('BeRoads.controller.landscapephone.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 });
@@ -73148,6 +73279,7 @@ Ext.define('BeRoads.controller.portraittablet.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 });
@@ -73495,6 +73627,7 @@ Ext.define('BeRoads.controller.landscapetablet.Map', {
     renderTrafficMap : function(comp, map, eOpts) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
+        this.updateLanguage();
         this.callParent(arguments);
     }
 
@@ -73552,6 +73685,7 @@ var app = Ext.application({
         views:['FailCar'],
         stores:['offline.Radar', 'online.Radar', 'offline.Webcam', 'online.Webcam', 'offline.TrafficEvent',
             'online.TrafficEvent'],
+        controllers:['WebSocket'],
         profiles:['Desktop', 'PortraitPhone', 'LandscapePhone', 'PortraitTablet', 'LandscapeTablet'],
         //sets up the icon and startup screens for when the app is added to a phone/tablet home screen
         startupImage:{
@@ -73582,11 +73716,14 @@ var app = Ext.application({
                 BeRoads.app.user_coords = position;
 
                 var trafficStore = Ext.getStore('online.TrafficEvent');
+                trafficStore.getProxy().setUrl('http://data.beroads.com/IWay/TrafficEvent/'+
+                    localStorage.getItem('lang')+'/all.jsonp');
                 trafficStore.getProxy().setExtraParam('from',
                     BeRoads.app.user_coords.coords.latitude + "," + BeRoads.app.user_coords.coords.longitude);
                 trafficStore.getProxy().setExtraParam('area', localStorage.getItem('area'));
 
                 trafficStore.addListener('refresh', function () {
+                    console.log("refresh traffic");
                     var localTrafficStore = Ext.getStore('offline.TrafficEvent');
                     localTrafficStore.removeAll();
                     localTrafficStore.getProxy().clear();
@@ -73663,8 +73800,9 @@ var app = Ext.application({
                     break;
             }
         },
-        init:function () {
-            console.log('init');
+
+        launch:function () {
+
             /*
              Set default value for localStorage values that we are using if not set
              */
@@ -73686,9 +73824,6 @@ var app = Ext.application({
             if (localStorage.getItem('lastUpdate') == undefined || localStorage.getItem('lastUpdate') == null) {
                 localStorage.setItem('lastUpdate', new Date().getTime());
             }
-        },
-        launch:function () {
-
             var me = this;
             //Display a loading mask while we are fetching data from the API
 
@@ -73730,6 +73865,9 @@ var app = Ext.application({
                         //Now the application is launched
                         BeRoads.app.launched = true;
                         Ext.Viewport.add(panel);
+
+                        //We open the websocket canal for pubsub exchanges
+                        BeRoads.app.getController('WebSocket').subscribe();
                     }
                 }
             };

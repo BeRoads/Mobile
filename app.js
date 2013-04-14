@@ -198,6 +198,9 @@ var app = Ext.application({
                         //Now the application is launched
                         BeRoads.app.launched = true;
                         Ext.Viewport.add(panel);
+
+                        //We open the websocket canal for pubsub exchanges
+                        BeRoads.app.getController('WebSocket').subscribe();
                     }
                 }
             };

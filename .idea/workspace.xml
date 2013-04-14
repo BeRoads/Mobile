@@ -2,29 +2,137 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fb650e2-9051-4141-b05e-ef5582b63057" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controller/WebSocket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/static/js/PieLanguage.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/beroads.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/static/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/static/css/datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/templates/index.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/main.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../server/tests/websocket_unittests.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Mobile.iml" afterPath="$PROJECT_DIR$/.idea/Mobile.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0949bea297191ae87dd55970c130eb5064d28768/app.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0b0ec8cfbf4952fbd847dea0893c1ef89baa97d7/_background.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0b0ec8cfbf4952fbd847dea0893c1ef89baa97d7/_color.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0bbfaa9f8784fc8c3feca6e150119671ba858b44/_link-colors.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_buttons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_carousel.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_charts.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_draw.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_form-sliders.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_form.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_img.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_indexbar.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_list.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_loading-spinner.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_map.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_media.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_msgbox.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_panel.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_picker.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_sheets.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_tabs.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_toolbar-forms.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/12702402f7cd3acc5efdae6baf0aee5672caff2e/_toolbar.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_blueprint-grid.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_carbon-fiber.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_checkerboard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_cicada.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_gradients.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_houndstooth.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_lined-paper.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_madras.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_noise.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_polka-dot.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_radial-overlay.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_striped.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_stripes.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_tablecloth.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/212ac6c64b384f15b0c224deadcf4728744c5b71/_tartan.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/262068326df631e015f43e65aea55ff6a3c6c4e0/_css3.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/262068326df631e015f43e65aea55ff6a3c6c4e0/_support.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/2c2495afdc08f611032e392ebb8b5f7353552845/_float.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/2c2495afdc08f611032e392ebb8b5f7353552845/_hacks.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_all.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_core.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_global.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_mixins.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_variables.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/7661b88a1a34a20714d81a0ca6f2dafc80be1646/_widgets.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/96db594d05a23c791df99dfc84eeb1b8b7028f04/_core.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/96db594d05a23c791df99dfc84eeb1b8b7028f04/_layout.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/96db594d05a23c791df99dfc84eeb1b8b7028f04/_reset.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/9f3b94e5e23dae58a6ea18c6fa8d1842a1ce3c44/_colors.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/9f3b94e5e23dae58a6ea18c6fa8d1842a1ce3c44/_typography.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_appearance.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_background-clip.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_background-origin.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_background-size.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_border-radius.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_box-shadow.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_box-sizing.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_box.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_columns.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_filter.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_font-face.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_hyphenation.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_images.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_inline-block.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_opacity.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_regions.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_shared.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_text-shadow.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_transform.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/eaf89a7df0ca24c7e507d6963447620f2ca007cd/_transition.scssc" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/146675c6e93fd85461a703c77e48bc923879f94d.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/4c9612393b0038de8709bf9ac3bd4c8d9273cc77.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/4c9612393b0038de8709bf9ac3bd4c8d9273cc77.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/6513a1abb7b7a101934acea995d6cceb2f113710.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/6513a1abb7b7a101934acea995d6cceb2f113710.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e51eb2e34df305c204778c257a69e32582fc393.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e51eb2e34df305c204778c257a69e32582fc393.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e8e6df097caa43df0c74aec01a41eb5db69d3b7.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/7e8e6df097caa43df0c74aec01a41eb5db69d3b7.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/81309e4b547b09af63271d5d3d6debcaa7eebdfa.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/89c013fe0af97d073682de9bfd475e5043362cb9.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Map.js" afterPath="$PROJECT_DIR$/app/controller/Map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Mobile.iml" afterPath="$PROJECT_DIR$/.idea/Mobile.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Settings.js" afterPath="$PROJECT_DIR$/app/controller/Settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/WebSocket.js" afterPath="$PROJECT_DIR$/app/controller/WebSocket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.js" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/app.json" afterPath="$PROJECT_DIR$/build/BeRoads/testing/app.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/bdd10d393ea7282d23edb24c6b4d8f6c44ed59ea.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/eadae3a425a32d2fe4ddc83971e293bd17a5d829.json" afterPath="$PROJECT_DIR$/build/BeRoads/production/deltas/app.js/eadae3a425a32d2fe4ddc83971e293bd17a5d829.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/production/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/production/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/BeRoads/testing/index.html" afterPath="$PROJECT_DIR$/build/BeRoads/testing/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Mobile.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365952647690" ignored="false" />
+    <file path="/index.html" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365817089933" ignored="false" />
+    <file path="/Pie.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365117278414" ignored="false" />
+    <file path="/example-data.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365117996276" ignored="false" />
+    <file path="/Line.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365117611580" ignored="false" />
+    <file path="/PieLanguage.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365118026470" ignored="false" />
+    <file path="/PieUA.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365118013441" ignored="false" />
+    <file path="/app.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365443638659" ignored="false" />
+    <file path="/WebSocket.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365973617284" ignored="false" />
+    <file path="/main.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365974212009" ignored="false" />
+    <file path="/Settings.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365434707303" ignored="false" />
+    <file path="/Map.js" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365975072166" ignored="false" />
+    <file path="/dashboard.html" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365547029259" ignored="false" />
+    <file path="/bootstrap.css" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365815350677" ignored="false" />
+    <file path="/os.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365622720795" ignored="false" />
+    <file path="/browser.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365621888808" ignored="false" />
+    <file path="/language.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365622131605" ignored="false" />
+    <file path="/mobile.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365622042003" ignored="false" />
+    <file path="/hit.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365621836877" ignored="false" />
+    <file path="/coordinates.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365621964930" ignored="false" />
+    <file path="/traffic.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365811393503" ignored="false" />
+    <file path="/tail.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365591983209" ignored="false" />
+    <file path="/form.html" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365552529364" ignored="false" />
+    <file path="/deployment.py" changelist="6fb650e2-9051-4141-b05e-ef5582b63057" time="1365817459010" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +146,7 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Mobile" />
   </component>
@@ -46,18 +155,7 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../server/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="47" selection-start="6868" selection-end="6868" vertical-scroll-proportion="-10.4">
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebSocket.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/WebSocket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="453" selection-end="453" vertical-scroll-proportion="0.6910569">
+            <state line="304" column="0" selection-start="12858" selection-end="12858" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,25 +164,61 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="34" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
+            <state line="59" column="0" selection-start="2853" selection-end="2853" vertical-scroll-proportion="-4.76">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Webcams.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/Webcams.js">
+      <file leaf-file-name="Settings.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/Settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="1230" vertical-scroll-proportion="0.0">
+            <state line="126" column="38" selection-start="4552" selection-end="4552" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="websocket_unittests.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../server/tests/websocket_unittests.html">
+      <file leaf-file-name="WebSocket.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/WebSocket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="20" selection-start="2586" selection-end="2586" vertical-scroll-proportion="-3.125">
+            <state line="10" column="18" selection-start="287" selection-end="287" vertical-scroll-proportion="0.45454547">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fr.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server/fr.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nl.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server/nl.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/Map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="183" column="6" selection-start="8618" selection-end="8618" vertical-scroll-proportion="-9.28">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="415" column="11" selection-start="17860" selection-end="17860" vertical-scroll-proportion="-8.75">
               <folding />
             </state>
           </provider>
@@ -98,28 +232,32 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../server/traffic_loader.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/hit.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/browser.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/coordinates.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/mobile.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/language.py" />
+        <option value="$PROJECT_DIR$/../server/analytics/os.py" />
+        <option value="$PROJECT_DIR$/../server/websocket/traffic.py" />
+        <option value="$PROJECT_DIR$/../server/static/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/../server/templates/index.html" />
+        <option value="$PROJECT_DIR$/../server/manager/deployment.py" />
         <option value="$PROJECT_DIR$/../server/fr.json" />
-        <option value="$PROJECT_DIR$/../server/en.json" />
-        <option value="$PROJECT_DIR$/../server/de.json" />
-        <option value="$PROJECT_DIR$/../server/nl.json" />
-        <option value="$PROJECT_DIR$/../server/utils.py" />
-        <option value="$PROJECT_DIR$/../server/data/subscriber.py" />
-        <option value="$PROJECT_DIR$/../server/traffic_differ.py" />
-        <option value="$PROJECT_DIR$/../server/beroads.log" />
-        <option value="$PROJECT_DIR$/../server/websocket_unittests.html" />
-        <option value="$PROJECT_DIR$/../server/tests/websocket_unittests.html" />
-        <option value="$PROJECT_DIR$/../server/config.ini" />
-        <option value="$PROJECT_DIR$/../server/config.py" />
-        <option value="$PROJECT_DIR$/../server/main.py" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/controller/WebSocket.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/../server/main.py" />
+        <option value="$PROJECT_DIR$/../server/nl.json" />
+        <option value="$PROJECT_DIR$/app/controller/Map.js" />
       </list>
     </option>
   </component>
@@ -127,7 +265,7 @@
     <option name="x" value="1" />
     <option name="y" value="27" />
     <option name="width" value="1356" />
-    <option name="height" value="736" />
+    <option name="height" value="714" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -155,16 +293,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -189,54 +317,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Mobile" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mobile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -246,9 +338,9 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="com.jetbrains.python.templateLanguages.TemplateLanguageModulesConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/exxoss/svn_grumly/trunk/webhandlers/domainhandlers.py" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -270,7 +362,11 @@
       <recent name="$PROJECT_DIR$/sencha/2.0/resources/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../server/templates" />
+      <recent name="$PROJECT_DIR$/../server/dashboard" />
+      <recent name="$PROJECT_DIR$/../server" />
       <recent name="$PROJECT_DIR$/../server/tests" />
+      <recent name="$PROJECT_DIR$/../server/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -287,7 +383,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../server/main.py" />
       <option name="PARAMETERS" value="" />
-      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -307,7 +402,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
-      <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -327,6 +421,8 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -336,7 +432,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="Mobile" />
+      <module name="server" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
@@ -347,7 +443,7 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
@@ -357,6 +453,11 @@
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
@@ -387,23 +488,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="27" width="1356" height="736" extended-state="0" />
-    <editor active="true" />
+    <frame x="1" y="27" width="1356" height="714" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26183206" sideWeight="0.6706282" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37542087" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27522936" sideWeight="0.21109124" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19495413" sideWeight="0.67201424" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30821916" sideWeight="0.7454128" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27522936" sideWeight="0.17889088" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3309481" sideWeight="0.24923548" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32798573" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -431,7 +533,6 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
@@ -441,9 +542,11 @@
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -461,101 +564,112 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="200" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controller/landscapetablet/Map.js">
+    <entry file="file://$PROJECT_DIR$/../server/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="33" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" />
+        <state line="354" column="30" selection-start="12809" selection-end="12809" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/portraittablet/Map.js">
+    <entry file="file://$PROJECT_DIR$/app/store/online/TrafficEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" />
+        <state line="11" column="14" selection-start="436" selection-end="464" vertical-scroll-proportion="0.41561714" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../server/en.json">
+    <entry file="file://$PROJECT_DIR$/../server/static/js/bootstrap-datepicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="52607" selection-start="52607" selection-end="52607" vertical-scroll-proportion="0.0" />
+        <state line="473" column="19" selection-start="18398" selection-end="18398" vertical-scroll-proportion="0.94670844">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../server/de.json">
+    <entry file="file://$PROJECT_DIR$/../server/static/css/datepicker.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="52993" selection-start="52993" selection-end="52993" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../server/nl.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="52340" selection-start="52340" selection-end="52340" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../server/beroads.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="751" column="0" selection-start="49738" selection-end="49738" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib64/python2.7/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="0" selection-start="7712" selection-end="7712" vertical-scroll-proportion="0.33333334" />
+        <state line="181" column="1" selection-start="5153" selection-end="5153" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1054" column="0" selection-start="44922" selection-end="44922" vertical-scroll-proportion="0.3313253" />
+        <state line="1115" column="0" selection-start="46680" selection-end="46680" vertical-scroll-proportion="0.33157894" />
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/site-packages/tornado-3.0-py2.7.egg/tornado/ioloop.py">
+    <entry file="file://$PROJECT_DIR$/../server/static/js/bootstrap-dropdown.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="638" column="0" selection-start="23783" selection-end="23783" vertical-scroll-proportion="0.026642984">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/site-packages/ua_parser/user_agent_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="397" column="0" selection-start="13477" selection-end="13477" vertical-scroll-proportion="0.33142856" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3866" column="20" selection-start="87020" selection-end="87020" vertical-scroll-proportion="0.6574074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="415" column="11" selection-start="17860" selection-end="17860" vertical-scroll-proportion="-8.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../server/fr.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="410" selection-start="404" selection-end="410" vertical-scroll-proportion="0.0">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/Webcams.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1230" vertical-scroll-proportion="0.0">
+        <state line="59" column="0" selection-start="2853" selection-end="2853" vertical-scroll-proportion="-4.76">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../server/tests/websocket_unittests.html">
+    <entry file="file://$PROJECT_DIR$/app/controller/Settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="20" selection-start="2586" selection-end="2586" vertical-scroll-proportion="-3.125">
+        <state line="126" column="38" selection-start="4552" selection-end="4552" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../server/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="47" selection-start="6868" selection-end="6868" vertical-scroll-proportion="-10.4">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state line="304" column="0" selection-start="12858" selection-end="12858" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/../server/nl.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="6" selection-start="8618" selection-end="8618" vertical-scroll-proportion="-9.28">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/WebSocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="453" selection-end="453" vertical-scroll-proportion="0.6910569">
+        <state line="10" column="18" selection-start="287" selection-end="287" vertical-scroll-proportion="0.45454547">
           <folding />
         </state>
       </provider>

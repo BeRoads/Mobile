@@ -178,6 +178,78 @@ Ext.define('BeRoads.controller.Map', {
         
     },
 
+    showCenteredOverlay : function (marker) {
+        this.getInfoPanel().setHtml(marker.html);
+        this.getInfoPanel().show();
+    },
+
+    /**
+     * Add a radar marker to the map
+     * @input radar : a radar object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addRadar : function (radar, position) {
+        var me = this;
+        var size = this.markers.radars.push(new google.maps.Marker({
+            id : radar.id,
+            map:me.map,
+            position:position,
+            title:radar.name,
+            html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
+            icon:'resources/img/radar.png'
+        }));
+        google.maps.event.addListener(me.markers.radars[size-1], 'click', function () {
+            me.showCenteredOverlay(me.markers.radars[size-1]);
+        })
+    },
+
+    /**
+     * Add a webcam marker to the map
+     * @input webcam : a webcam object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addWebcam : function (webcam, position) {
+        var me = this;
+        var size =this.markers.webcams.push(new google.maps.Marker({
+            id : webcam.id,
+            map:me.map,
+            position:position,
+            title:webcam.name,
+            html : '<span class=\"popupTitle\">'+webcam.city+"</span><img src='http://src.sencha.io/detect/"+webcam.img+"' />",
+            icon:'resources/img/webcam.png'
+        }));
+        google.maps.event.addListener(me.markers.webcams[size-1], 'click', function () {
+            me.showCenteredOverlay(me.markers.webcams[size-1]);
+        });
+    },
+
+    /**
+     * Add a traffic event marker to the map
+     * @input trafficevent : a trafficevent object
+     * @input position : a position object (latitude, longitude)
+     * @return
+     */
+    addTrafficEvent : function (trafficevent, position) {
+        var me = this;
+        if (trafficevent.category != undefined && trafficevent.category != null) {
+            trafficevent.category = trafficevent.category.toLowerCase().replace(" ", "");
+            var size = this.markers.trafficevents.push(new google.maps.Marker({
+                id : trafficevent.id,
+                map:me.map,
+                position:position,
+                title:trafficevent.location,
+                html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
+                    trafficevent.message+'</span>',
+                icon:'resources/img/' + trafficevent.category + '.png'
+            }));
+            google.maps.event.addListener(me.markers.trafficevents[size-1], 'click', function () {
+                me.showCenteredOverlay(me.markers.trafficevents[size-1]);
+            });
+        }
+    },
+
     renderTrafficMap : function(comp, map, eOpts) {
 
         var me = this;
@@ -187,78 +259,7 @@ Ext.define('BeRoads.controller.Map', {
 		 * @input marker : the clicked marker
 		 * @return
 		 */
-        var showCenteredOverlay = function (marker) {
-            me.getInfoPanel().setHtml(marker.html);
-            me.getInfoPanel().show();
-        };
 
-		/**
-		 * Add a webcam marker to the map
-		 * @input webcam : a webcam object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addWebcam = function (webcam, position) {
-            var size =me.markers.webcams.push(new google.maps.Marker({
-                id : webcam.id,
-                map:me.map,
-                position:position,
-                title:webcam.name,
-                html : '<span class=\"popupTitle\">'+webcam.city+"</span><img src='http://src.sencha.io/detect/"+webcam.img+"' />",
-                icon:'resources/img/webcam.png'
-            }));
-            google.maps.event.addListener(me.markers.webcams[size-1], 'click', function () {
-                me.map.setCenter(this.position);
-                showCenteredOverlay(me.markers.webcams[size-1]);
-            });
-        };
-
-		
-		/**
-		 * Add a radar marker to the map
-		 * @input radar : a radar object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addRadar = function (radar, position) {
-            var size = me.markers.radars.push(new google.maps.Marker({
-                id : radar.id,
-                map:me.map,
-                position:position,
-                title:radar.name,
-                html : "<span class=\"popupTitle\">Radar</span><span class=\"popupDescription\">Speed Limit : "+radar.speedLimit+"</span>",
-                icon:'resources/img/radar.png'
-            }));
-            google.maps.event.addListener(me.markers.radars[size-1], 'click', function () {
-                me.map.setCenter(this.position);
-            })
-        };
-
-		/**
-		 * Add a traffic event marker to the map
-		 * @input trafficevent : a trafficevent object
-		 * @input position : a position object (latitude, longitude)
-		 * @return 
-		 */
-        var addTrafficEvent = function (trafficevent, position) {
-			
-            if (trafficevent.category != undefined && trafficevent.category != null) {
-				trafficevent.category = trafficevent.category.toLowerCase().replace(" ", "");
-                var size = me.markers.trafficevents.push(new google.maps.Marker({
-                    id : trafficevent.id,
-                    map:me.map,
-                    position:position,
-                    title:trafficevent.location,
-                    html : '<span class=\"popupTitle\">'+trafficevent.location+'</span><span class=\"popupDescription\">'+
-                        trafficevent.message+'</span>',
-                    icon:'resources/img/' + trafficevent.category + '.png'
-                }));
-                google.maps.event.addListener(me.markers.trafficevents[size-1], 'click', function () {
-                    me.map.setCenter(this.position);
-                    showCenteredOverlay(me.markers.trafficevents[size-1]);
-                });
-            }
-        };
 
 		//create a GMap position with the geo updated values
         var userPosition = new google.maps.LatLng(BeRoads.app.user_coords.coords.latitude,
@@ -278,7 +279,7 @@ Ext.define('BeRoads.controller.Map', {
             trafficStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addTrafficEvent(item.data, position);
+                    me.addTrafficEvent(item.data, position);
                 }
             });
         }
@@ -289,7 +290,7 @@ Ext.define('BeRoads.controller.Map', {
             radarStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addRadar(item.data, position);
+                    me.addRadar(item.data, position);
                 }
             });
         }
@@ -300,7 +301,7 @@ Ext.define('BeRoads.controller.Map', {
             webcamStore.each(function(item){
                 if (item.data.lng != 0 && item.data.lat != 0 ) {
                     var position = new google.maps.LatLng(item.data.lat, item.data.lng);
-                    addWebcam(item.data, position);
+                    me.addWebcam(item.data, position);
                 }
             });
         }

@@ -124,6 +124,7 @@ Ext.define('BeRoads.controller.Settings', {
         localStorage.setItem('area', newValue);
         var profile = this.getProfile();
         BeRoads.app.getController('BeRoads.controller.'+profile+'.Map').updateMapArea("area");
+        BeRoads.app.getController('BeRoads.controller.WebSocket').update();
     },
 
     onLangChange : function(cmp, newValue, oldValue, eOpts) {
@@ -136,6 +137,7 @@ Ext.define('BeRoads.controller.Settings', {
         this.getApplication().getController('BeRoads.controller.'+profile+'.Settings').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.TrafficEvents').updateLanguage();
         this.getApplication().getController('BeRoads.controller.'+profile+'.Webcams').updateLanguage();
+        BeRoads.app.getController('BeRoads.controller.WebSocket').update();
     },
 
     onPreferenceButtonTap : function(){
